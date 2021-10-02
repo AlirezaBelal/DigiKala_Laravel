@@ -39,34 +39,34 @@
                         </thead>
                         <tbody>
                         @foreach($categories as $category)
-                        <tr role="row">
-                            <td><a href="">{{$category->id}}</a></td>
-                            <td><a href="">{{$category->title}}</a></td>
-                            <td><a href="">{{$category->name}}</a></td>
-                            <td>
+                            <tr role="row">
+                                <td><a href="">{{$category->id}}</a></td>
+                                <td><a href="">{{$category->title}}</a></td>
+                                <td><a href="">{{$category->name}}</a></td>
+                                <td>
                                     @if($category->status == 1)
                                         <button
-                                            wire:click = "updateCategoryDisable({{$category->id}})"
+                                            wire:click="updateCategoryDisable({{$category->id}})"
                                             type="submit" class="badge-success badge" style="background-color: green">
                                             فعال
                                         </button>
 
                                     @else
                                         <button
-                                            wire:click = "updateCategoryEnable({{$category->id}})"
+                                            wire:click="updateCategoryEnable({{$category->id}})"
                                             type="submit" class="badge-danger badge" style="background-color: red">
                                             غیرفعال
                                         </button>
                                     @endif
-                            </td>
+                                </td>
 
-                            <td>
-                                <a
-                                    wire:click = "deleteCategory({{$category->id}})"
-                                    type="submit" class="item-delete mlg-15" title="حذف"></a>
-                                <a href="" class="item-edit " title="ویرایش"></a>
-                            </td>
-                        </tr>
+                                <td>
+                                    <a
+                                        wire:click="deleteCategory({{$category->id}})"
+                                        type="submit" class="item-delete mlg-15" title="حذف"></a>
+                                    <a href="" class="item-edit " title="ویرایش"></a>
+                                </td>
+                            </tr>
                         @endforeach
                         </tbody>
                     </table>
@@ -74,25 +74,32 @@
             </div>
             <div class="col-4 bg-white">
                 <p class="box__title">ایجاد دسته بندی جدید</p>
-                <form action="" method="post" class="padding-30">
-                    <input type="text" placeholder="نام دسته بندی" class="text">
-                    <input type="text" placeholder="نام انگلیسی دسته بندی" class="text">
-                    <p class="box__title margin-bottom-15">انتخاب دسته پدر</p>
-                    <select name="" id="">
-                        <option value="0">ندارد</option>
-                        <option value="0">برنامه نویسی</option>
-                    </select>
-                    <div class="dropdown-select wide " tabindex="0"><span class="current">ندارد</span>
-                        <div class="list">
-                            <div class="dd-search"><input id="txtSearchValue" autocomplete="off" onkeyup="filter()"
-                                                          class="dd-searchbox" type="text"></div>
-                            <ul>
-                                <li class="option selected" data-value="0" data-display-text="">ندارد</li>
-                                <li class="option " data-value="0" data-display-text="">برنامه نویسی</li>
-                            </ul>
-                        </div>
+                <form wir:submit="categoryForm" class="padding-15">
+                    <div class="form-group">
+                        <input type="text" wire:model.lazy="title" placeholder="نام دسته" class="form-control">
                     </div>
-                    <button class="btn btn-brand">اضافه کردن</button>
+
+                    <div class="form-group">
+                        <input type="text" wire:model.lazy="name" placeholder="نام انگلیسی دسته" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" wire:model.lazy="link" placeholder="لینک دسته" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="notificationGroup">
+                            <input id="option4" type="checkbox" wire:model.lazy="status" name="status" class="form-control">
+                            <label for="option4">نمایش در دسته اصلی:</label>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <input type="file" class="form-control">
+                    </div>
+                    <br>
+                    <button class="btn btn-brand">افزودن دسته</button>
                 </form>
             </div>
         </div>

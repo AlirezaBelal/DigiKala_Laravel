@@ -7,6 +7,12 @@ use Livewire\Component;
 
 class Index extends Component
 {
+    public Category $category;
+
+    public $title;
+    public $name;
+    public $link;
+
     public function render()
     {
         $categories = Category::all();
@@ -49,5 +55,15 @@ class Index extends Component
 
         $this->emit('toast','success','دسته با موفقیت حذف شد');
 
+    }
+
+    public function mount(){
+
+        $this->category = new Category();
+    }
+
+    public function categoryForm()
+    {
+        dd($this->link);
     }
 }
