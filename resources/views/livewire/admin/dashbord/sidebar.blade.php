@@ -2,18 +2,28 @@
     <span class="bars d-none padding-0-18"></span>
     <a class="header__logo  d-none" href=""></a>
     <div class="profile__info border cursor-pointer text-center">
-        <div class="avatar__img"><img src="img/pro.jpg" class="avatar___img">
+        <div class="avatar__img">
+            @if(auth()->user()->img)
+                <img src="{{asset('auth()->user()->img')}}" class="avatar___img">
+            @else
+                <img src="{{asset('img/pro.jpg')}}" class="avatar___img">
+            @endif
             <input type="file" accept="image/*" class="hidden avatar-img__input">
             <div class="v-dialog__container" style="display: block;"></div>
             <div class="box__camera default__avatar"></div>
         </div>
-        <span class="profile__name">کاربر : محمد نیکو</span>    </div>
+
+        <span class="profile__name">
+            کاربر:
+            {{auth()->user()->name}}
+        </span></div>
 
     <ul>
-        <li class="item-li i-dashboard is-active"><a href="index.html">پیشخوان</a></li>
-        <li class="item-li i-courses "><a href="courses.html">دوره ها</a></li>
-        <li class="item-li i-users"><a href="users.html"> کاربران</a></li>
-        <li class="item-li i-categories"><a href="categories.html">دسته بندی ها</a></li>
+        <li class="item-li i-dashboard is-active"><a href="/">پیشخوان</a></li>
+        <li class="item-li i-categories"><a href="/category">دسته بندی ها</a></li>
+        <li class="item-li i-courses "><a href="/product">محصولات</a></li>
+        <li class="item-li i-users"><a href="/user"> کاربران</a></li>
+
         <li class="item-li i-slideshow"><a href="slideshow.html">اسلایدشو</a></li>
         <li class="item-li i-banners"><a href="banners.html">بنر ها</a></li>
         <li class="item-li i-articles"><a href="articles.html">مقالات</a></li>
