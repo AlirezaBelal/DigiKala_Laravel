@@ -23,6 +23,8 @@ class Index extends Component
         $category->update([
             "status" => 0
         ]);
+
+        $this->emit('toast','success','وضعیت دسته با موفقیت غیر فعال شد.');
     }
 
     public function updateCategoryEnable($id)
@@ -34,6 +36,8 @@ class Index extends Component
         $category->update([
             "status" => 1
         ]);
+
+        $this->emit('toast','success','وضعیت دسته با موفقیت فعال شد.');
     }
 
     public function deleteCategory($id)
@@ -42,6 +46,8 @@ class Index extends Component
 
         $category = Category::find($id);
         $category->delete();
+
+        $this->emit('toast','success','دسته با موفقیت حذف شد');
 
     }
 }
