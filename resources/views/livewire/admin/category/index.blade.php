@@ -44,17 +44,26 @@
                             <td><a href="">{{$category->title}}</a></td>
                             <td><a href="">{{$category->name}}</a></td>
                             <td>
-                                <a href="">
                                     @if($category->status == 1)
-                                        <button class="badge-success badge" style="background-color: green">فعال</button>
+                                        <button
+                                            wire:click = "updateCategoryDisable({{$category->id}})"
+                                            type="submit" class="badge-success badge" style="background-color: green">
+                                            فعال
+                                        </button>
+
                                     @else
-                                        <button class="badge-danger badge" style="background-color: red">غیرفعال</button>
+                                        <button
+                                            wire:click = "updateCategoryEnable({{$category->id}})"
+                                            type="submit" class="badge-danger badge" style="background-color: red">
+                                            غیرفعال
+                                        </button>
                                     @endif
-                                </a>
                             </td>
 
                             <td>
-                                <a href="" class="item-delete mlg-15" title="حذف"></a>
+                                <a
+                                    wire:click = "deleteCategory({{$category->id}})"
+                                    type="submit" class="item-delete mlg-15" title="حذف"></a>
                                 <a href="" class="item-edit " title="ویرایش"></a>
                             </td>
                         </tr>

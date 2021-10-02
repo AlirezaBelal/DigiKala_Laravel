@@ -13,4 +13,35 @@ class Index extends Component
 
         return view('livewire.admin.category.index' , compact('categories'));
     }
+
+    public function updateCategoryDisable($id)
+    {
+//        dd($id);
+
+        $category = Category::find($id);
+
+        $category->update([
+            "status" => 0
+        ]);
+    }
+
+    public function updateCategoryEnable($id)
+    {
+//        dd($id);
+
+        $category = Category::find($id);
+
+        $category->update([
+            "status" => 1
+        ]);
+    }
+
+    public function deleteCategory($id)
+    {
+//        dd($id);
+
+        $category = Category::find($id);
+        $category->delete();
+
+    }
 }
