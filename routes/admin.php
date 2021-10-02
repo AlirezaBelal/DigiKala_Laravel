@@ -13,10 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return "admin page";
-});
-
-Route::get('/user', function () {
-    return "admin page user";
-});
+Route::get('/',\App\Http\Livewire\Admin\Dashbord\Index::class);
