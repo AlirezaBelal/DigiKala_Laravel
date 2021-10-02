@@ -16,7 +16,12 @@ const Toast = Swal.mixin({
     }
   })
 
-  Toast.fire({
-    icon: 'success',
-    title: 'Signed in successfully'
-  })
+document.addEventListener('livewire:load' , () =>{
+    livewire.on('toast' ,(type , message) => {
+        Toast.fire({
+            icon: type,
+            title: message
+        })
+    })
+})
+
