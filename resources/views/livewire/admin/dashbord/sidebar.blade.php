@@ -19,10 +19,10 @@
         </span></div>
 
     <ul>
-        <li class="item-li i-dashboard is-active"><a href="/">پیشخوان</a></li>
-        <li class="item-li i-categories"><a href="/category">دسته بندی ها</a></li>
-        <li class="item-li i-courses "><a href="/product">محصولات</a></li>
-        <li class="item-li i-users"><a href="/user"> کاربران</a></li>
+        <li class="item-li i-dashboard {{Request::routeIs('admin.index') ? 'is-active' : ''}}"><a href="/admin">پیشخوان</a></li>
+        <li class="item-li i-categories {{Request::routeIs('category.index') ? 'is-active' : ''}}"><a href="/admin/category">دسته بندی ها</a></li>
+        <li class="item-li i-courses "><a href="/admin/product">محصولات</a></li>
+        <li class="item-li i-users"><a href="/admin/user"> کاربران</a></li>
 
         <li class="item-li i-slideshow"><a href="slideshow.html">اسلایدشو</a></li>
         <li class="item-li i-banners"><a href="banners.html">بنر ها</a></li>
