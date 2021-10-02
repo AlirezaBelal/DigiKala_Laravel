@@ -7,6 +7,7 @@
 <livewire:admin.dashbord.sidebar/>
 <div class="content">
     <livewire:admin.dashbord.header/>
+@include('livewire.admin.dashbord.breadcrumb')
 {{$slot}}
 </div>
 </body>
