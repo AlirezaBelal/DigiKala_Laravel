@@ -2,7 +2,7 @@ require('./bootstrap');
 
 
 
-let Swa = require('sweetalert2');
+let Swal = require('sweetalert2');
 
 const Toast = Swal.mixin({
     toast: true,
