@@ -13,4 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',\App\Http\Livewire\Admin\Dashbord\Index::class);
+Route::get('/',\App\Http\Livewire\Admin\Dashbord\Index::class)
+    ->name('admin.index');
+
+Route::get('/category' , \App\Http\Livewire\Admin\Category\Index::class)
+    ->name('category.index');
