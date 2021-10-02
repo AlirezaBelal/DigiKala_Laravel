@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
+
+    protected $namespaceAdmin = '';
     /**
      * The path to the "home" route for your application.
      *
@@ -45,7 +47,12 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->namespace($this->namespace)
-                ->group(base_path('routes/web.php'));
+                ->group(base_path('routes/home.php'));
+
+            Route::middleware(['web','auth'])
+                ->prefix('admin')
+                ->namespace($this->namespaceAdmin)
+                ->group(base_path('routes/admin.php'));
         });
     }
 
