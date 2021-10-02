@@ -1,9 +1,6 @@
+@section('title' , 'پنل مدیریت')
+
 <div>
-    <div class="breadcrumb">
-        <ul>
-            <li><a href="index.html" title="پیشخوان">پیشخوان</a></li>
-        </ul>
-    </div>
     <div class="main-content">
         <div class="row no-gutters font-size-13 margin-bottom-10">
             <div class="col-3 padding-20 border-radius-3 bg-white margin-left-10 margin-bottom-10">
