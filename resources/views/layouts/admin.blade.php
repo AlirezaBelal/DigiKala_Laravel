@@ -12,4 +12,6 @@
 </div>
 </body>
 <livewire:admin.dashbord.footer/>
+
+<script src="{{asset('/js/livewire-turbolinks.js')}}" data-turbolinks-eval="false" data-turbo-eval="false"></script>
 </html>
