@@ -72,7 +72,7 @@
                                     <a
                                         wire:click="deleteCategory({{$category->id}})"
                                         type="submit" class="item-delete mlg-15" title="حذف"></a>
-                                    <a href="" class="item-edit " title="ویرایش"></a>
+                                    <a href="{{route('category.update' , $category)}}" class="item-edit " title="ویرایش"></a>
                                 </td>
                             </tr>
                         @endforeach
