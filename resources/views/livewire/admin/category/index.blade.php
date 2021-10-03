@@ -17,7 +17,8 @@
 
                 <a class="t-header-search">
                     <form action="" onclick="event.preventDefault();">
-                        <input type="text" class="text" placeholder="جستجوی دسته ... ">
+                        <input wire:model.debounce.1000="search"
+                            type="text" class="text" placeholder="جستجوی دسته ... ">
                     </form>
                 </a>
             </div>
@@ -43,7 +44,7 @@
                             <tr role="row">
                                 <td><a href="">{{$category->id}}</a></td>
                                 <td>
-                                    <img src="/storage/{{$category->img}}" alt="img" width="50px">
+                                    <img src="/storage/{{$category->img}}" width="50px">
                                 </td>
                                 <td><a href="">{{$category->title}}</a></td>
                                 <td><a href="">{{$category->name}}</a></td>
@@ -75,6 +76,7 @@
                         </tbody>
                     </table>
                 </div>
+                {{$categories->render()}}
             </div>
             <div class="col-4 bg-white">
                 <p class="box__title">ایجاد دسته بندی جدید</p>

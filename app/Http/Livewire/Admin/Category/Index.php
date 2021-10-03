@@ -3,17 +3,24 @@
 namespace App\Http\Livewire\Admin\Category;
 
 use App\Models\Category;
+use http\QueryString;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Livewire\WithPagination;
 use function Symfony\Component\Translation\t;
 
 class Index extends Component
 {
     use WithFileUploads;
+    use WithPagination;
 
     public $img;
+    public $search;
 
     public Category $category;
+
+    protected $queryString = ['search'];
+    protected $paginationTheme = 'bootstrap';
 
     public function mount(){
 
@@ -51,12 +58,6 @@ class Index extends Component
         $this->emit('toast','success',' دسته با موفقیت ایجاد شد.');
     }
 
-    public function render()
-    {
-        $categories = Category::all();
-
-        return view('livewire.admin.category.index' , compact('categories'));
-    }
 
     public function uploadImage()
     {
@@ -109,5 +110,14 @@ class Index extends Component
 
     }
 
+    public function render()
+    {
+//        dd($this->search);
+        $categories = Category::where('title' , 'LIKE' , "%{$this->search}%")
+            ->orWhere('id' , "{$this->search}")
+            ->orWhere('name' , 'LIKE' , "%{$this->search}%")
+            ->latest()->paginate(10);
 
+        return view('livewire.admin.category.index' , compact('categories'));
+    }
 }
