@@ -16,6 +16,8 @@ class Index extends Component
 
     public $img;
     public $search;
+    public $readToLoad = false;
+
 
     public Category $category;
 
@@ -25,6 +27,11 @@ class Index extends Component
     public function mount(){
 
         $this->category = new Category();
+    }
+
+    public function loadCategory()
+    {
+        $this->readToLoad = true;
     }
 
     protected $rules = [
@@ -113,10 +120,10 @@ class Index extends Component
     public function render()
     {
 //        dd($this->search);
-        $categories = Category::where('title' , 'LIKE' , "%{$this->search}%")
+        $categories = $this->readToLoad ? Category::where('title' , 'LIKE' , "%{$this->search}%")
             ->orWhere('id' , "{$this->search}")
             ->orWhere('name' , 'LIKE' , "%{$this->search}%")
-            ->latest()->paginate(10);
+            ->latest()->paginate(10) : [];
 
         return view('livewire.admin.category.index' , compact('categories'));
     }

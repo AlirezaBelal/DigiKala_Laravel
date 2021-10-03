@@ -1,7 +1,7 @@
 @section('title' , 'دسته ها')
 
 <div>
-    <div class="main-content">
+    <div class="main-content" wire:init="loadCategory">
         <div class="tab__box">
             <div class="tab__items">
                 <a class="tab__item {{Request::routeIs('category.index') ? 'is-active' : ''}}" href="/admin/category">دسته
@@ -26,6 +26,7 @@
 
         <div class="row">
             <div class="col-8 margin-left-10 margin-bottom-15 border-radius-3">
+
                 <div class="table__box">
                     <table class="table">
 
@@ -39,7 +40,9 @@
                             <th>عملیات</th>
                         </tr>
                         </thead>
-                        <tbody>
+
+                        @if($readToLoad)
+                            <tbody>
                         @foreach($categories as $category)
                             <tr role="row">
                                 <td><a href="">{{$category->id}}</a></td>
@@ -73,10 +76,22 @@
                                 </td>
                             </tr>
                         @endforeach
-                        </tbody>
+                            </tbody>
+
+                            {{$categories->render()}}
+                        @else
+                            <div class="alert-warning alert">
+                                در حال خواندن اطلاعات از دیتابیس ...
+                            </div>
+                        @endif
+
+
                     </table>
                 </div>
-                {{$categories->render()}}
+
+
+
+
             </div>
             <div class="col-4 bg-white">
                 <p class="box__title">ایجاد دسته بندی جدید</p>
@@ -131,27 +146,27 @@
     </div>
 
     <script>
-        document.addEventListener('livewire:load',()=>{
+        document.addEventListener('livewire:load', () => {
             let progressSection = document.querySelector('#progressbar'),
                 progressBar = progressSection.querySelector('.progress-bar');
 
 
-            document.addEventListener('livewire-upload-start' , ()=>{
-                    console.log('شروع آپلود')
-                progressSection.style.display='flex';
+            document.addEventListener('livewire-upload-start', () => {
+                console.log('شروع آپلود')
+                progressSection.style.display = 'flex';
             });
 
-            document.addEventListener('livewire-upload-finish' , ()=>{
+            document.addEventListener('livewire-upload-finish', () => {
                 console.log('اتمام آپلود')
-                progressSection.style.display='none';
+                progressSection.style.display = 'none';
             });
 
-            document.addEventListener('livewire-upload-error' , ()=>{
+            document.addEventListener('livewire-upload-error', () => {
                 console.log('خطای آپلود')
-                progressSection.style.display='none';
+                progressSection.style.display = 'none';
             });
 
-            document.addEventListener('livewire-upload-progress' , (event)=>{
+            document.addEventListener('livewire-upload-progress', (event) => {
                 console.log(`${event.detail.progress}%`)
                 progressBar.style.width = `${event.detail.progress}%`;
                 progressBar.textContent = `${event.detail.progress}%`;
