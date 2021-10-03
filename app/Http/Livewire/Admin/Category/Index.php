@@ -68,7 +68,7 @@ class Index extends Component
             ]);
         }
 
-        $this->reset();
+//        $this->reset();
         $this->emit('toast', 'success', ' دسته با موفقیت ایجاد شد.');
     }
 
