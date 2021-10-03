@@ -14,6 +14,7 @@ class Index extends Component
     use WithFileUploads;
     use WithPagination;
 
+
     public $img;
     public $search;
     public $readToLoad = false;
@@ -21,18 +22,22 @@ class Index extends Component
 
     public Category $category;
 
+
     protected $queryString = ['search'];
     protected $paginationTheme = 'bootstrap';
 
-    public function mount(){
 
+    public function mount()
+    {
         $this->category = new Category();
     }
+
 
     public function loadCategory()
     {
         $this->readToLoad = true;
     }
+
 
     protected $rules = [
         'category.title' => 'required|min:3',
@@ -40,6 +45,7 @@ class Index extends Component
         'category.link' => 'required',
         'category.status' => 'nullable',
     ];
+
 
     /**
      * @throws \Illuminate\Validation\ValidationException
@@ -49,20 +55,21 @@ class Index extends Component
         $this->validateOnly($title);
     }
 
+
     public function categoryForm()
     {
-
         $this->validate();
-//        dd($this->img);
         $this->category->img = $this->uploadImage();
         $this->category->save();
 
-        if(! $this->category->status){
+        if (!$this->category->status) {
             $this->category->update([
                 'status' => 0
             ]);
         }
-        $this->emit('toast','success',' دسته با موفقیت ایجاد شد.');
+
+        $this->reset();
+        $this->emit('toast', 'success', ' دسته با موفقیت ایجاد شد.');
     }
 
 
@@ -75,56 +82,52 @@ class Index extends Component
 
         $name = $this->img->getClientOriginalName();
 
-        $this->img->storeAs($directory,$name);
+        $this->img->storeAs($directory, $name);
 
         return "$directory/$name";
     }
 
+
     public function updateCategoryDisable($id)
     {
-//        dd($id);
-
         $category = Category::find($id);
 
         $category->update([
             "status" => 0
         ]);
 
-        $this->emit('toast','success','وضعیت دسته با موفقیت غیر فعال شد.');
+        $this->emit('toast', 'success', 'وضعیت دسته با موفقیت غیر فعال شد.');
     }
+
 
     public function updateCategoryEnable($id)
     {
-//        dd($id);
-
         $category = Category::find($id);
 
         $category->update([
             "status" => 1
         ]);
 
-        $this->emit('toast','success','وضعیت دسته با موفقیت فعال شد.');
+        $this->emit('toast', 'success', 'وضعیت دسته با موفقیت فعال شد.');
     }
+
 
     public function deleteCategory($id)
     {
-//        dd($id);
-
         $category = Category::find($id);
         $category->delete();
 
-        $this->emit('toast','success','دسته با موفقیت حذف شد');
-
+        $this->emit('toast', 'success', 'دسته با موفقیت حذف شد');
     }
+
 
     public function render()
     {
-//        dd($this->search);
-        $categories = $this->readToLoad ? Category::where('title' , 'LIKE' , "%{$this->search}%")
-            ->orWhere('id' , "{$this->search}")
-            ->orWhere('name' , 'LIKE' , "%{$this->search}%")
+        $categories = $this->readToLoad ? Category::where('title', 'LIKE', "%{$this->search}%")
+            ->orWhere('id', "{$this->search}")
+            ->orWhere('name', 'LIKE', "%{$this->search}%")
             ->latest()->paginate(10) : [];
 
-        return view('livewire.admin.category.index' , compact('categories'));
+        return view('livewire.admin.category.index', compact('categories'));
     }
 }
