@@ -18,7 +18,7 @@
                 <a class="t-header-search">
                     <form action="" onclick="event.preventDefault();">
                         <input wire:model.debounce.1000="search"
-                            type="text" class="text" placeholder="جستجوی دسته ... ">
+                               type="text" class="text" placeholder="جستجوی دسته ... ">
                     </form>
                 </a>
             </div>
@@ -110,6 +110,12 @@
 
                     <div class="form-group">
                         <input type="file" wire:model.lazy="img" class="form-control">
+                        <span class="m-2 text-danger" wire:loading wire:target="img">
+                            در حال آپلود ...
+                        </span>
+                        <div wire:ignore class="progress mt-3" id="progressbar" style="display: none">
+                            <div class="progress-bar" role="progressbar" style="width: 0%;">0%</div>
+                        </div>
                     </div>
 
                     <div>
@@ -123,5 +129,35 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('livewire:load',()=>{
+            let progressSection = document.querySelector('#progressbar'),
+                progressBar = progressSection.querySelector('.progress-bar');
+
+
+            document.addEventListener('livewire-upload-start' , ()=>{
+                    console.log('شروع آپلود')
+                progressSection.style.display='flex';
+            });
+
+            document.addEventListener('livewire-upload-finish' , ()=>{
+                console.log('اتمام آپلود')
+                progressSection.style.display='none';
+            });
+
+            document.addEventListener('livewire-upload-error' , ()=>{
+                console.log('خطای آپلود')
+                progressSection.style.display='none';
+            });
+
+            document.addEventListener('livewire-upload-progress' , (event)=>{
+                console.log(`${event.detail.progress}%`)
+                progressBar.style.width = `${event.detail.progress}%`;
+                progressBar.textContent = `${event.detail.progress}%`;
+            });
+
+        })
+    </script>
 </div>
 
