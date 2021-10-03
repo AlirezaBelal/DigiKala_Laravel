@@ -9,9 +9,39 @@ class Index extends Component
 {
     public Category $category;
 
-    public $title;
-    public $name;
-    public $link;
+    public function mount(){
+
+        $this->category = new Category();
+    }
+
+    protected $rules = [
+        'category.title' => 'required|min:3',
+        'category.name' => 'required',
+        'category.link' => 'required',
+        'category.status' => 'nullable',
+    ];
+
+    /**
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function updated($title)
+    {
+        $this->validateOnly($title);
+    }
+
+    public function categoryForm()
+    {
+//        dd($this->status);
+        $this->validate();
+        $this->category->save();
+
+        if(! $this->category->status){
+            $this->category->update([
+                'status' => 0
+            ]);
+        }
+        $this->emit('toast','success',' دسته با موفقیت ایجاد شد.');
+    }
 
     public function render()
     {
@@ -57,13 +87,5 @@ class Index extends Component
 
     }
 
-    public function mount(){
 
-        $this->category = new Category();
-    }
-
-    public function categoryForm()
-    {
-        dd($this->link);
-    }
 }

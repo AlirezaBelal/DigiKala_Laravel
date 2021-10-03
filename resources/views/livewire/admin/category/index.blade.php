@@ -74,29 +74,34 @@
             </div>
             <div class="col-4 bg-white">
                 <p class="box__title">ایجاد دسته بندی جدید</p>
-                <form wir:submit="categoryForm" class="padding-15">
+
+                <form wire:submit.prevent="categoryForm" class="padding-15"
+                      enctype="multipart/form-data" role="form">
+
+
+                    @include('errors.error')
                     <div class="form-group">
-                        <input type="text" wire:model.lazy="title" placeholder="نام دسته" class="form-control">
+                        <input type="text" wire:model.lazy="category.title" placeholder="نام دسته" class="form-control" >
                     </div>
 
                     <div class="form-group">
-                        <input type="text" wire:model.lazy="name" placeholder="نام انگلیسی دسته" class="form-control">
+                        <input type="text" wire:model.lazy="category.name" placeholder="نام انگلیسی دسته" class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" wire:model.lazy="link" placeholder="لینک دسته" class="form-control">
+                        <input type="text" wire:model.lazy="category.link" placeholder="لینک دسته" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <div class="notificationGroup">
-                            <input id="option4" type="checkbox" wire:model.lazy="status" name="status" class="form-control">
+                            <input id="option4" type="checkbox" wire:model.lazy="category.status" name="status" class="form-control">
                             <label for="option4">نمایش در دسته اصلی:</label>
                         </div>
 
                     </div>
 
                     <div class="form-group">
-                        <input type="file" class="form-control">
+                        <input type="file" wire:model.lazy="img" class="form-control">
                     </div>
                     <br>
                     <button class="btn btn-brand">افزودن دسته</button>
