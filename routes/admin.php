@@ -18,3 +18,7 @@ Route::get('/',\App\Http\Livewire\Admin\Dashbord\Index::class)
 
 Route::get('/category' , \App\Http\Livewire\Admin\Category\Index::class)
     ->name('category.index');
+
+
+Route::get('/category/update/{category}' , \App\Http\Livewire\Admin\Category\Update::class)
+    ->name('category.update');
