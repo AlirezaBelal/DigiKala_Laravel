@@ -31,6 +31,7 @@
                         <thead role="rowgroup">
                         <tr role="row" class="title-row">
                             <th>شناسه آیدی</th>
+                            <th>تصویر دسته</th>
                             <th>نام دسته</th>
                             <th>عنوان دسته</th>
                             <th>وضعیت دسته</th>
@@ -41,6 +42,9 @@
                         @foreach($categories as $category)
                             <tr role="row">
                                 <td><a href="">{{$category->id}}</a></td>
+                                <td>
+                                    <img src="/storage/{{$category->img}}" alt="img" width="50px">
+                                </td>
                                 <td><a href="">{{$category->title}}</a></td>
                                 <td><a href="">{{$category->name}}</a></td>
                                 <td>
@@ -81,11 +85,12 @@
 
                     @include('errors.error')
                     <div class="form-group">
-                        <input type="text" wire:model.lazy="category.title" placeholder="نام دسته" class="form-control" >
+                        <input type="text" wire:model.lazy="category.title" placeholder="نام دسته" class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" wire:model.lazy="category.name" placeholder="نام انگلیسی دسته" class="form-control">
+                        <input type="text" wire:model.lazy="category.name" placeholder="نام انگلیسی دسته"
+                               class="form-control">
                     </div>
 
                     <div class="form-group">
@@ -94,7 +99,8 @@
 
                     <div class="form-group">
                         <div class="notificationGroup">
-                            <input id="option4" type="checkbox" wire:model.lazy="category.status" name="status" class="form-control">
+                            <input id="option4" type="checkbox" wire:model.lazy="category.status" name="status"
+                                   class="form-control">
                             <label for="option4">نمایش در دسته اصلی:</label>
                         </div>
 
@@ -103,8 +109,14 @@
                     <div class="form-group">
                         <input type="file" wire:model.lazy="img" class="form-control">
                     </div>
-                    <br>
-                    <button class="btn btn-brand">افزودن دسته</button>
+
+                    <div>
+                        @if($img)
+                            <img class="form-control mt-3" width="250px" src="{{$img->temporaryUrl()}}" alt="">
+                        @endif
+                    </div>
+
+                    <button class="btn btn-brand mt-3">افزودن دسته</button>
                 </form>
             </div>
         </div>

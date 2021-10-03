@@ -4,9 +4,15 @@ namespace App\Http\Livewire\Admin\Category;
 
 use App\Models\Category;
 use Livewire\Component;
+use Livewire\WithFileUploads;
+use function Symfony\Component\Translation\t;
 
 class Index extends Component
 {
+    use WithFileUploads;
+
+    public $img;
+
     public Category $category;
 
     public function mount(){
@@ -31,8 +37,10 @@ class Index extends Component
 
     public function categoryForm()
     {
-//        dd($this->status);
+
         $this->validate();
+//        dd($this->img);
+        $this->category->img = $this->uploadImage();
         $this->category->save();
 
         if(! $this->category->status){
@@ -48,6 +56,20 @@ class Index extends Component
         $categories = Category::all();
 
         return view('livewire.admin.category.index' , compact('categories'));
+    }
+
+    public function uploadImage()
+    {
+        $year = now()->year;
+        $month = now()->month;
+
+        $directory = "category/$year/$month";
+
+        $name = $this->img->getClientOriginalName();
+
+        $this->img->storeAs($directory,$name);
+
+        return "$directory/$name";
     }
 
     public function updateCategoryDisable($id)
