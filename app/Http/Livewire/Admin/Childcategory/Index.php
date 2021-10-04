@@ -13,31 +13,13 @@ class Index extends Component
     use WithFileUploads;
     use WithPagination;
 
-
     public $img;
     public $search;
-    public $readToLoad = false;
-
-
+    public $readyToLoad = false;
     public ChildCategory $childcategory;
-
 
     protected $queryString = ['search'];
     protected $paginationTheme = 'bootstrap';
-
-
-    public function mount()
-    {
-        $this->childcategory = new ChildCategory();
-    }
-
-
-
-    public function loadCategory()
-    {
-        $this->readToLoad = true;
-    }
-
 
     protected $rules = [
         'childcategory.title' => 'required|min:3',
@@ -48,12 +30,21 @@ class Index extends Component
     ];
 
 
-    /**
-     * @throws \Illuminate\Validation\ValidationException
-     */
+    public function mount()
+    {
+        $this->childcategory = new ChildCategory();
+    }
+
+
     public function updated($title)
     {
         $this->validateOnly($title);
+    }
+
+
+    public function loadCategory()
+    {
+        $this->readyToLoad = true;
     }
 
 
@@ -62,7 +53,6 @@ class Index extends Component
         $this->validate();
         $this->childcategory->img = $this->uploadImage();
         $this->childcategory->save();
-
         if (!$this->childcategory->status) {
             $this->childcategory->update([
                 'status' => 0
@@ -77,13 +67,9 @@ class Index extends Component
     {
         $year = now()->year;
         $month = now()->month;
-
         $directory = "childcategory/$year/$month";
-
         $name = $this->img->getClientOriginalName();
-
         $this->img->storeAs($directory, $name);
-
         return "$directory/$name";
     }
 
@@ -91,21 +77,19 @@ class Index extends Component
     public function updateCategoryDisable($id)
     {
         $category = ChildCategory::find($id);
-
         $category->update([
-            "status" => 0
+            'status' => 0
         ]);
 
-        $this->emit('toast', 'success', 'وضعیت دسته کودک با موفقیت غیر فعال شد.');
+        $this->emit('toast', 'success', 'وضعیت دسته کودک با موفقیت غیرفعال شد.');
     }
 
 
     public function updateCategoryEnable($id)
     {
         $category = ChildCategory::find($id);
-
         $category->update([
-            "status" => 1
+            'status' => 1
         ]);
 
         $this->emit('toast', 'success', 'وضعیت دسته کودک با موفقیت فعال شد.');
@@ -117,17 +101,18 @@ class Index extends Component
         $category = ChildCategory::find($id);
         $category->delete();
 
-        $this->emit('toast', 'success', 'دسته کودک با موفقیت حذف شد');
+        $this->emit('toast', 'success', ' دسته کودک با موفقیت حذف شد.');
     }
 
 
     public function render()
     {
-        $categories = $this->readToLoad ? ChildCategory::where('title', 'LIKE', "%{$this->search}%")
-            ->orWhere('id', "{$this->search}")
+        $categories = $this->readyToLoad ? ChildCategory::where('title', 'LIKE', "%{$this->search}%")
             ->orWhere('name', 'LIKE', "%{$this->search}%")
+            ->orWhere('link', 'LIKE', "%{$this->search}%")
+            ->orWhere('id', $this->search)
             ->latest()->paginate(10) : [];
 
-        return view('livewire.admin.childcategory.index' , compact('categories'));
+        return view('livewire.admin.childcategory.index',compact('categories'));
     }
 }

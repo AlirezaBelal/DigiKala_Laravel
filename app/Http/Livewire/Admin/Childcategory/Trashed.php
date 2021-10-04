@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Admin\Childcategory;
 
-use App\Models\Category;
 use App\Models\ChildCategory;
+use App\Models\SubCategory;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -12,11 +12,9 @@ class Trashed extends Component
 {
     use WithPagination;
 
-
     public $img;
     public $search;
-    public $readToLoad = false;
-
+    public $readyToLoad = false;
 
     protected $queryString = ['search'];
     protected $paginationTheme = 'bootstrap';
@@ -24,33 +22,33 @@ class Trashed extends Component
 
     public function loadCategory()
     {
-        $this->readToLoad = true;
+        $this->readyToLoad = true;
     }
 
 
     public function deleteCategory($id)
     {
-        $childcategory = ChildCategory::find($id);
-        $childcategory->delete();
-
-        $this->emit('toast', 'success', 'دسته کودک با موفقیت حذف شد');
+        $category = ChildCategory::find($id);
+        $category->delete();
+        $this->emit('toast', 'success', ' زیر دسته با موفقیت حذف شد.');
     }
+
 
     public function trashedCategory($id)
     {
-//        dd($id);
-        $childcategory = ChildCategory::withTrashed()->where('id' , $id)->first();
-        $childcategory->restore();
-        $this->emit('toast', 'success', 'دسته کودک با موفقیت بازیابی شد');
+        $category = ChildCategory::withTrashed()->where('id', $id)->first();
+        $category->restore();
+
+        $this->emit('toast', 'success', ' دسته کودک با موفقیت بازیابی شد.');
     }
 
 
     public function render()
     {
-        $categories = $this->readToLoad ? DB::table('child_categories')
-            ->whereNotNull('deleted_at')
-            ->latest()->paginate(10) : [];
+        $categories = $this->readyToLoad ? DB::table('child_categories')
+            ->whereNotNull('deleted_at')->
+            latest()->paginate(15) : [];
 
-        return view('livewire.admin.childcategory.trashed' , compact('categories'));
+        return view('livewire.admin.childcategory.trashed',compact('categories'));
     }
 }
