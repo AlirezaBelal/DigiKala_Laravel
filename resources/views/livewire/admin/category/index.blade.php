@@ -8,8 +8,8 @@
                     ها</a>
                 <a class="tab__item {{Request::routeIs('subcategory.index') ? 'is-active' : ''}}"
                    href="/admin/subcategory">زیردسته ها</a>
-                <a class="tab__item {{Request::routeIs('chidcategory.index') ? 'is-active' : ''}}"
-                   href="/admin/chidcategory">دسته های کودک</a>
+                <a class="tab__item {{Request::routeIs('childcategory.index') ? 'is-active' : ''}}"
+                   href="/admin/childcategory">دسته های کودک</a>
 
                 |
 
