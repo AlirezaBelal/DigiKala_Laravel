@@ -23,9 +23,6 @@ window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-var Turbolinks = require("turbolinks")
-
-Turbolinks.start()
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
