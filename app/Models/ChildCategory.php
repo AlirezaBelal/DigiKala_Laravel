@@ -14,9 +14,8 @@ class ChildCategory extends Model
     protected $fillable = [
         'title',
         'name',
+        'status',
         'parent',
         'img',
-        'link',
-        'status'
-    ];
+        'link'];
 }

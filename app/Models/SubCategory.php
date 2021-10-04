@@ -12,11 +12,10 @@ class SubCategory extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'img',
-        'name',
-        'parent',
         'title',
-        'link',
-        'status'
-    ];
+        'name',
+        'status',
+        'parent',
+        'img',
+        'link'];
 }
