@@ -16,21 +16,24 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',\App\Http\Livewire\Admin\Dashbord\Index::class)
     ->name('admin.index');
 
-
+//category
 Route::get('/category' , \App\Http\Livewire\Admin\Category\Index::class)
     ->name('category.index');
 
 Route::get('/category/update/{category}' , \App\Http\Livewire\Admin\Category\Update::class)
     ->name('category.update');
 
+Route::get('/category/trashed' , \App\Http\Livewire\Admin\Category\Trashed::class)
+    ->name('category.trashed');
 
+//subcategory
 Route::get('/subcategory' , \App\Http\Livewire\Admin\Subcategory\Index::class)
     ->name('subcategory.index');
 
 Route::get('/subcategory/update/{subcategory}' , \App\Http\Livewire\Admin\Subcategory\Update::class)
     ->name('subcategory.update');
 
-
+//childcategory
 Route::get('/childcategory' , \App\Http\Livewire\Admin\Childcategory\Index::class)
     ->name('childcategory.index');
 
