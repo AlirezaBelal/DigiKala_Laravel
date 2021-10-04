@@ -28,5 +28,17 @@
         margin-top: 10px;
         margin-bottom: 10px;
     }
+
+    .dropdown-select{
+        display: none;
+    }
+
+    .item-restore::before{
+        content: "\E0e5";
+        font-size: 20px;
+        top: 10px;
+        right: 15px;
+        color: #636e72;
+    }
 </style>
 
