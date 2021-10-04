@@ -2,4 +2,4 @@
 <script src="{{asset('js/js.js')}}"></script>
 <livewire:scripts/>
 
-<script src="{{mix('/js/app.js')}}"></script>
+
