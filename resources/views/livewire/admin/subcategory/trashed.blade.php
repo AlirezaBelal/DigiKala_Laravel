@@ -12,7 +12,7 @@
                 </a>
 
                 {{--/admin/subcategory--}}
-                <a class="tab__item is-active" href="{{route('category.subcategory')}}">
+                <a class="tab__item is-active" href="{{route('subcategory.index')}}">
                     زیر دسته ها
                 </a>
 
