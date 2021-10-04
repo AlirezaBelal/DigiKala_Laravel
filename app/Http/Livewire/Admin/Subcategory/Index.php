@@ -13,31 +13,13 @@ class Index extends Component
     use WithFileUploads;
     use WithPagination;
 
-
     public $img;
     public $search;
-    public $readToLoad = false;
-
-
+    public $readyToLoad = false;
     public SubCategory $subcategory;
 
-
-    protected $queryString = ['search'];
     protected $paginationTheme = 'bootstrap';
-
-
-    public function mount()
-    {
-        $this->subcategory = new SubCategory();
-    }
-
-
-
-    public function loadCategory()
-    {
-        $this->readToLoad = true;
-    }
-
+    protected $queryString = ['search'];
 
     protected $rules = [
         'subcategory.title' => 'required|min:3',
@@ -48,12 +30,21 @@ class Index extends Component
     ];
 
 
-    /**
-     * @throws \Illuminate\Validation\ValidationException
-     */
+    public function mount()
+    {
+        $this->subcategory = new SubCategory();
+    }
+
+
     public function updated($title)
     {
         $this->validateOnly($title);
+    }
+
+
+    public function loadCategory()
+    {
+        $this->readyToLoad = true;
     }
 
 
@@ -62,7 +53,6 @@ class Index extends Component
         $this->validate();
         $this->subcategory->img = $this->uploadImage();
         $this->subcategory->save();
-
         if (!$this->subcategory->status) {
             $this->subcategory->update([
                 'status' => 0
@@ -77,13 +67,9 @@ class Index extends Component
     {
         $year = now()->year;
         $month = now()->month;
-
         $directory = "subcategory/$year/$month";
-
         $name = $this->img->getClientOriginalName();
-
         $this->img->storeAs($directory, $name);
-
         return "$directory/$name";
     }
 
@@ -91,24 +77,22 @@ class Index extends Component
     public function updateCategoryDisable($id)
     {
         $category = SubCategory::find($id);
-
         $category->update([
-            "status" => 0
+            'status' => 0
         ]);
 
-        $this->emit('toast', 'success', 'وضعیت زیردسته با موفقیت غیر فعال شد.');
+        $this->emit('toast', 'success', 'وضعیت زیر دسته با موفقیت غیرفعال شد.');
     }
 
 
     public function updateCategoryEnable($id)
     {
         $category = SubCategory::find($id);
-
         $category->update([
-            "status" => 1
+            'status' => 1
         ]);
 
-        $this->emit('toast', 'success', 'وضعیت زیردسته با موفقیت فعال شد.');
+        $this->emit('toast', 'success', 'وضعیت زیر دسته با موفقیت فعال شد.');
     }
 
 
@@ -117,17 +101,19 @@ class Index extends Component
         $category = SubCategory::find($id);
         $category->delete();
 
-        $this->emit('toast', 'success', 'زیردسته با موفقیت حذف شد');
+        $this->emit('toast', 'success', ' زیر دسته با موفقیت حذف شد.');
     }
 
 
     public function render()
     {
-        $categories = $this->readToLoad ? SubCategory::where('title', 'LIKE', "%{$this->search}%")
-            ->orWhere('id', "{$this->search}")
+
+        $categories = $this->readyToLoad ? SubCategory::where('title', 'LIKE', "%{$this->search}%")
             ->orWhere('name', 'LIKE', "%{$this->search}%")
+            ->orWhere('link', 'LIKE', "%{$this->search}%")
+            ->orWhere('id', $this->search)
             ->latest()->paginate(10) : [];
 
-        return view('livewire.admin.subcategory.index' , compact('categories'));
+        return view('livewire.admin.subcategory.index',compact('categories'));
     }
 }

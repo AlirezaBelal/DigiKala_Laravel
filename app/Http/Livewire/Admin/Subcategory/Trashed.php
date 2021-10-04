@@ -12,11 +12,9 @@ class Trashed extends Component
 {
     use WithPagination;
 
-
     public $img;
     public $search;
-    public $readToLoad = false;
-
+    public $readyToLoad = false;
 
     protected $queryString = ['search'];
     protected $paginationTheme = 'bootstrap';
@@ -24,33 +22,34 @@ class Trashed extends Component
 
     public function loadCategory()
     {
-        $this->readToLoad = true;
+        $this->readyToLoad = true;
     }
 
 
     public function deleteCategory($id)
     {
-        $subcategory = SubCategory::find($id);
-        $subcategory->delete();
-
-        $this->emit('toast', 'success', 'زیردسته با موفقیت حذف شد');
+        $category = SubCategory::find($id);
+        $category->delete();
+        $this->emit('toast', 'success', ' زیر دسته با موفقیت حذف شد.');
     }
+
 
     public function trashedCategory($id)
     {
-//        dd($id);
-        $subcategory = SubCategory::withTrashed()->where('id' , $id)->first();
-        $subcategory->restore();
-        $this->emit('toast', 'success', 'زیردسته با موفقیت بازیابی شد');
+        $category = SubCategory::withTrashed()->where('id', $id)->first();
+        $category->restore();
+
+        $this->emit('toast', 'success', ' زیر دسته با موفقیت بازیابی شد.');
     }
 
 
     public function render()
     {
-        $categories = $this->readToLoad ? DB::table('sub_categories')
-            ->whereNotNull('deleted_at')
-            ->latest()->paginate(10) : [];
 
-        return view('livewire.admin.subcategory.trashed' , compact('categories'));
+        $categories = $this->readyToLoad ? DB::table('sub_categories')
+            ->whereNotNull('deleted_at')
+            ->latest()->paginate(15) : [];
+
+        return view('livewire.admin.subcategory.trashed',compact('categories'));
     }
 }
