@@ -765,39 +765,6 @@ select {
 [type='file']:focus {
 	outline: 1px auto -webkit-focus-ring-color;
 }
-.container {
-	width: 100%;
-}
-@media (min-width: 640px) {
-
-	.container {
-		max-width: 640px;
-	}
-}
-@media (min-width: 768px) {
-
-	.container {
-		max-width: 768px;
-	}
-}
-@media (min-width: 1024px) {
-
-	.container {
-		max-width: 1024px;
-	}
-}
-@media (min-width: 1280px) {
-
-	.container {
-		max-width: 1280px;
-	}
-}
-@media (min-width: 1536px) {
-
-	.container {
-		max-width: 1536px;
-	}
-}
 .prose {
 	color: #374151;
 	max-width: 65ch;
@@ -1210,15 +1177,6 @@ select {
 }
 .mb-4 {
 	margin-bottom: 1rem;
-}
-.mb-0 {
-	margin-bottom: 0px;
-}
-.mr-auto {
-	margin-right: auto;
-}
-.ml-auto {
-	margin-left: auto;
 }
 .-mt-px {
 	margin-top: -1px;
