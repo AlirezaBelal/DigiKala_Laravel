@@ -18,13 +18,10 @@ const Toast = Swal.mixin({
 })
 
 document.addEventListener('livewire:load' , ()=> {
-    livewire.on('toast' , (type,message) => {
+    Livewire.on('toast' , (type,message) => {
         Toast.fire({
             icon: type,
             title: message
         })
     })
-    }
-)
-
-
+})
