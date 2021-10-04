@@ -9,7 +9,7 @@
                 <a class="tab__item {{Request::routeIs('subcategory.index') ? 'is-active' : ''}}"
                    href="/admin/subcategory">زیردسته ها</a>
                 <a class="tab__item {{Request::routeIs('chidcategory.index') ? 'is-active' : ''}}"
-                   href="/admin/chidcategory">دسته های کودک</a>
+                   href="/admin/childcategory">دسته های کودک</a>
 
                 |
 
@@ -33,11 +33,11 @@
                         <thead role="rowgroup">
                         <tr role="row" class="title-row">
                             <th>شناسه آیدی</th>
-                            <th>تصویر دسته</th>
-                            <th>عنوان دسته</th>
-                            <th>نام دسته</th>
-                            <th>نام سردسته</th>
-                            <th>وضعیت دسته</th>
+                            <th>تصویر زیردسته</th>
+                            <th>عنوان زیردسته</th>
+                            <th>نام زیزدسته</th>
+                            <th>نام سر زیردسته</th>
+                            <th>وضعیت زیردسته</th>
                             <th>عملیات</th>
                         </tr>
                         </thead>
