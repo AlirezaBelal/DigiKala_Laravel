@@ -13,9 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//======================================>admin/dashboard
 Route::get('/',\App\Http\Livewire\Admin\Dashbord\Index::class)
     ->name('admin.index');
 
+
+//=======================================> //category//
 //category
 Route::get('/category' , \App\Http\Livewire\Admin\Category\Index::class)
     ->name('category.index');
@@ -45,4 +48,3 @@ Route::get('/childcategory/update/{childcategory}' , \App\Http\Livewire\Admin\Ch
 
 Route::get('/category/trashed' , \App\Http\Livewire\Admin\Childcategory\Trashed::class)
     ->name('childcategory.trashed');
-
