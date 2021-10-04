@@ -28,7 +28,11 @@ class Update extends Component
     public function categoryForm()
     {
         $this->validate();
-        $this->category->img = $this->uploadImage();
+
+        if ($this->img){
+            $this->category->img = $this->uploadImage();
+        }
+
         $this->category->update($this->validate());
 
         if (!$this->category->status) {
