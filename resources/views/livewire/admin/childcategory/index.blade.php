@@ -22,6 +22,12 @@
                                type="text" class="text" placeholder="جستجوی دسته ... ">
                     </form>
                 </a>
+
+                <a class="tab__item btn btn-danger"
+                   href="{{route('category.trashed')}}" style="color: white;float: left; margin-top: 10px;margin-left: 10px">
+                    سطل زباله
+                    ({{\App\Models\ChildCategory::onlyTrashed()->count()}})
+                </a>
             </div>
         </div>
 
