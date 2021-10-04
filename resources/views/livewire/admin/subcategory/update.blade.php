@@ -3,7 +3,7 @@
 <div>
     <div class="main-content padding-0">
         <p class="box__title">
-            ویرایش دسته
+            ویرایش زیردسته
             -
             {{$subcategory->title}}
         </p>
