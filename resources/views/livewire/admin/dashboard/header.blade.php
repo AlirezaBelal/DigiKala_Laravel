@@ -1,8 +1,9 @@
 <div class="header d-flex item-center bg-white width-100 border-bottom padding-12-30">
     <div class="header__right d-flex flex-grow-1 item-center">
         <span class="bars"></span>
-        <a href="/"><img style="height:44px;margin-left: 20px;" src="{{asset('img/weblogo.png')}}"></a>
+        <a href="/"> <img style="height: 40px;margin-right: 20px" src="{{asset('img/weblogo.png')}}" alt=""></a>
     </div>
+
     <div class="header__left d-flex flex-end item-center margin-top-2">
         <span class="account-balance font-size-12">موجودی : 2500,000 تومان</span>
         <div class="notification margin-15">

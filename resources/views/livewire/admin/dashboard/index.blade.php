@@ -1,4 +1,4 @@
-@section('title' , 'پنل مدیریت')
+@section('title','پنل مدیریت')
 
 <div>
     <div class="main-content">
