@@ -1,13 +1,9 @@
 @if($errors->any())
-
     <div class="alert alert-danger">
-        <ui>
+        <ul>
             @foreach($errors->all() as $error)
-                <li>
-                    {{$error}}
-                </li>
+                <li>{{$error}}</li>
             @endforeach
-        </ui>
+        </ul>
     </div>
-
 @endif
