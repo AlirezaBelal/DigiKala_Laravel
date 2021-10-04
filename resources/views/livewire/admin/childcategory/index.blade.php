@@ -91,7 +91,6 @@
                                                     wire:click="updateCategoryDisable({{$category->id}})">
                                                 فعال
                                             </button>
-
                                         @else
                                             <button type="submit" class="badge-danger badge"
                                                     style="background-color: red"

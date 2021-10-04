@@ -149,7 +149,11 @@
                         <div class="notificationGroup">
                             <input id="option4" type="checkbox" name="status" class="form-control"
                                    wire:model.lazy="subcategory.status">
-                            <label for="option4">نمایش در دسته اصلی:</label>
+
+                            <label for="option4">
+                                نمایش در دسته اصلی:
+                            </label>
+
                         </div>
                     </div>
 
