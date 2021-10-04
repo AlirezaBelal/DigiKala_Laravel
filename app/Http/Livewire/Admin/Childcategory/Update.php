@@ -11,12 +11,8 @@ class Update extends Component
 {
     use WithFileUploads;
 
-
-    public $img;
-
-
     public ChildCategory $childcategory;
-
+    public $img;
 
     protected $rules = [
         'childcategory.title' => 'required|min:3',
@@ -30,21 +26,19 @@ class Update extends Component
     public function categoryForm()
     {
         $this->validate();
-
         if ($this->img){
             $this->childcategory->img = $this->uploadImage();
         }
 
         $this->childcategory->update($this->validate());
-
         if (!$this->childcategory->status) {
             $this->childcategory->update([
                 'status' => 0
             ]);
         }
-        $this->emit('toast', 'success', ' دسته کودک با موفقیت ایجاد شد.');
 
-        return redirect(route('subcategory.index'));
+        $this->emit('toast', 'success', ' دسته کودک با موفقیت ایجاد شد.');
+        return redirect(route('childcategory.index'));
     }
 
 
@@ -52,21 +46,16 @@ class Update extends Component
     {
         $year = now()->year;
         $month = now()->month;
-
         $directory = "childcategory/$year/$month";
-
         $name = $this->img->getClientOriginalName();
-
         $this->img->storeAs($directory, $name);
-
         return "$directory/$name";
     }
 
 
     public function render()
     {
-//        dd($this->subcategory);
         $childcategory = $this->childcategory;
-        return view('livewire.admin.childcategory.update' , compact('childcategory'));
+        return view('livewire.admin.childcategory.update',compact('childcategory'));
     }
 }
