@@ -33,9 +33,16 @@ Route::get('/subcategory' , \App\Http\Livewire\Admin\Subcategory\Index::class)
 Route::get('/subcategory/update/{subcategory}' , \App\Http\Livewire\Admin\Subcategory\Update::class)
     ->name('subcategory.update');
 
+Route::get('/category/trashed' , \App\Http\Livewire\Admin\Subcategory\Trashed::class)
+    ->name('subcategory.trashed');
+
 //childcategory
 Route::get('/childcategory' , \App\Http\Livewire\Admin\Childcategory\Index::class)
     ->name('childcategory.index');
 
 Route::get('/childcategory/update/{childcategory}' , \App\Http\Livewire\Admin\Childcategory\Update::class)
     ->name('childcategory.update');
+
+Route::get('/category/trashed' , \App\Http\Livewire\Admin\Childcategory\Trashed::class)
+    ->name('childcategory.trashed');
+
