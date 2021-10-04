@@ -3,41 +3,26 @@
 namespace App\Http\Livewire\Admin\Category;
 
 use App\Models\Category;
-use http\QueryString;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
-use function Symfony\Component\Translation\t;
 
 class Index extends Component
 {
     use WithFileUploads;
     use WithPagination;
 
-
     public $img;
     public $search;
-    public $readToLoad = false;
-
-
+    public $readyToLoad = false;
     public Category $category;
 
+    protected $paginationTheme = 'bootstrap';
+    protected $listeners = [
+        'category.added' => '$refresh'
+    ];
 
     protected $queryString = ['search'];
-    protected $paginationTheme = 'bootstrap';
-
-
-    public function mount()
-    {
-        $this->category = new Category();
-    }
-
-
-    public function loadCategory()
-    {
-        $this->readToLoad = true;
-    }
-
 
     protected $rules = [
         'category.title' => 'required|min:3',
@@ -47,12 +32,21 @@ class Index extends Component
     ];
 
 
-    /**
-     * @throws \Illuminate\Validation\ValidationException
-     */
+    public function mount()
+    {
+        $this->category = new Category();
+    }
+
+
     public function updated($title)
     {
         $this->validateOnly($title);
+    }
+
+
+    public function loadCategory()
+    {
+        $this->readyToLoad = true;
     }
 
 
@@ -61,14 +55,11 @@ class Index extends Component
         $this->validate();
         $this->category->img = $this->uploadImage();
         $this->category->save();
-
         if (!$this->category->status) {
             $this->category->update([
                 'status' => 0
             ]);
         }
-
-//        $this->reset();
         $this->emit('toast', 'success', ' دسته با موفقیت ایجاد شد.');
     }
 
@@ -77,13 +68,9 @@ class Index extends Component
     {
         $year = now()->year;
         $month = now()->month;
-
         $directory = "category/$year/$month";
-
         $name = $this->img->getClientOriginalName();
-
         $this->img->storeAs($directory, $name);
-
         return "$directory/$name";
     }
 
@@ -91,21 +78,19 @@ class Index extends Component
     public function updateCategoryDisable($id)
     {
         $category = Category::find($id);
-
         $category->update([
-            "status" => 0
+            'status' => 0
         ]);
 
-        $this->emit('toast', 'success', 'وضعیت دسته با موفقیت غیر فعال شد.');
+        $this->emit('toast', 'success', 'وضعیت دسته با موفقیت غیرفعال شد.');
     }
 
 
     public function updateCategoryEnable($id)
     {
         $category = Category::find($id);
-
         $category->update([
-            "status" => 1
+            'status' => 1
         ]);
 
         $this->emit('toast', 'success', 'وضعیت دسته با موفقیت فعال شد.');
@@ -117,15 +102,17 @@ class Index extends Component
         $category = Category::find($id);
         $category->delete();
 
-        $this->emit('toast', 'success', 'دسته با موفقیت حذف شد');
+        $this->emit('toast', 'success', ' دسته با موفقیت حذف شد.');
     }
 
 
     public function render()
     {
-        $categories = $this->readToLoad ? Category::where('title', 'LIKE', "%{$this->search}%")
-            ->orWhere('id', "{$this->search}")
+
+        $categories = $this->readyToLoad ? Category::where('title', 'LIKE', "%{$this->search}%")
             ->orWhere('name', 'LIKE', "%{$this->search}%")
+            ->orWhere('link', 'LIKE', "%{$this->search}%")
+            ->orWhere('id', $this->search)
             ->latest()->paginate(10) : [];
 
         return view('livewire.admin.category.index', compact('categories'));
