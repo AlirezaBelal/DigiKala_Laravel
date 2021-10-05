@@ -73,7 +73,7 @@ class Index extends Component
     public function categoryForm()
     {
         $this->validate();
-        if($this->category->img){
+        if($this->img){
             $this->category->img = $this->uploadImage();
         }
         if (!$this->category->status) {
