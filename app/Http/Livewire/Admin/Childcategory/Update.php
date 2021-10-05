@@ -27,7 +27,7 @@ class Update extends Component
     public function categoryForm()
     {
         $this->validate();
-        if ($this->img){
+        if ($this->img) {
             $this->childcategory->img = $this->uploadImage();
         }
 
@@ -40,7 +40,7 @@ class Update extends Component
 
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'آپدیت دسته کودک' .'-'. $this->childcategory->title,
+            'url' => 'آپدیت دسته کودک' . '-' . $this->childcategory->title,
             'actionType' => 'آپدیت'
         ]);
 
@@ -63,6 +63,6 @@ class Update extends Component
     public function render()
     {
         $childcategory = $this->childcategory;
-        return view('livewire.admin.childcategory.update',compact('childcategory'));
+        return view('livewire.admin.childcategory.update', compact('childcategory'));
     }
 }

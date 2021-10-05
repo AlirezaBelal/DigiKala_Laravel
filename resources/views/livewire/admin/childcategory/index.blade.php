@@ -5,16 +5,12 @@
         <div class="tab__box">
             <div class="tab__items">
 
-                {{--/admin/category--}}
-                <a class="tab__item {{Request::routeIs('category.index') ? 'is-active': '' }}"
-                   href="{{route('category.index')}}">
+                <a class="tab__item " href="{{route('category.index')}}">
                     دسته ها
                 </a>
 
-                {{--/admin/subcategory--}}
                 <a class="tab__item " href="{{route('subcategory.index')}}">زیر دسته ها</a>
 
-                {{--/admin/childcategory--}}
                 <a class="tab__item is-active" href="{{'childcategory.index'}}">
                     دسته های کودک
                 </a>
@@ -58,30 +54,29 @@
 
                         @if($readyToLoad)
                             <tbody>
+                            @php($count = 1)
                             @foreach($categories as $category)
                                 <tr role="row">
                                     <td>
-                                        <a href="">{{$category->id}}</a>
+                                       {{$count++}}
                                     </td>
 
                                     <td>
-                                        <img src="/storage/{{$category->img}}" alt="img" width="100px">
+                                        <img src="{{\Illuminate\Support\Facades\Storage::url($category->img)}}" alt="img" width="50px">
                                     </td>
 
                                     <td>
-                                        <a href="">{{$category->title}}</a>
+                                        {{$category->title}}
                                     </td>
 
                                     <td>
-                                        <a href="">{{$category->name}}</a>
+                                        {{$category->name}}
                                     </td>
 
                                     <td>
-                                        <a href="">
                                             @foreach(\App\Models\SubCategory::where('id',$category->parent)->get() as $category)
                                                 {{$category->title}}
                                             @endforeach
-                                        </a>
                                     </td>
 
                                     <td>

@@ -44,7 +44,7 @@
                     <table class="table">
                         <thead role="rowgroup">
                         <tr role="row" class="title-row">
-                            <th>آیدی</th>
+                            <th>ردیف</th>
                             <th>تصویر دسته</th>
                             <th>عنوان دسته</th>
                             <th>نام دسته</th>

@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Admin\Subcategory;
 
-use App\Models\Category;
 use App\Models\Log;
 use App\Models\SubCategory;
 use Livewire\Component;
@@ -52,17 +51,19 @@ class Index extends Component
     public function categoryForm()
     {
         $this->validate();
-        $this->subcategory->img = $this->uploadImage();
-        $this->subcategory->save();
-        if (!$this->subcategory->status) {
-            $this->subcategory->update([
-                'status' => 0
-            ]);
+        if ($this->img) {
+            $this->subcategory->img = $this->uploadImage();
         }
+
+        if (!$this->subcategory->status) {
+            $this->subcategory->status = 0;
+        }
+
+        $this->subcategory->save();
 
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'افزودن دسته کودک' .'-'. $this->childcategory->title,
+            'url' => 'افزودن زیردسته ' . '-' . $this->subcategory->title,
             'actionType' => 'ایجاد'
         ]);
 
@@ -90,7 +91,7 @@ class Index extends Component
 
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'غیرفعال کردن وضعیت دسته کودک' .'-'. $category->title,
+            'url' => 'غیرفعال کردن وضعیت  زیردسته' . '-' . $category->title,
             'actionType' => 'غیرفعال'
         ]);
 
@@ -107,7 +108,7 @@ class Index extends Component
 
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'فعال کردن وضعیت دسته کودک' .'-'. $category->title,
+            'url' => 'فعال کردن وضعیت زیردسته' . '-' . $category->title,
             'actionType' => 'فعال'
         ]);
 
@@ -122,7 +123,7 @@ class Index extends Component
 
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'حذف کردن دسته کودک' .'-'. $category->title,
+            'url' => 'حذف کردن زیردسته ' . '-' . $category->title,
             'actionType' => 'حذف'
         ]);
 
@@ -136,9 +137,8 @@ class Index extends Component
         $categories = $this->readyToLoad ? SubCategory::where('title', 'LIKE', "%{$this->search}%")
             ->orWhere('name', 'LIKE', "%{$this->search}%")
             ->orWhere('link', 'LIKE', "%{$this->search}%")
-            ->orWhere('id', $this->search)
             ->latest()->paginate(10) : [];
 
-        return view('livewire.admin.subcategory.index',compact('categories'));
+        return view('livewire.admin.subcategory.index', compact('categories'));
     }
 }

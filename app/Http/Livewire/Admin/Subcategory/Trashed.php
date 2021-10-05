@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Admin\Subcategory;
 
-use App\Models\Category;
 use App\Models\Log;
 use App\Models\SubCategory;
 use Illuminate\Support\Facades\DB;
@@ -42,7 +41,7 @@ class Trashed extends Component
 
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'بازیابی دسته کودک' .'-'. $category->title,
+            'url' => 'بازیابی زیردسته' . '-' . $category->title,
             'actionType' => 'بازیابی'
         ]);
 
@@ -57,6 +56,6 @@ class Trashed extends Component
             ->whereNotNull('deleted_at')
             ->latest()->paginate(15) : [];
 
-        return view('livewire.admin.subcategory.trashed',compact('categories'));
+        return view('livewire.admin.subcategory.trashed', compact('categories'));
     }
 }

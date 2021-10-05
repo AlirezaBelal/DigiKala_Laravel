@@ -5,20 +5,17 @@
         <div class="tab__box">
             <div class="tab__items">
 
-                {{--/admin/category--}}
-                <a class="tab__item {{Request::routeIs('category.index') ? 'is-active': '' }}" href="{{route('category.index')}}">
+                <a class="tab__item" href="{{route('category.index')}}">
                     دسته ها
                 </a>
 
-                {{--/admin/subcategory--}}
-                <a class="tab__item is-active"
-                   href="{{route('subcategory.index')}}">
+                <a class="tab__item is-active" href="{{route('subcategory.index')}}">
                     زیر دسته ها
                 </a>
 
-                {{--/admin/childcategory--}}
-                <a class="tab__item {{Request::routeIs('childcategory.index') ? 'is-active': '' }}"
-                   href="{{route('childcategory.index')}}">دسته های کودک</a>
+                <a class="tab__item" href="{{route('childcategory.index')}}">
+                    دسته های کودک
+                </a>
                 |
                 <a class="tab__item">
                     جستجو:
@@ -32,7 +29,8 @@
                 </a>
 
                 <a class="tab__item btn btn-danger"
-                   href="{{route('subcategory.trashed')}}" style="color: white;float: left;margin-top: 10px;margin-left: 10px">
+                   href="{{route('subcategory.trashed')}}"
+                   style="color: white;float: left;margin-top: 10px;margin-left: 10px">
                     سطل زباله
                     ({{\App\Models\SubCategory::onlyTrashed()->count()}})
                 </a>
@@ -46,7 +44,7 @@
 
                         <thead role="rowgroup">
                         <tr role="row" class="title-row">
-                            <th>آیدی</th>
+                            <th>ردیف</th>
                             <th>تصویر زیر دسته</th>
                             <th>عنوان زیر دسته</th>
                             <th>نام زیر دسته</th>
@@ -58,22 +56,24 @@
 
                         @if($readyToLoad)
                             <tbody>
+                            @php($count = 1)
                             @foreach($categories as $category)
                                 <tr role="row">
                                     <td>
-                                        <a href="">{{$category->id}}</a>
+                                        {{$count++}}
                                     </td>
 
                                     <td>
-                                        <img src="/storage/{{$category->img}}" alt="img" width="100px">
+                                        <img src="{{\Illuminate\Support\Facades\Storage::url($category->img)}}"
+                                             alt="img" width="50px">
                                     </td>
 
                                     <td>
-                                        <a href="">{{$category->title}}</a>
+                                        {{$category->title}}
                                     </td>
 
                                     <td>
-                                        <a href="">{{$category->name}}</a>
+                                        {{$category->name}}
                                     </td>
 
                                     <td>
@@ -86,12 +86,14 @@
 
                                     <td>
                                         @if($category->status == 1)
-                                            <button type="submit" class="badge-success badge" style="background-color: green"
+                                            <button type="submit" class="badge-success badge"
+                                                    style="background-color: green"
                                                     wire:click="updateCategoryDisable({{$category->id}})">
                                                 فعال
                                             </button>
                                         @else
-                                            <button type="submit" class="badge-danger badge" style="background-color: red"
+                                            <button type="submit" class="badge-danger badge"
+                                                    style="background-color: red"
                                                     wire:click="updateCategoryEnable({{$category->id}})">
                                                 غیرفعال
                                             </button>
@@ -126,7 +128,8 @@
             <div class="col-4 bg-white">
                 <p class="box__title">ایجاد زیر دسته جدید</p>
 
-                <form wire:submit.prevent="categoryForm" enctype="multipart/form-data" role="form" class="padding-10 categoryForm">
+                <form wire:submit.prevent="categoryForm" enctype="multipart/form-data" role="form"
+                      class="padding-10 categoryForm">
 
                     @include('errors.error')
 
@@ -160,8 +163,8 @@
                     <div class="form-group">
                         <select wire:model.lazy="subcategory.parent" name="parent" id="" class="form-control">
                             @foreach(\App\Models\Category::all() as $category)
-                            <option value="{{$category->id}}">{{$category->title}}</option>
-                                @endforeach
+                                <option value="{{$category->id}}">{{$category->title}}</option>
+                            @endforeach
                         </select>
                     </div>
 

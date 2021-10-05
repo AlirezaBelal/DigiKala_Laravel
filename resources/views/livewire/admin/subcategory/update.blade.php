@@ -57,7 +57,8 @@
                     </div>
                     <div>
                         @if($img)
-                            <img style="    width: 200px;" class="form-control mt-3 mb-3" width="400" src="{{$img->temporaryUrl()}}" alt="">
+                            <img style="    width: 200px;" class="form-control mt-3 mb-3" width="400"
+                                 src="{{$img->temporaryUrl()}}" alt="">
                         @endif
                     </div>
 

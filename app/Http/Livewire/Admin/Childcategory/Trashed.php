@@ -42,7 +42,7 @@ class Trashed extends Component
 
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'بازیابی دسته کودک' .'-'. $category->title,
+            'url' => 'بازیابی دسته کودک' . '-' . $category->title,
             'actionType' => 'بازیابی'
         ]);
 
@@ -57,6 +57,6 @@ class Trashed extends Component
             ->whereNotNull('deleted_at')->
             latest()->paginate(15) : [];
 
-        return view('livewire.admin.childcategory.trashed',compact('categories'));
+        return view('livewire.admin.childcategory.trashed', compact('categories'));
     }
 }

@@ -5,7 +5,6 @@ namespace App\Http\Livewire\Admin\Childcategory;
 use App\Models\ChildCategory;
 use App\Models\Log;
 use App\Models\SubCategory;
-
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
@@ -38,6 +37,9 @@ class Index extends Component
     }
 
 
+    /**
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function updated($title)
     {
         $this->validateOnly($title);
@@ -53,17 +55,18 @@ class Index extends Component
     public function categoryForm()
     {
         $this->validate();
-        $this->childcategory->img = $this->uploadImage();
-        $this->childcategory->save();
-        if (!$this->childcategory->status) {
-            $this->childcategory->update([
-                'status' => 0
-            ]);
+        if ($this->img) {
+            $this->childcategory->img = $this->uploadImage();
         }
+        if (!$this->childcategory->status) {
+            $this->childcategory->status = 0;
+        }
+
+        $this->childcategory->save();
 
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'افزودن دسته کودک' .'-'. $this->childcategory->title,
+            'url' => 'افزودن دسته کودک' . '-' . $this->childcategory->title,
             'actionType' => 'ایجاد'
         ]);
 
@@ -91,7 +94,7 @@ class Index extends Component
 
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'غیرفعال کردن وضعیت دسته کودک' .'-'. $category->title,
+            'url' => 'غیرفعال کردن وضعیت دسته کودک' . '-' . $category->title,
             'actionType' => 'غیرفعال'
         ]);
 
@@ -108,7 +111,7 @@ class Index extends Component
 
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'فعال کردن وضعیت دسته کودک' .'-'. $category->title,
+            'url' => 'فعال کردن وضعیت دسته کودک' . '-' . $category->title,
             'actionType' => 'فعال'
         ]);
 
@@ -123,7 +126,7 @@ class Index extends Component
 
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'حذف کردن دسته کودک' .'-'. $category->title,
+            'url' => 'حذف کردن دسته کودک' . '-' . $category->title,
             'actionType' => 'حذف'
         ]);
 
@@ -139,6 +142,6 @@ class Index extends Component
             ->orWhere('id', $this->search)
             ->latest()->paginate(10) : [];
 
-        return view('livewire.admin.childcategory.index',compact('categories'));
+        return view('livewire.admin.childcategory.index', compact('categories'));
     }
 }
