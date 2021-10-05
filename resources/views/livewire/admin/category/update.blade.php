@@ -10,7 +10,8 @@
 
         <div class="row no-gutters bg-white">
             <div class="col-8">
-                <form wire:submit.prevent="categoryForm" enctype="multipart/form-data" role="form" class="padding-10 categoryForm">
+                <form wire:submit.prevent="categoryForm" enctype="multipart/form-data" role="form"
+                      class="padding-10 categoryForm">
 
                     @include('errors.error')
 

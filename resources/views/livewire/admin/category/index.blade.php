@@ -56,11 +56,11 @@
 
                         @if($readyToLoad)
                             <tbody>
-                            @php($i = 1)
+                            @php($count = 1)
                             @foreach($categories as $category)
                                 <tr role="row">
                                     <td>
-                                        <p>{{$i++}}<p>
+                                        <p>{{$count++}}<p>
                                     </td>
 
                                     <td>

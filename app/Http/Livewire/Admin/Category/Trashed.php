@@ -17,11 +17,17 @@ class Trashed extends Component
     public $search;
     public $readyToLoad = false;
 
+    /**
+     * @var string
+     * Front type
+     */
     protected $paginationTheme = 'bootstrap';
     protected $queryString = ['search'];
 
 
-
+    /**
+     * Change page load
+     */
     public function loadCategory()
     {
         $this->readyToLoad = true;
@@ -36,6 +42,10 @@ class Trashed extends Component
     }
 
 
+    /**
+     * @param $id
+     * Empty the delete key in the database (in other words, return it from the trash)
+     */
     public function trashedCategory($id)
     {
         $category = Category::withTrashed()->where('id', $id)->first();
@@ -43,7 +53,7 @@ class Trashed extends Component
 
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'بازیابی دسته' .'-'. $category->title,
+            'url' => 'بازیابی دسته' . '-' . $category->title,
             'actionType' => 'بازیابی'
         ]);
 
@@ -51,9 +61,12 @@ class Trashed extends Component
     }
 
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * Reload this Page
+     */
     public function render()
     {
-
         $categories = $this->readyToLoad ? DB::table('categories')
             ->whereNotNull('deleted_at')->
             latest()->paginate(15) : [];

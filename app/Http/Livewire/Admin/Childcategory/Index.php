@@ -3,8 +3,9 @@
 namespace App\Http\Livewire\Admin\Childcategory;
 
 use App\Models\ChildCategory;
+use App\Models\Log;
 use App\Models\SubCategory;
-use Illuminate\Support\Facades\Log;
+
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;

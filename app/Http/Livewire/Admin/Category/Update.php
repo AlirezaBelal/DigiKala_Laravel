@@ -45,7 +45,7 @@ class Update extends Component
 
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'آپدیت دسته' .'-'. $this->category->title,
+            'url' => 'آپدیت دسته' . '-' . $this->category->title,
             'actionType' => 'آپدیت'
         ]);
 
@@ -76,6 +76,6 @@ class Update extends Component
     public function render()
     {
         $category = $this->category;
-        return view('livewire.admin.category.update',compact('category'));
+        return view('livewire.admin.category.update', compact('category'));
     }
 }
