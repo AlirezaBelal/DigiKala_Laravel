@@ -70,7 +70,7 @@
                                             <span style="background-color:wheat"
                                                   class="badge badge-warning">بازیابی</span>
                                         @endif
- 
+
                                     </td>
                                 </tr>
 
