@@ -18,6 +18,11 @@ class Index extends Component
     public $readyToLoad = false;
     public Category $category;
 
+
+    /**
+     * @var string
+     * Front type
+     */
     protected $paginationTheme = 'bootstrap';
     protected $listeners = [
         'category.added' => '$refresh'
@@ -25,6 +30,10 @@ class Index extends Component
 
     protected $queryString = ['search'];
 
+    /**
+     * @var string[]
+     * Prerequisites for creating a category form
+     */
     protected $rules = [
         'category.title' => 'required|min:3',
         'category.name' => 'required',
@@ -39,31 +48,42 @@ class Index extends Component
     }
 
 
+    /**
+     * @throws \Illuminate\Validation\ValidationException
+     *
+     */
     public function updated($title)
     {
         $this->validateOnly($title);
     }
 
 
+    /**
+     * Change page load
+     */
     public function loadCategory()
     {
         $this->readyToLoad = true;
     }
 
 
+    /**
+     * Enter information in the database
+     */
     public function categoryForm()
     {
         $this->validate();
-        $this->category->img = $this->uploadImage();
-        $this->category->save();
-        if (!$this->category->status) {
-            $this->category->update([
-                'status' => 0
-            ]);
+        if($this->category->img){
+            $this->category->img = $this->uploadImage();
         }
+        if (!$this->category->status) {
+            $this->category->status = 0;
+        }
+        $this->category->save();
+
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'افزودن دسته' .'-'. $this->category->title,
+            'url' => 'افزودن دسته' . '-' . $this->category->title,
             'actionType' => 'ایجاد'
         ]);
 
@@ -71,6 +91,10 @@ class Index extends Component
     }
 
 
+    /**
+     * @return string
+     * Add image address to database
+     */
     public function uploadImage()
     {
         $year = now()->year;
@@ -91,7 +115,7 @@ class Index extends Component
 
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'غیرفعال کردن وضعیت دسته' .'-'. $this->category->title,
+            'url' => 'غیرفعال کردن وضعیت دسته' . '-' . $this->category->title,
             'actionType' => 'غیرفعال'
         ]);
 
@@ -108,7 +132,7 @@ class Index extends Component
 
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'فعال کردن وضعیت دسته' .'-'. $this->category->title,
+            'url' => 'فعال کردن وضعیت دسته' . '-' . $this->category->title,
             'actionType' => 'فعال'
         ]);
 
@@ -123,7 +147,7 @@ class Index extends Component
 
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'حذف کردن دسته' .'-'. $this->category->title,
+            'url' => 'حذف کردن دسته' . '-' . $this->category->title,
             'actionType' => 'حذف'
         ]);
 
@@ -131,13 +155,15 @@ class Index extends Component
     }
 
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * Reload this Page
+     */
     public function render()
     {
-
         $categories = $this->readyToLoad ? Category::where('title', 'LIKE', "%{$this->search}%")
             ->orWhere('name', 'LIKE', "%{$this->search}%")
             ->orWhere('link', 'LIKE', "%{$this->search}%")
-            ->orWhere('id', $this->search)
             ->latest()->paginate(10) : [];
 
         return view('livewire.admin.category.index', compact('categories'));
