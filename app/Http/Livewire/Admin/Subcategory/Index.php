@@ -36,6 +36,9 @@ class Index extends Component
     }
 
 
+    /**
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function updated($title)
     {
         $this->validateOnly($title);

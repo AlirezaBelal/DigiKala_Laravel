@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\Admin\Childcategory;
 
 use App\Models\ChildCategory;
-use App\Models\Log;
 use App\Models\SubCategory;
+use App\Models\Log;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
@@ -139,7 +139,6 @@ class Index extends Component
         $categories = $this->readyToLoad ? ChildCategory::where('title', 'LIKE', "%{$this->search}%")
             ->orWhere('name', 'LIKE', "%{$this->search}%")
             ->orWhere('link', 'LIKE', "%{$this->search}%")
-            ->orWhere('id', $this->search)
             ->latest()->paginate(10) : [];
 
         return view('livewire.admin.childcategory.index', compact('categories'));

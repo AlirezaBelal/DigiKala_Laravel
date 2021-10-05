@@ -1,17 +1,19 @@
-@section('title','دسته های کودک')
+@section('title','زیر دسته ها')
 
 <div>
     <div class="main-content" wire:init="loadCategory">
         <div class="tab__box">
             <div class="tab__items">
 
-                <a class="tab__item " href="{{route('category.index')}}">
+                <a class="tab__item" href="{{route('category.index')}}">
                     دسته ها
                 </a>
 
-                <a class="tab__item " href="{{route('subcategory.index')}}">زیر دسته ها</a>
+                <a class="tab__item" href="{{route('subcategory.index')}}">
+                    زیر دسته ها
+                </a>
 
-                <a class="tab__item is-active" href="{{'childcategory.index'}}">
+                <a class="tab__item is-active" href="{{route('childcategory.index')}}">
                     دسته های کودک
                 </a>
                 |
@@ -27,10 +29,10 @@
                 </a>
 
                 <a class="tab__item btn btn-danger"
-                   href="{{route('childcategory.trashed')}}"
+                   href="{{route('subcategory.trashed')}}"
                    style="color: white;float: left;margin-top: 10px;margin-left: 10px">
                     سطل زباله
-                    ({{\App\Models\ChildCategory::onlyTrashed()->count()}})
+                    ({{\App\Models\SubCategory::onlyTrashed()->count()}})
                 </a>
             </div>
         </div>
@@ -42,7 +44,7 @@
 
                         <thead role="rowgroup">
                         <tr role="row" class="title-row">
-                            <th>آیدی</th>
+                            <th>ردیف</th>
                             <th>تصویر دسته کودک</th>
                             <th>عنوان دسته کودک</th>
                             <th>نام دسته کودک</th>
@@ -58,11 +60,12 @@
                             @foreach($categories as $category)
                                 <tr role="row">
                                     <td>
-                                       {{$count++}}
+                                        {{$count++}}
                                     </td>
 
                                     <td>
-                                        <img src="{{\Illuminate\Support\Facades\Storage::url($category->img)}}" alt="img" width="50px">
+                                        <img src="{{\Illuminate\Support\Facades\Storage::url($category->img)}}"
+                                             alt="img" width="50px">
                                     </td>
 
                                     <td>
@@ -74,9 +77,11 @@
                                     </td>
 
                                     <td>
-                                            @foreach(\App\Models\SubCategory::where('id',$category->parent)->get() as $category)
-                                                {{$category->title}}
-                                            @endforeach
+
+                                        @foreach(\App\Models\SubCategory::where('id',$category->parent)->get() as $ca)
+                                            {{$ca->title}}
+                                        @endforeach
+
                                     </td>
 
                                     <td>
@@ -99,16 +104,16 @@
                                         <a type="submit" class="item-delete mlg-15"
                                            wire:click="deleteCategory({{$category->id}})"
                                            title="حذف">
-                                        </a>
 
+                                        </a>
                                         <a href="{{route('childcategory.update',$category)}}" class="item-edit "
                                            title="ویرایش">
                                         </a>
                                     </td>
                                 </tr>
                             @endforeach
-
                             </tbody>
+
                             {{$categories->render()}}
 
                         @else
@@ -122,6 +127,7 @@
 
             <div class="col-4 bg-white">
                 <p class="box__title">ایجاد زیر دسته جدید</p>
+
                 <form wire:submit.prevent="categoryForm" enctype="multipart/form-data" role="form"
                       class="padding-10 categoryForm">
 
@@ -146,7 +152,11 @@
                         <div class="notificationGroup">
                             <input id="option4" type="checkbox" name="status" class="form-control"
                                    wire:model.lazy="childcategory.status">
-                            <label for="option4">نمایش در دسته اصلی:</label>
+
+                            <label for="option4">
+                                نمایش در دسته اصلی:
+                            </label>
+
                         </div>
                     </div>
 
@@ -176,6 +186,8 @@
                 </form>
             </div>
         </div>
+
+
     </div>
 
     <script>

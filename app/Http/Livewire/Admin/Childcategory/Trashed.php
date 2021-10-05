@@ -3,9 +3,8 @@
 namespace App\Http\Livewire\Admin\Childcategory;
 
 use App\Models\ChildCategory;
-use App\Models\SubCategory;
+use App\Models\Log;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Livewire\WithPagination;
 
