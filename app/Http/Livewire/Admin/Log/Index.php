@@ -32,8 +32,7 @@ class Index extends Component
         $logs = $this->readyToLoad ? \App\Models\Log::where('actionType', 'LIKE', "%{$this->search}%")
             ->orWhere('user_id', 'LIKE', "%{$this->search}%")
             ->orWhere('url', 'LIKE', "%{$this->search}%")
-            ->orWhere('id', $this->search)
-            ->latest()->paginate(15) : [];
-        return view('livewire.admin.log.index',compact('logs'));
+            ->latest()->paginate(10) : [];
+        return view('livewire.admin.log.index', compact('logs'));
     }
 }

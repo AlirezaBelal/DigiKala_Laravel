@@ -27,7 +27,7 @@
 
                         <thead role="rowgroup">
                         <tr role="row" class="title-row">
-                            <th>آیدی</th>
+                            <th>ردیف</th>
                             <th>کاربر</th>
                             <th>لینک</th>
                             <th>وضعیت</th>
@@ -36,9 +36,12 @@
 
                         @if($readyToLoad)
                             <tbody>
+                            @php($count = 1)
                             @foreach($logs as $log)
                                 <tr role="row">
-                                    <td><a href="">{{$log->id}}</a></td>
+                                    <td>
+                                        {{$count++}}
+                                    </td>
                                     <td>
                                         @foreach(\App\Models\User::where('id',$log->user_id)->get() as $user)
                                             {{$user->name}}
@@ -46,25 +49,28 @@
                                     </td>
 
                                     <td>
-                                        <a href="">{{$log->url}}</a>
+                                        {{$log->url}}
                                     </td>
 
                                     <td>
-                                        <a href="">
-                                            @if($log->actionType =='ایجاد')
-                                                <span style="background-color: green" class="badge badge-success">ایجاد</span>
-                                            @elseif($log->actionType =='حذف')
-                                                <span style="background-color: red" class="badge badge-danger ">حذف</span>
-                                            @elseif($log->actionType =='آپدیت')
-                                                <span style="background-color: #e29c5f" class="badge badge-warning">آپدیت</span>
-                                            @elseif($log->actionType =='فعال')
-                                                <span style="background-color:blue" class="badge badge-primary">فعال</span>
-                                            @elseif($log->actionType =='غیرفعال')
-                                                <span style="background-color:red" class="badge badge-danger">غیرفعال</span>
-                                            @elseif($log->actionType =='بازیابی')
-                                                <span style="background-color:wheat" class="badge badge-warning">بازیابی</span>
-                                            @endif
-                                        </a>
+
+                                        @if($log->actionType =='ایجاد')
+                                            <span style="background-color: green"
+                                                  class="badge badge-success">ایجاد</span>
+                                        @elseif($log->actionType =='حذف')
+                                            <span style="background-color: red" class="badge badge-danger ">حذف</span>
+                                        @elseif($log->actionType =='آپدیت')
+                                            <span style="background-color: #e29c5f"
+                                                  class="badge badge-warning">آپدیت</span>
+                                        @elseif($log->actionType =='فعال')
+                                            <span style="background-color:blue" class="badge badge-primary">فعال</span>
+                                        @elseif($log->actionType =='غیرفعال')
+                                            <span style="background-color:red" class="badge badge-danger">غیرفعال</span>
+                                        @elseif($log->actionType =='بازیابی')
+                                            <span style="background-color:wheat"
+                                                  class="badge badge-warning">بازیابی</span>
+                                        @endif
+ 
                                     </td>
                                 </tr>
 
