@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin\Childcategory;
 use App\Models\ChildCategory;
 use App\Models\SubCategory;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -38,6 +39,13 @@ class Trashed extends Component
     {
         $category = ChildCategory::withTrashed()->where('id', $id)->first();
         $category->restore();
+
+        Log::create([
+            'user_id' => auth()->user()->id,
+            'url' => 'بازیابی دسته کودک' .'-'. $category->title,
+            'actionType' => 'بازیابی'
+        ]);
+
 
         $this->emit('toast', 'success', ' دسته کودک با موفقیت بازیابی شد.');
     }

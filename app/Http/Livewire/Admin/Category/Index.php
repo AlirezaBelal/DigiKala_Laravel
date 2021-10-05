@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Category;
 
 use App\Models\Category;
+use App\Models\Log;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
@@ -60,6 +61,12 @@ class Index extends Component
                 'status' => 0
             ]);
         }
+        Log::create([
+            'user_id' => auth()->user()->id,
+            'url' => 'افزودن دسته' .'-'. $this->category->title,
+            'actionType' => 'ایجاد'
+        ]);
+
         $this->emit('toast', 'success', ' دسته با موفقیت ایجاد شد.');
     }
 
@@ -82,6 +89,12 @@ class Index extends Component
             'status' => 0
         ]);
 
+        Log::create([
+            'user_id' => auth()->user()->id,
+            'url' => 'غیرفعال کردن وضعیت دسته' .'-'. $this->category->title,
+            'actionType' => 'غیرفعال'
+        ]);
+
         $this->emit('toast', 'success', 'وضعیت دسته با موفقیت غیرفعال شد.');
     }
 
@@ -93,6 +106,12 @@ class Index extends Component
             'status' => 1
         ]);
 
+        Log::create([
+            'user_id' => auth()->user()->id,
+            'url' => 'فعال کردن وضعیت دسته' .'-'. $this->category->title,
+            'actionType' => 'فعال'
+        ]);
+
         $this->emit('toast', 'success', 'وضعیت دسته با موفقیت فعال شد.');
     }
 
@@ -101,6 +120,12 @@ class Index extends Component
     {
         $category = Category::find($id);
         $category->delete();
+
+        Log::create([
+            'user_id' => auth()->user()->id,
+            'url' => 'حذف کردن دسته' .'-'. $this->category->title,
+            'actionType' => 'حذف'
+        ]);
 
         $this->emit('toast', 'success', ' دسته با موفقیت حذف شد.');
     }

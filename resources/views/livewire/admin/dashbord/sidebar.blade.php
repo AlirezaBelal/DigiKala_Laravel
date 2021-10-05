@@ -14,14 +14,33 @@
             <div class="v-dialog__container" style="display: block;"></div>
             <div class="box__camera default__avatar"></div>
         </div>
-        <span class="profile__name">کاربر :
+
+        <span class="profile__name">
+            کاربر :
         {{auth()->user()->name}}
-        </span></div>
+        </span>
+    </div>
 
     <ul>
-        <li class="item-li i-dashboard {{Request::routeIs('admin.index') ? 'is-active': '' }} "><a href="/admin">پیشخوان</a></li>
-        <li class="item-li i-categories {{Request::routeIs('category.index') ? 'is-active': '' }}"><a href="/admin/category">دسته بندی ها</a></li>
-        <li class="item-li i-articles {{Request::routeIs('log.index') ? 'is-active': '' }}"><a href="/admin/log">گزارشات سیستم</a></li>
+
+        <li class="item-li i-dashboard {{Request::routeIs('admin.index') ? 'is-active': '' }} ">
+            <a href="{{route('admin.index')}}">
+                پیشخوان
+            </a>
+        </li>
+
+        <li class="item-li i-categories {{Request::routeIs('category.index') ? 'is-active': '' }}">
+            <a href="{{route('category.index')}}">
+                دسته بندی ها
+            </a>
+        </li>
+
+        <li class="item-li i-articles {{Request::routeIs('log.index') ? 'is-active': '' }}">
+            <a href="{{route('log.index')}}">
+                گزارشات سیستم
+            </a>
+        </li>
+
 
 
         <hr>

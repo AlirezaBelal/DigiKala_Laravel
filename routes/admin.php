@@ -18,6 +18,10 @@ Route::get('/',\App\Http\Livewire\Admin\Dashbord\Index::class)
     ->name('admin.index');
 
 
+//======================================>logSystem
+Route::get('/log',\App\Http\Livewire\Admin\Log\Index::class)
+    ->name('log.index');
+
 //=======================================> //category//
 //category
 Route::get('/category' , \App\Http\Livewire\Admin\Category\Index::class)

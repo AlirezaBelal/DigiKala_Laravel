@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Subcategory;
 
 use App\Models\Category;
+use App\Models\Log;
 use App\Models\SubCategory;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -59,6 +60,12 @@ class Index extends Component
             ]);
         }
 
+        Log::create([
+            'user_id' => auth()->user()->id,
+            'url' => 'افزودن دسته کودک' .'-'. $this->childcategory->title,
+            'actionType' => 'ایجاد'
+        ]);
+
         $this->emit('toast', 'success', ' زیردسته با موفقیت ایجاد شد.');
     }
 
@@ -81,6 +88,12 @@ class Index extends Component
             'status' => 0
         ]);
 
+        Log::create([
+            'user_id' => auth()->user()->id,
+            'url' => 'غیرفعال کردن وضعیت دسته کودک' .'-'. $category->title,
+            'actionType' => 'غیرفعال'
+        ]);
+
         $this->emit('toast', 'success', 'وضعیت زیر دسته با موفقیت غیرفعال شد.');
     }
 
@@ -92,6 +105,12 @@ class Index extends Component
             'status' => 1
         ]);
 
+        Log::create([
+            'user_id' => auth()->user()->id,
+            'url' => 'فعال کردن وضعیت دسته کودک' .'-'. $category->title,
+            'actionType' => 'فعال'
+        ]);
+
         $this->emit('toast', 'success', 'وضعیت زیر دسته با موفقیت فعال شد.');
     }
 
@@ -100,6 +119,12 @@ class Index extends Component
     {
         $category = SubCategory::find($id);
         $category->delete();
+
+        Log::create([
+            'user_id' => auth()->user()->id,
+            'url' => 'حذف کردن دسته کودک' .'-'. $category->title,
+            'actionType' => 'حذف'
+        ]);
 
         $this->emit('toast', 'success', ' زیر دسته با موفقیت حذف شد.');
     }

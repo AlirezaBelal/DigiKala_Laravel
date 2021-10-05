@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Category;
 
 use App\Models\Category;
+use App\Models\Log;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -39,6 +40,12 @@ class Trashed extends Component
     {
         $category = Category::withTrashed()->where('id', $id)->first();
         $category->restore();
+
+        Log::create([
+            'user_id' => auth()->user()->id,
+            'url' => 'بازیابی دسته' .'-'. $category->title,
+            'actionType' => 'بازیابی'
+        ]);
 
         $this->emit('toast', 'success', ' دسته با موفقیت بازیابی شد.');
     }

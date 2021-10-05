@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Subcategory;
 
 use App\Models\Category;
+use App\Models\Log;
 use App\Models\SubCategory;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -36,6 +37,12 @@ class Update extends Component
                 'status' => 0
             ]);
         }
+
+        Log::create([
+            'user_id' => auth()->user()->id,
+            'url' => 'آپدیت دسته کودک' .'-'. $this->childcategory->title,
+            'actionType' => 'آپدیت'
+        ]);
 
         $this->emit('toast', 'success', ' دسته با موفقیت ایجاد شد.');
 
