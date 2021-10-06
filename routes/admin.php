@@ -52,3 +52,7 @@ Route::get('/childcategory/update/{childcategory}' , \App\Http\Livewire\Admin\Ch
 
 Route::get('/childcategory/trashed' , \App\Http\Livewire\Admin\Childcategory\Trashed::class)
     ->name('childcategory.trashed');
+
+//=======================================> //product//
+Route::get('/product',\App\Http\Livewire\Admin\Product\Index::class)
+    ->name('product.index');
