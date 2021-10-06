@@ -29,10 +29,10 @@
                 </a>
 
                 <a class="tab__item btn btn-danger"
-                   href="{{route('subcategory.trashed')}}"
+                   href="{{route('childcategory.trashed')}}"
                    style="color: white;float: left;margin-top: 10px;margin-left: 10px">
                     سطل زباله
-                    ({{\App\Models\SubCategory::onlyTrashed()->count()}})
+                    ({{\App\Models\ChildCategory::onlyTrashed()->count()}})
                 </a>
             </div>
         </div>
