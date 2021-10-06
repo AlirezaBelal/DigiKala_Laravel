@@ -27,7 +27,7 @@
                 </a>
 
                 <a class="tab__item btn btn-success" style="color: white;float: left;margin-top: 10px;margin-left: 10px"
-                   href="">
+                   href="{{route('product.create')}}">
                     افزودن محصول
                 </a>
             </div>
