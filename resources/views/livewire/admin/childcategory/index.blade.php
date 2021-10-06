@@ -162,6 +162,7 @@
 
                     <div class="form-group">
                         <select wire:model.lazy="childcategory.parent" name="parent" id="" class="form-control">
+                            <option value="-1">--انتخاب زیردسته</option>
                             @foreach(\App\Models\SubCategory::all() as $category)
                                 <option value="{{$category->id}}">{{$category->title}}</option>
                             @endforeach
