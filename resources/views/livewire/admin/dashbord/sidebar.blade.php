@@ -35,6 +35,12 @@
             </a>
         </li>
 
+        <li class="item-li i-banners {{Request::routeIs('product.index') ? 'is-active': '' }}">
+            <a href="{{route('product.index')}}">
+                محصولات
+            </a>
+        </li>
+
         <li class="item-li i-articles {{Request::routeIs('log.index') ? 'is-active': '' }}">
             <a href="{{route('log.index')}}">
                 گزارشات سیستم
@@ -44,7 +50,7 @@
 
 
         <hr>
-        <li class="item-li i-courses "><a href="/admin/product">محصولات</a></li>
+        <li class="item-li i-courses "><a href={{route('product.index')}}">محصولات</a></li>
         <li class="item-li i-users"><a href="/admin/user"> کاربران</a></li>
 
         <li class="item-li i-slideshow"><a href="slideshow.html">اسلایدشو</a></li>
