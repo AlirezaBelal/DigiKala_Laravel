@@ -162,6 +162,7 @@
 
                     <div class="form-group">
                         <select wire:model.lazy="subcategory.parent" name="parent" id="" class="form-control">
+                            <option value="-1">--انتخاب دسته</option>
                             @foreach(\App\Models\Category::all() as $category)
                                 <option value="{{$category->id}}">{{$category->title}}</option>
                             @endforeach
@@ -186,8 +187,6 @@
                 </form>
             </div>
         </div>
-
-
     </div>
 
     <script>
