@@ -63,7 +63,7 @@ class Create extends Component
     public function categoryForm()
     {
         $this->validate();
-        if($this->img){
+        if ($this->img) {
             $this->product->img = $this->uploadImage();
         }
 
