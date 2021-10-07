@@ -21,8 +21,7 @@
 
 
                 <a class="tab__item btn btn-danger" style="color: white;float: left;margin-top: 10px;margin-left: 10px"
-                    {{--TODO:treched--}}
-                   href="">
+                   href="{{route('product.trashed')}}">
                     سطل زباله
                     ({{\App\Models\Product::onlyTrashed()->count()}})
                 </a>
