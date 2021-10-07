@@ -122,7 +122,7 @@
                                            title="حذف">
                                         </a>
 
-                                        <a href="" class="item-edit " title="ویرایش"></a>
+                                        <a href="{{route('product.update',$product)}}" class="item-edit " title="ویرایش"></a>
                                     </td>
                                 </tr>
                             @endforeach

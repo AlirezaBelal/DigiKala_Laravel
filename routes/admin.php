@@ -59,3 +59,6 @@ Route::get('/product',\App\Http\Livewire\Admin\Product\Index::class)
 
 Route::get('/product/create',\App\Http\Livewire\Admin\Product\Create::class)
     ->name('product.create');
+
+Route::get('/product/update/{product}',\App\Http\Livewire\Admin\Product\Update::class)
+    ->name('product.update');
