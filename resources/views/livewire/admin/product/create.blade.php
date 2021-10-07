@@ -34,16 +34,16 @@
                     {{--            class="form-control">--}}
                     {{--       </div>--}}
                     {{--</div>--}}
+
                     <div class="col-md-6">
-                        <div class="form-group">
-                            <div class="notificationGroup">
-                                <input id="option4" type="checkbox" name="status_product" class="form-control"
-                                       wire:model.lazy="product.status_product">
-                                <label for="option4">
-                                    نمایش در محصول اصلی:
-                                </label>
-                            </div>
-                        </div>
+                        <input type="text" wire:model.lazy="product.number" placeholder="تعداد موجودی محصول "
+                               class="form-control">
+                    </div>
+
+                    <div class="col-md-6">
+                        <input type="text" class="form-control"
+                               wire:model.lazy="product.order_count"
+                               placeholder="تعداد سفارش محصول(صفر نامحدود)">
                     </div>
                 </div>
 
@@ -139,19 +139,16 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <input type="text" wire:model.lazy="product.price" placeholder="قیمت محصول "
                                class="form-control">
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <input type="text" wire:model.lazy="product.discount_price" placeholder="قیمت تخفیف خورده "
                                class="form-control">
                     </div>
-                    <div class="col-md-3">
-                        <input type="text" wire:model.lazy="product.number" placeholder="تعداد موجودی محصول "
-                               class="form-control">
-                    </div>
-                    <div class="col-md-3">
+
+                    <div class="col-md-4">
                         <input type="text" wire:model.lazy="product.weight" placeholder="وزن محصول "
                                class="form-control">
                     </div>
@@ -215,9 +212,15 @@
                     </div>
 
                     <div class="col-md-4">
-                        <input type="text" class="form-control"
-                               wire:model.lazy="product.order_count"
-                               placeholder="تعداد سفارش محصول(صفر نامحدود)">
+                        <div class="form-group">
+                            <div class="notificationGroup">
+                                <input id="option4" type="checkbox" name="status_product" class="form-control"
+                                       wire:model.lazy="product.status_product">
+                                <label for="option4">
+                                    نمایش در محصول اصلی:
+                                </label>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
