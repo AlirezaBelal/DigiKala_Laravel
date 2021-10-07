@@ -6,7 +6,6 @@ use App\Models\Category;
 use App\Models\Log;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
-use Livewire\WithFileUploads;
 use Livewire\WithPagination;
 
 class Trashed extends Component
@@ -68,8 +67,8 @@ class Trashed extends Component
     public function render()
     {
         $categories = $this->readyToLoad ? DB::table('categories')
-            ->whereNotNull('deleted_at')->
-            latest()->paginate(15) : [];
+            ->whereNotNull('deleted_at')
+            ->latest()->paginate(10) : [];
 
         return view('livewire.admin.category.trashed', compact('categories'));
     }
