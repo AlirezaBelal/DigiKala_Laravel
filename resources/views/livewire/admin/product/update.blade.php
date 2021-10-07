@@ -2,8 +2,11 @@
 
 <div>
     <div class="main-content padding-0">
-        <p class="box__title">ویرایش محصول -
-            {{$product->title}}</p>
+        <p class="box__title">
+            ویرایش محصول -
+            {{$product->title}}
+        </p>
+
         <div class="row no-gutters bg-white">
             <div class="col-12">
                 <form wire:submit.prevent="categoryForm"
@@ -11,6 +14,7 @@
                       class="padding-10 categoryForm">
 
                     @include('errors.error')
+
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -20,8 +24,8 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" wire:model.lazy="product.name" placeholder="نام انگلیسی محصول "
-                                       class="form-control">
+                                <input type="text" placeholder="نام انگلیسی محصول " class="form-control"
+                                       wire:model.lazy="product.name">
                             </div>
                         </div>
                     </div>
@@ -30,15 +34,17 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" wire:model.lazy="product.link" placeholder="لینک محصول "
-                                       class="form-control">
+                                <input type="text" placeholder="لینک محصول " class="form-control"
+                                       wire:model.lazy="product.link">
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <div class="notificationGroup">
-                                    <input id="option36" type="checkbox" wire:model.lazy="product.status_product" name="status_product"
-                                           class="form-control">
+                                    <input id="option36" type="checkbox" class="form-control"
+                                           wire:model.lazy="product.status_product"
+                                           name="status_product">
                                     <label for="option36">نمایش در محصول اصلی:</label>
                                 </div>
                             </div>
@@ -48,8 +54,9 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <select wire:model.lazy="product.category_id" name="category_id" id=""
-                                        class="form-control">
+                                <select name="category_id" id="" class="form-control"
+                                        wire:model.lazy="product.category_id">
+
                                     <option value="-1">--دسته اصلی</option>
                                     @foreach(\App\Models\Category::all() as $category)
                                         <option value="{{$category->id}}">{{$category->title}}</option>
@@ -57,10 +64,12 @@
                                 </select>
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="form-group">
-                                <select wire:model.lazy="product.subcategory_id" name="subcategory_id" id=""
-                                        class="form-control">
+                                <select name="subcategory_id" id="" class="form-control"
+                                        wire:model.lazy="product.subcategory_id">
+
                                     <option value="-1">--زیر دسته</option>
                                     @foreach(\App\Models\SubCategory::all() as $category)
                                         <option value="{{$category->id}}">{{$category->title}}</option>
@@ -69,11 +78,13 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <select wire:model.lazy="product.childcategory_id" name="childcategory_id" id=""
-                                        class="form-control">
+                                <select name="childcategory_id" id="" class="form-control"
+                                        wire:model.lazy="product.childcategory_id">
+
                                     <option value="-1">--دسته فرزند</option>
                                     @foreach(\App\Models\ChildCategory::all() as $category)
                                         <option value="{{$category->id}}">{{$category->title}}</option>
@@ -81,13 +92,15 @@
                                 </select>
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <select wire:model.lazy="product.brand_id" name="brand_id" id="" class="form-control">
-                                    <option value="1">برند محصول</option>
-                                    {{--                                @foreach(\App\Models\ChildCategory::all() as $category)--}}
-                                    {{--                                    <option value="{{$category->id}}">{{$category->title}}</option>--}}
-                                    {{--                                @endforeach--}}
+                                    {{--TODO:beand--}}
+                                    <option value="-1">برند محصول</option>
+                                    {{--@foreach(\App\Models\ChildCategory::all() as $category)--}}
+                                    {{--    <option value="{{$category->id}}">{{$category->title}}</option>--}}
+                                    {{--@endforeach--}}
                                 </select>
                             </div>
                         </div>
@@ -96,13 +109,15 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <select wire:model.lazy="product.color_id" name="brand_id" id="" class="form-control">
-                                    <option value="1">رنگ محصول</option>
-                                    {{--                                @foreach(\App\Models\ChildCategory::all() as $category)--}}
-                                    {{--                                    <option value="{{$category->id}}">{{$category->title}}</option>--}}
-                                    {{--                                @endforeach--}}
+                                    {{--TODO:color--}}
+                                    <option value="-1">رنگ محصول</option>
+                                    {{--@foreach(\App\Models\ChildCategory::all() as $category)--}}
+                                    {{--    <option value="{{$category->id}}">{{$category->title}}</option>--}}
+                                    {{--@endforeach--}}
                                 </select>
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <input type="text" wire:model.lazy="product.tags" placeholder="تگ های محصول "
@@ -113,15 +128,18 @@
 
                     <div class="row">
                         <div class="form-group">
-                            <textarea rows="5" wire:model.lazy="product.description"
-                                      placeholder="توضیح کوتاه محصول "
-                                      class="form-control" id="description_create">
+                            <textarea rows="5" class="form-control" id="description_create"
+                                      wire:model.lazy="product.description"
+                                      placeholder="توضیح کوتاه محصول ">
                                 {{$product->description}}
                             </textarea>
                         </div>
+
                         <div class="form-group">
-                            <textarea wire:model.lazy="product.body" name="body" placeholder="توضیح محصول "
-                                      class="form-control" id="body_create">
+                            <textarea w name="body" class="form-control"
+                                      ire:model.lazy="product.body"
+                                      placeholder="توضیح محصول "
+                                      id="body_create">
                                   {{$product->body}}
                             </textarea>
                         </div>

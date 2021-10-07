@@ -90,7 +90,8 @@
                         <div class="form-group">
                             <select name="brand_id" id="" class="form-control"
                                     wire:model.lazy="product.brand_id">
-                                <option value="1">برند محصول</option>
+                                <option value="-1">برند محصول</option>
+                                {{--TODO:brand--}}
                                 {{--@foreach(\App\Models\ChildCategory::all() as $category)--}}
                                 {{--    <option value="{{$category->id}}">{{$category->title}}</option>--}}
                                 {{--@endforeach--}}
@@ -104,7 +105,8 @@
                         <div class="form-group">
                             <select name="brand_id" id="" class="form-control"
                                     wire:model.lazy="product.color_id">
-                                <option value="1">رنگ محصول</option>
+                                <option value="-1">رنگ محصول</option>
+                                {{--TODO:color--}}
                                 {{--@foreach(\App\Models\ChildCategory::all() as $category)--}}
                                 {{--    <option value="{{$category->id}}">{{$category->title}}</option>--}}
                                 {{--@endforeach--}}
@@ -130,8 +132,8 @@
 
                     <div class="form-group">
                             <textarea name="body" class="form-control" id="body_create"
-                                       placeholder="توضیح محصول "
-                                       wire:model.lazy="product.body">
+                                      placeholder="توضیح محصول "
+                                      wire:model.lazy="product.body">
                             </textarea>
                     </div>
                 </div>
