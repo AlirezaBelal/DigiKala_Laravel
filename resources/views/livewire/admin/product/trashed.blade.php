@@ -8,6 +8,10 @@
                 <a class="tab__item" href="{{route('product.index')}}">
                     محصولات
                 </a>
+
+                <a class="tab__item" href="{{route('color.index')}}">
+                    رنگ های محصولات
+                </a>
                 |
                 <a class="tab__item">
                     جستجو:
