@@ -41,6 +41,12 @@
             </a>
         </li>
 
+        <li class="item-li i-my__purchases {{Request::routeIs('brand.index') ? 'is-active': '' }}">
+            <a href="{{route('brand.index')}}">
+                برند محصولات
+            </a>
+        </li>
+
         <li class="item-li i-articles {{Request::routeIs('log.index') ? 'is-active': '' }}">
             <a href="{{route('log.index')}}">
                 گزارشات سیستم
