@@ -70,3 +70,9 @@ Route::get('/product/trashed',\App\Http\Livewire\Admin\Product\Trashed::class)
 //=======================================> //Brands//
 Route::get('/brand',\App\Http\Livewire\Admin\Brand\Index::class)
     ->name('brand.index');
+
+Route::get('/brand/update/{brand}',\App\Http\Livewire\Admin\Brand\Update::class)
+    ->name('brand.update');
+
+Route::get('/brand/trashed',\App\Http\Livewire\Admin\Brand\Trashed::class)
+    ->name('brand.trashed');

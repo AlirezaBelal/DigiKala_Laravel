@@ -21,7 +21,7 @@
                 </a>
 
                 <a class="tab__item btn btn-danger"
-{{--                   href="{{route('brand.trashed')}}"--}}
+                   href="{{route('brand.trashed')}}"
                    style="color: white;float: left;margin-top: 10px;margin-left: 10px">
                     سطل زباله
                     ({{\App\Models\Brand::onlyTrashed()->count()}})
@@ -94,7 +94,7 @@
                                         </a>
 
                                         <a class="item-edit "
-{{--                                           href="{{route('brand.update',$brand)}}"--}}
+                                           href="{{route('brand.update',$brand)}}"
                                            title="ویرایش">
                                         </a>
 
