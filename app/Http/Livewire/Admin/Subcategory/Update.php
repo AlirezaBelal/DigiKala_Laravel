@@ -45,7 +45,7 @@ class Update extends Component
             'actionType' => 'آپدیت'
         ]);
 
-        $this->emit('toast', 'success', ' دسته با موفقیت ایجاد شد.');
+        $this->emit('toast', 'success', ' زیردسته با موفقیت آپدیت شد.');
 
         return redirect(route('subcategory.index'));
 
