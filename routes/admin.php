@@ -53,7 +53,7 @@ Route::get('/childcategory/update/{childcategory}' , \App\Http\Livewire\Admin\Ch
 Route::get('/childcategory/trashed' , \App\Http\Livewire\Admin\Childcategory\Trashed::class)
     ->name('childcategory.trashed');
 
-//=======================================> //product//
+//=======================================> //Product//
 Route::get('/product',\App\Http\Livewire\Admin\Product\Index::class)
     ->name('product.index');
 
@@ -66,6 +66,15 @@ Route::get('/product/update/{product}',\App\Http\Livewire\Admin\Product\Update::
 Route::get('/product/trashed',\App\Http\Livewire\Admin\Product\Trashed::class)
     ->name('product.trashed');
 
+//=======================================> //product . Color//
+Route::get('/product/color',\App\Http\Livewire\Admin\Product\Color\Index::class)
+    ->name('color.index');
+
+Route::get('/product/color/update/{color}',\App\Http\Livewire\Admin\Product\Color\Update::class)
+    ->name('color.update');
+
+Route::get('/product/color/trashed',\App\Http\Livewire\Admin\Product\Color\Trashed::class)
+    ->name('color.trashed');
 
 //=======================================> //Brands//
 Route::get('/brand',\App\Http\Livewire\Admin\Brand\Index::class)
@@ -76,3 +85,5 @@ Route::get('/brand/update/{brand}',\App\Http\Livewire\Admin\Brand\Update::class)
 
 Route::get('/brand/trashed',\App\Http\Livewire\Admin\Brand\Trashed::class)
     ->name('brand.trashed');
+
+
