@@ -48,6 +48,7 @@ class Index extends Component
 
     public function updateCategoryEnable($id)
     {
+//        dd($this->product);
         $product = Product::find($id);
         $product->update([
             'status_product' => 1
