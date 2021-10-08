@@ -22,8 +22,8 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="text" placeholder="کد رنگ " class="form-control"
-                               wire:model.lazy="color.color">
+                        <input data-jscolor="" type="text" placeholder="کد رنگ " class="form-control"
+                               wire:model.lazy="color.value">
                     </div>
 
                     <div class="form-group">
