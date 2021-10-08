@@ -17,7 +17,7 @@ class Update extends Component
 
     protected $rules = [
         'color.name' => 'required',
-        'color.color' => 'required',
+        'color.value' => 'required',
         'color.status' => 'nullable',
     ];
 

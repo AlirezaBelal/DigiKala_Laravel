@@ -29,7 +29,7 @@ class Index extends Component
      */
     protected $rules = [
         'color.name' => 'required',
-        'color.color' => 'required',
+        'color.value' => 'required',
         'color.status' => 'nullable',
     ];
 
@@ -137,7 +137,7 @@ class Index extends Component
     public function render()
     {
         $colors = $this->readyToLoad ? Color::Where('name', 'LIKE', "%{$this->search}%")
-            ->orWhere('color', 'LIKE', "%{$this->search}%")
+            ->orWhere('value', 'LIKE', "%{$this->search}%")
             ->latest()->paginate(10) : [];
         return view('livewire.admin.product.color.index' , compact('colors'));
     }

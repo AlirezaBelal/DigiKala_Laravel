@@ -13,6 +13,6 @@ class Color extends Model
 
     protected $fillable = [
         'name',
-        'color',
+        'value',
         'status'];
 }

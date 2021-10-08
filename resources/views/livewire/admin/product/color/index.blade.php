@@ -62,7 +62,7 @@
                                     </td>
 
                                     <td>
-                                        <span style="background-color: {{$color->color}}">{{$color->color}}</span>
+                                        <span style="background-color: {{$color->value}}">{{$color->value}}</span>
                                     </td>
 
                                     <td>
@@ -121,11 +121,11 @@
                                wire:model.lazy="color.name">
                     </div>
 
-                    <div class="form-group">
-                        <input type="text" placeholder="کد رنگ " class="form-control"
-                               wire:model.lazy="color.color">
-                    </div>
 
+                    <div class="form-group">
+                        <input data-jscolor="" type="text" placeholder="کد رنگ " class="form-control"
+                               wire:model.lazy="color.value">
+                    </div>
 
                     <div class="form-group">
                         <div class="notificationGroup">
