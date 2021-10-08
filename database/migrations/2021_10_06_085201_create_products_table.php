@@ -40,7 +40,7 @@ class CreateProductsTable extends Migration
             $table->integer('shipment')->nullable();
             $table->integer('original')->default(1);
             $table->integer('order_count')->default(0);
-            $table->integer('special')->default(0);
+            $table->integer('special');
 
             $table->softDeletes();
             $table->timestamps();
