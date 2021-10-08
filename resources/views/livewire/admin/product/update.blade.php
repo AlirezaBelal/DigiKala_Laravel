@@ -96,11 +96,10 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <select wire:model.lazy="product.brand_id" name="brand_id" id="" class="form-control">
-                                    {{--TODO:beand--}}
                                     <option value="-1">برند محصول</option>
-                                    {{--@foreach(\App\Models\ChildCategory::all() as $category)--}}
-                                    {{--    <option value="{{$category->id}}">{{$category->title}}</option>--}}
-                                    {{--@endforeach--}}
+                                    @foreach(\App\Models\Brand::all() as $brand)
+                                        <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -109,11 +108,10 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <select wire:model.lazy="product.color_id" name="brand_id" id="" class="form-control">
-                                    {{--TODO:color--}}
                                     <option value="-1">رنگ محصول</option>
-                                    {{--@foreach(\App\Models\ChildCategory::all() as $category)--}}
-                                    {{--    <option value="{{$category->id}}">{{$category->title}}</option>--}}
-                                    {{--@endforeach--}}
+                                    @foreach(\App\Models\Color::all() as $color)
+                                        <option value="{{$color->id}}" style="background-color: {{$color->value}}">{{$color->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
