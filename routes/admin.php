@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 //======================================>admin/dashboard
-Route::get('/',\App\Http\Livewire\Admin\Dashbord\Index::class)
+Route::get('/',\App\Http\Livewire\Admin\Dashboard\Index::class)
     ->name('admin.index');
 
 
