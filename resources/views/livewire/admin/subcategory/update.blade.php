@@ -3,8 +3,7 @@
 <div>
     <div class="main-content padding-0">
         <p class="box__title">
-            ویرایش زیر دسته
-            -
+            ویرایش زیر دسته -
             {{$subcategory->title}}
         </p>
 
@@ -17,24 +16,25 @@
                     @include('errors.error')
 
                     <div class="form-group">
-                        <input type="text" placeholder="نام دسته " class="form-control"
-                               wire:model.lazy="subcategory.title">
+                        <input type="text" wire:model.lazy="subcategory.title" placeholder="نام دسته "
+                               class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" placeholder="نام انگلیسی دسته " class="form-control"
-                               wire:model.lazy="subcategory.name">
+                        <input type="text" wire:model.lazy="subcategory.name" placeholder="نام انگلیسی دسته "
+                               class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" placeholder="لینک دسته " class="form-control"
-                               wire:model.lazy="subcategory.link">
+                        <input type="text" wire:model.lazy="subcategory.link" placeholder="لینک دسته "
+                               class="form-control">
                     </div>
 
                     <div class="form-group">
                         <div class="notificationGroup">
-                            <input id="option4" type="checkbox" name="status" class="form-control"
-                                   wire:model.lazy="subcategory.status">
+                            <input id="option4" type="checkbox"
+                                   wire:model.lazy="subcategory.status" name="status"
+                                   class="form-control">
                             <label for="option4">نمایش در دسته اصلی:</label>
                         </div>
                     </div>
@@ -61,7 +61,6 @@
                                  src="{{$img->temporaryUrl()}}" alt="">
                         @endif
                     </div>
-
                     <button type="submit" class="btn btn-brand">آپدیت زیر دسته</button>
                 </form>
             </div>

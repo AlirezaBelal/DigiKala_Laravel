@@ -15,6 +15,10 @@ class Update extends Component
     public SubCategory $subcategory;
     public $img;
 
+    /**
+     * @var string[]
+     * Input rules
+     */
     protected $rules = [
         'subcategory.title' => 'required|min:3',
         'subcategory.name' => 'required',
@@ -32,7 +36,6 @@ class Update extends Component
         }
 
         $this->subcategory->update($this->validate());
-
         if (!$this->subcategory->status) {
             $this->subcategory->update([
                 'status' => 0
@@ -44,8 +47,7 @@ class Update extends Component
             'url' => 'آپدیت زیردسته' . '-' . $this->subcategory->title,
             'actionType' => 'آپدیت'
         ]);
-
-        $this->emit('toast', 'success', ' زیردسته با موفقیت آپدیت شد.');
+        alert()->success('زیر دسته با موفقیت ایجاد شد.', 'زیر دسته آپدیت شد.');
 
         return redirect(route('subcategory.index'));
 
@@ -65,6 +67,11 @@ class Update extends Component
 
     public function render()
     {
+        if ($this->subcategory->status == 1) {
+            $this->subcategory->status = true;
+        } else {
+            $this->subcategory->status = false;
+        }
         $subcategory = $this->subcategory;
         return view('livewire.admin.subcategory.update', compact('subcategory'));
     }
