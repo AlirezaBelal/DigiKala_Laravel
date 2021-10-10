@@ -2,9 +2,12 @@
 
 namespace App\Http\Livewire\Admin\Childcategory;
 
+use App\Models\Category;
 use App\Models\ChildCategory;
 use App\Models\Log;
+use App\Models\SubCategory;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -17,6 +20,10 @@ class Trashed extends Component
     public $readyToLoad = false;
 
     protected $queryString = ['search'];
+    /**
+     * @var string
+     * Site front type
+     */
     protected $paginationTheme = 'bootstrap';
 
 
@@ -28,9 +35,10 @@ class Trashed extends Component
 
     public function deleteCategory($id)
     {
-        $category = ChildCategory::find($id);
-        $category->delete();
-        $this->emit('toast', 'success', ' زیر دسته با موفقیت حذف شد.');
+        $category = ChildCategory::withTrashed()->findOrFail($id);
+        Storage::disk('public')->delete("storage", $category->img);
+        $category->forceDelete();
+        $this->emit('toast', 'success', ' دسته کودک به صورت کامل با موفقیت حذف شد.');
     }
 
 
@@ -38,20 +46,18 @@ class Trashed extends Component
     {
         $category = ChildCategory::withTrashed()->where('id', $id)->first();
         $category->restore();
-
         Log::create([
             'user_id' => auth()->user()->id,
             'url' => 'بازیابی دسته کودک' . '-' . $category->title,
             'actionType' => 'بازیابی'
         ]);
-
-
         $this->emit('toast', 'success', ' دسته کودک با موفقیت بازیابی شد.');
     }
 
 
     public function render()
     {
+
         $categories = $this->readyToLoad ? DB::table('child_categories')
             ->whereNotNull('deleted_at')->
             latest()->paginate(15) : [];

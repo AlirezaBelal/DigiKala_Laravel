@@ -4,27 +4,26 @@
     <div class="main-content" wire:init="loadCategory">
         <div class="tab__box">
             <div class="tab__items">
-
                 <a class="tab__item " href="{{route('category.index')}}">
                     دسته ها
                 </a>
 
-                <a class="tab__item " href="{{route('subcategory.index')}}">
+                <a class="tab__item "
+                   href="{{route('subcategory.index')}}">
                     زیر دسته ها
                 </a>
 
-                <a class="tab__item is-active" href="{{route('childcategory.index')}}">
+                <a class="tab__item is-active"
+                   href="{{route('childcategory.index')}}">
                     دسته های کودک
                 </a>
                 |
-                <a class="tab__item">
-                    جستجو:
-                </a>
+                <a class="tab__item">جستجو: </a>
 
                 <a class="t-header-search">
                     <form action="" onclick="event.preventDefault();">
-                        <input type="text" class="text" placeholder="جستجوی دسته ..."
-                               wire:model.debounce.1000="search">
+                        <input wire:model.debounce.1000="search"
+                               type="text" class="text" placeholder="جستجوی دسته ...">
                     </form>
                 </a>
 
@@ -39,7 +38,6 @@
 
         <div class="row">
             <div class="col-12 margin-left-10 margin-bottom-15 border-radius-3">
-
                 <div class="table__box">
                     <table class="table">
 
@@ -54,8 +52,8 @@
                         </thead>
 
                         @if($readyToLoad)
+                            @php($count = 1)
                             <tbody>
-                            @php($count  = 1)
                             @foreach($categories as $category)
                                 <tr role="row">
                                     <td>
@@ -63,7 +61,8 @@
                                     </td>
 
                                     <td>
-                                        <img src="{{\Illuminate\Support\Facades\Storage::url($category->img)}}" alt="img" width="50px">
+                                        <img src="{{\Illuminate\Support\Facades\Storage::url($category->img)}}"
+                                             alt="img" width="50px">
                                     </td>
 
                                     <td>
@@ -75,23 +74,24 @@
                                     </td>
 
                                     <td>
-                                        <a class="item-li i-checkouts item-restore"
-                                           wire:click="trashedCategory({{$category->id}})">
+                                        <a wire:click="deleteCategory({{$category->id}})" type="submit"
+                                           class="item-delete mlg-15"
+                                           title="حذف">
+                                        </a>
+                                        <a wire:click="trashedCategory({{$category->id}})"
+                                           class="item-li i-checkouts item-restore"
+                                           title="بازگردانی">
                                         </a>
                                     </td>
                                 </tr>
                             @endforeach
-
                             </tbody>
-
                             {{$categories->render()}}
-
                         @else
                             <div class="alert-warning alert">
                                 در حال خواندن اطلاعات از دیتابیس ...
                             </div>
                         @endif
-
                     </table>
                 </div>
             </div>
