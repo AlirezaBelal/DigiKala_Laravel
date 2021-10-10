@@ -3,8 +3,9 @@
 namespace App\Http\Livewire\Admin\Childcategory;
 
 use App\Models\ChildCategory;
-use App\Models\SubCategory;
 use App\Models\Log;
+use App\Models\Product;
+use App\Models\SubCategory;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
@@ -14,14 +15,22 @@ class Index extends Component
     use WithFileUploads;
     use WithPagination;
 
+    public ChildCategory $childcategory;
     public $img;
     public $search;
     public $readyToLoad = false;
-    public ChildCategory $childcategory;
 
     protected $queryString = ['search'];
+    /**
+     * @var string
+     * Site front type
+     */
     protected $paginationTheme = 'bootstrap';
 
+    /**
+     * @var string[]
+     * Input rules
+     */
     protected $rules = [
         'childcategory.title' => 'required|min:3',
         'childcategory.name' => 'required',
@@ -35,7 +44,6 @@ class Index extends Component
     {
         $this->childcategory = new ChildCategory();
     }
-
 
     /**
      * @throws \Illuminate\Validation\ValidationException
@@ -55,25 +63,42 @@ class Index extends Component
     public function categoryForm()
     {
         $this->validate();
+
+        $childCategory = ChildCategory::query()->create([
+            'title' => $this->childcategory->title,
+            'name' => $this->childcategory->name,
+            'link' => $this->childcategory->link,
+            'parent' => $this->childcategory->parent,
+            'status' => $this->childcategory->status ? 1 : 0,
+        ]);
+
         if ($this->img) {
-            $this->childcategory->img = $this->uploadImage();
-        }
-        if (!$this->childcategory->status) {
-            $this->childcategory->status = 0;
+            $childCategory->update([
+                'img' => $this->uploadImage()
+            ]);
         }
 
-        $this->childcategory->save();
 
+        $this->childcategory->title = "";
+        $this->childcategory->name = "";
+        $this->childcategory->link = "";
+        $this->childcategory->parent = null;
+        $this->childcategory->status = false;
+        $this->img = null;
         Log::create([
             'user_id' => auth()->user()->id,
             'url' => 'افزودن دسته کودک' . '-' . $this->childcategory->title,
             'actionType' => 'ایجاد'
         ]);
-
         $this->emit('toast', 'success', ' دسته کودک با موفقیت ایجاد شد.');
+
     }
 
 
+    /**
+     * @return string
+     * Upload image to memory
+     */
     public function uploadImage()
     {
         $year = now()->year;
@@ -91,13 +116,11 @@ class Index extends Component
         $category->update([
             'status' => 0
         ]);
-
         Log::create([
             'user_id' => auth()->user()->id,
             'url' => 'غیرفعال کردن وضعیت دسته کودک' . '-' . $category->title,
             'actionType' => 'غیرفعال'
         ]);
-
         $this->emit('toast', 'success', 'وضعیت دسته کودک با موفقیت غیرفعال شد.');
     }
 
@@ -108,13 +131,11 @@ class Index extends Component
         $category->update([
             'status' => 1
         ]);
-
         Log::create([
             'user_id' => auth()->user()->id,
             'url' => 'فعال کردن وضعیت دسته کودک' . '-' . $category->title,
             'actionType' => 'فعال'
         ]);
-
         $this->emit('toast', 'success', 'وضعیت دسته کودک با موفقیت فعال شد.');
     }
 
@@ -122,15 +143,18 @@ class Index extends Component
     public function deleteCategory($id)
     {
         $category = ChildCategory::find($id);
-        $category->delete();
-
-        Log::create([
-            'user_id' => auth()->user()->id,
-            'url' => 'حذف کردن دسته کودک' . '-' . $category->title,
-            'actionType' => 'حذف'
-        ]);
-
-        $this->emit('toast', 'success', ' دسته کودک با موفقیت حذف شد.');
+        $product = Product::where('childcategory_id', $id)->first();
+        if ($product == null) {
+            $category->delete();
+            Log::create([
+                'user_id' => auth()->user()->id,
+                'url' => 'حذف کردن دسته کودک' . '-' . $category->title,
+                'actionType' => 'حذف'
+            ]);
+            $this->emit('toast', 'success', ' دسته کودک با موفقیت حذف شد.');
+        } else {
+            $this->emit('toast', 'success', ' امکان حذف وجود ندارد زیرا این دسته، شامل محصول است!');
+        }
     }
 
 
@@ -140,7 +164,6 @@ class Index extends Component
             ->orWhere('name', 'LIKE', "%{$this->search}%")
             ->orWhere('link', 'LIKE', "%{$this->search}%")
             ->latest()->paginate(10) : [];
-
         return view('livewire.admin.childcategory.index', compact('categories'));
     }
 }
