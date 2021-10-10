@@ -1,22 +1,19 @@
-@section('title','سطل زباله برندها')
-
+@section('title','سطل زباله برند ها')
 
 <div>
     <div class="main-content" wire:init="loadCategory">
         <div class="tab__box">
             <div class="tab__items">
-
-                <a class="tab__item " href="{{route('brand.index')}}">
+                <a class="tab__item" href="{{route('brand.index')}}">
                     برند ها
                 </a>
-
                 |
                 <a class="tab__item">جستجو: </a>
 
                 <a class="t-header-search">
                     <form action="" onclick="event.preventDefault();">
-                        <input type="text" class="text" placeholder="جستجوی دسته ..."
-                               wire:model.debounce.1000="search">
+                        <input wire:model.debounce.1000="search"
+                               type="text" class="text" placeholder="جستجوی برند ...">
                     </form>
                 </a>
 
@@ -44,17 +41,17 @@
                         </thead>
 
                         @if($readyToLoad)
-                            <tbody>
                             @php($count = 1)
+                            <tbody>
                             @foreach($brands as $brand)
                                 <tr role="row">
                                     <td>
-                                        <p>{{$count++}}<p>
+                                        {{$count++}}
                                     </td>
 
                                     <td>
-                                        <img src="{{\Illuminate\Support\Facades\Storage::url($brand->img)}}"
-                                             alt="img" width="50px">
+                                        <img src="{{\Illuminate\Support\Facades\Storage::url($brand->img)}}" alt="img"
+                                             width="50px">
                                     </td>
 
                                     <td>
@@ -62,26 +59,25 @@
                                     </td>
 
                                     <td>
-                                        <a href="">
-                                            @foreach(\App\Models\Category::where('id',$brand->parent)->get() as $ca)
-                                                {{$ca->title}}
-                                            @endforeach
-                                        </a>
+                                        @foreach(\App\Models\Category::where('id',$brand->parent)->get() as $category)
+                                            {{$category->title}}
+                                        @endforeach
                                     </td>
 
-
                                     <td>
-                                        <a class="item-li i-checkouts item-restore"
-                                           wire:click="trashedCategory({{$brand->id}})">
+                                        <a wire:click="deleteCategory({{$brand->id}})" type="submit"
+                                           class="item-delete mlg-15"
+                                           title="حذف">
+                                        </a>
+                                        <a wire:click="trashedCategory({{$brand->id}})"
+                                           class="item-li i-checkouts item-restore"
+                                           title="ّبازگردانی">
                                         </a>
                                     </td>
                                 </tr>
-
                             @endforeach
                             </tbody>
-
                             {{$brands->render()}}
-
                         @else
                             <div class="alert-warning alert">
                                 در حال خواندن اطلاعات از دیتابیس ...
