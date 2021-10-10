@@ -6,6 +6,7 @@
 </head>
 <body>
 <livewire:admin.dashboard.sidebar/>
+@include('sweet::alert')
 <div class="content">
     <livewire:admin.dashboard.header/>
     @include('livewire.admin.dashboard.breadcrumb')
