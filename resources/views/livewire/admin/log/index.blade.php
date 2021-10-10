@@ -4,7 +4,6 @@
     <div class="main-content" wire:init="loadCategory">
         <div class="tab__box">
             <div class="tab__items">
-
                 <a class="tab__item is-active" href="{{route('log.index')}}">
                     گزارشات سیستم
                 </a>
@@ -13,8 +12,8 @@
 
                 <a class="t-header-search">
                     <form action="" onclick="event.preventDefault();">
-                        <input type="text" class="text" placeholder="جستجوی دسته ..."
-                               wire:model.debounce.1000="search">
+                        <input wire:model.debounce.1000="search"
+                               type="text" class="text" placeholder="جستجوی دسته ...">
                     </form>
                 </a>
             </div>
@@ -35,13 +34,14 @@
                         </thead>
 
                         @if($readyToLoad)
-                            <tbody>
                             @php($count = 1)
+                            <tbody>
                             @foreach($logs as $log)
                                 <tr role="row">
                                     <td>
                                         {{$count++}}
                                     </td>
+
                                     <td>
                                         @foreach(\App\Models\User::where('id',$log->user_id)->get() as $user)
                                             {{$user->name}}
@@ -53,7 +53,6 @@
                                     </td>
 
                                     <td>
-
                                         @if($log->actionType =='ایجاد')
                                             <span style="background-color: green"
                                                   class="badge badge-success">ایجاد</span>
@@ -70,10 +69,8 @@
                                             <span style="background-color:wheat"
                                                   class="badge badge-warning">بازیابی</span>
                                         @endif
-
                                     </td>
                                 </tr>
-
                             @endforeach
                             </tbody>
                             {!! $logs->render() !!}
@@ -82,7 +79,6 @@
                                 در حال خواندن اطلاعات از دیتابیس ...
                             </div>
                         @endif
-
                     </table>
                 </div>
             </div>
