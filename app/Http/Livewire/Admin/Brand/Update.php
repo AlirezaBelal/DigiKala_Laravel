@@ -15,12 +15,16 @@ class Update extends Component
     public Brand $brand;
     public $img;
 
+    /**
+     * @var string[]
+     * Input rules
+     */
     protected $rules = [
         'brand.description' => 'required|min:3',
         'brand.name' => 'required',
         'brand.link' => 'required',
+        'brand.parent' => 'required',
         'brand.status' => 'nullable',
-        'brand.parent' => 'nullable',
     ];
 
 
@@ -41,12 +45,11 @@ class Update extends Component
 
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'آپدیت برند' . '-' . $this->brand->title,
+            'url' => 'آپدیت برند' . '-' . $this->brand->name,
             'actionType' => 'آپدیت'
         ]);
 
-        $this->emit('toast', 'success', ' برند با موفقیت آپدیت شد.');
-
+        alert()->success(' با موفقیت آپدیت شد.', 'برند مورد نظر با موفقیت آپدیت شد.');
         return redirect(route('brand.index'));
 
     }
@@ -65,7 +68,12 @@ class Update extends Component
 
     public function render()
     {
-        $brands = $this->brand;
-        return view('livewire.admin.brand.update' , compact('brands'));
+        if ($this->brand->status == 1) {
+            $this->brand->status = true;
+        } else {
+            $this->brand->status = false;
+        }
+        $brand = $this->brand;
+        return view('livewire.admin.brand.update', compact('brand'));
     }
 }
