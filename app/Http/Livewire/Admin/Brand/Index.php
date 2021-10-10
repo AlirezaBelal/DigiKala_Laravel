@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin\Brand;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Log;
+use App\Models\Product;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
@@ -14,28 +15,30 @@ class Index extends Component
     use WithFileUploads;
     use WithPagination;
 
+
+    public Brand $brand;
     public $img;
     public $search;
     public $readyToLoad = false;
-    public Brand $brand;
 
 
+    protected $queryString = ['search'];
     /**
      * @var string
-     * Front type
+     * Site front type
      */
     protected $paginationTheme = 'bootstrap';
-    protected $queryString = ['search'];
+
 
     /**
      * @var string[]
-     * Prerequisites for creating a category form
+     * Input rules
      */
     protected $rules = [
         'brand.description' => 'required|min:3',
         'brand.name' => 'required',
         'brand.link' => 'required',
-        'brand.parent' => 'nullable',
+        'brand.parent' => 'required',
         'brand.status' => 'nullable',
     ];
 
@@ -46,19 +49,6 @@ class Index extends Component
     }
 
 
-    /**
-     * @throws \Illuminate\Validation\ValidationException
-     *
-     */
-    public function updated($title)
-    {
-        $this->validateOnly($title);
-    }
-
-
-    /**
-     * Change page load
-     */
     public function loadCategory()
     {
         $this->readyToLoad = true;
@@ -66,23 +56,44 @@ class Index extends Component
 
 
     /**
-     * Enter information in the database
+     * @throws \Illuminate\Validation\ValidationException
      */
+    public function updated($title)
+    {
+        $this->validateOnly($title);
+    }
+
+
     public function categoryForm()
     {
         $this->validate();
 
-        if ($this->img) {
-            $this->brand->img = $this->uploadImage();
-        }
-        if (!$this->brand->status) {
-            $this->brand->status = 0;
-        }
-        $this->brand->save();
+        $brand = Brand::query()->create([
+            'description' => $this->brand->description,
+            'name' => $this->brand->name,
+            'link' => $this->brand->link,
+            'parent' => $this->brand->parent,
+            'status' => $this->brand->status ? 1 : 0,
+        ]);
 
+        if ($this->img) {
+            $brand->update([
+                'img' => $this->uploadImage()
+            ]);
+        }
+
+        //Empty the form then fill out the form
+        $this->brand->description = "";
+        $this->brand->name = "";
+        $this->brand->link = "";
+        $this->brand->parent = null;
+        $this->brand->status = false;
+        $this->img = null;
+
+        //Create a report
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'افزودن برند' . '-' . $this->category->title,
+            'url' => 'افزودن برند' . '-' . $this->brand->name,
             'actionType' => 'ایجاد'
         ]);
 
@@ -92,7 +103,7 @@ class Index extends Component
 
     /**
      * @return string
-     * Add image address to database
+     * Upload image to memory
      */
     public function uploadImage()
     {
@@ -111,16 +122,13 @@ class Index extends Component
         $brand->update([
             'status' => 0
         ]);
-
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'غیرفعال کردن وضعیت برند' . '-' . $this->brand->title,
+            'url' => 'غیرفعال کردن وضعیت برند' . '-' . $this->brand->name,
             'actionType' => 'غیرفعال'
         ]);
-
         $this->emit('toast', 'success', 'وضعیت برند با موفقیت غیرفعال شد.');
     }
-
 
     public function updateCategoryEnable($id)
     {
@@ -131,7 +139,7 @@ class Index extends Component
 
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'فعال کردن وضعیت برند' . '-' . $this->brand->title,
+            'url' => 'فعال کردن وضعیت برند' . '-' . $this->brand->name,
             'actionType' => 'فعال'
         ]);
 
@@ -142,21 +150,27 @@ class Index extends Component
     public function deleteCategory($id)
     {
         $brand = Brand::find($id);
-        $brand->delete();
 
-        Log::create([
-            'user_id' => auth()->user()->id,
-            'url' => 'حذف کردن برند' . '-' . $this->brand->title,
-            'actionType' => 'حذف'
-        ]);
+        $product = Product::where('brand_id', $id)->first();
 
-        $this->emit('toast', 'success', ' برند با موفقیت حذف شد.');
+        if ($product == null) {
+            $brand->delete();
+            Log::create([
+                'user_id' => auth()->user()->id,
+                'url' => 'حذف کردن برند' . '-' . $this->brand->name,
+                'actionType' => 'حذف'
+            ]);
+
+            $this->emit('toast', 'success', ' برند با موفقیت حذف شد.');
+        } else {
+            $this->emit('toast', 'success', ' امکان حذف وجود ندارد زیرا برند، شامل محصول است!');
+        }
     }
 
 
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     * Reload this Page
+     * Send information to the site and load the site
      */
     public function render()
     {
@@ -164,6 +178,7 @@ class Index extends Component
             ->orWhere('name', 'LIKE', "%{$this->search}%")
             ->orWhere('link', 'LIKE', "%{$this->search}%")
             ->latest()->paginate(10) : [];
+
         return view('livewire.admin.brand.index', compact('brands'));
     }
 }

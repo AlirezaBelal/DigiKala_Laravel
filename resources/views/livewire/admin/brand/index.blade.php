@@ -1,10 +1,9 @@
-@section('title','برند های محصولات')
+@section('title','برند ها')
 
 <div>
     <div class="main-content" wire:init="loadCategory">
         <div class="tab__box">
             <div class="tab__items">
-
                 <a class="tab__item is-active" href="{{route('brand.index')}}">
                     برند ها
                 </a>
@@ -15,8 +14,9 @@
 
                 <a class="t-header-search">
                     <form action="" onclick="event.preventDefault();">
-                        <input type="text" class="text" placeholder="جستجوی برند ..."
-                               wire:model.debounce.1000="search">
+                        <input type="text" class="text"
+                               wire:model.debounce.1000="search"
+                               placeholder="جستجوی برند ...">
                     </form>
                 </a>
 
@@ -46,17 +46,17 @@
                         </thead>
 
                         @if($readyToLoad)
-                            <tbody>
                             @php($count = 1)
+                            <tbody>
                             @foreach($brands as $brand)
                                 <tr role="row">
                                     <td>
-                                        <p>{{$count++}}<p>
+                                        {{$count++}}
                                     </td>
 
                                     <td>
-                                        <img src="{{\Illuminate\Support\Facades\Storage::url($brand->img)}}"
-                                             alt="img" width="50px">
+                                        <img src="{{\Illuminate\Support\Facades\Storage::url($brand->img)}}" alt="img"
+                                             width="50px">
                                     </td>
 
                                     <td>
@@ -64,103 +64,93 @@
                                     </td>
 
                                     <td>
-                                    <a href="">
-                                        @foreach(\App\Models\Category::where('id',$brand->parent)->get() as $ca)
-                                            {{$ca->title}}
+                                        @foreach(\App\Models\Category::where('id',$brand->parent)->get() as $category)
+                                            {{$category->title}}
                                         @endforeach
-                                    </a>
                                     </td>
 
                                     <td>
                                         @if($brand->status == 1)
-                                            <button type="submit" class="badge-success badge"
-                                                    style="background-color: green"
-                                                    wire:click="updateCategoryDisable({{$brand->id}})">
+                                            <button wire:click="updateCategoryDisable({{$brand->id}})"
+                                                    type="submit" class="badge-success badge"
+                                                    style="background-color: green">
                                                 فعال
                                             </button>
+
                                         @else
-                                            <button type="submit" class="badge-danger badge"
-                                                    style="background-color: red"
-                                                    wire:click="updateCategoryEnable({{$brand->id}})">
+                                            <button wire:click="updateCategoryEnable({{$brand->id}})"
+                                                    type="submit" class="badge-danger badge"
+                                                    style="background-color: red">
                                                 غیرفعال
                                             </button>
                                         @endif
                                     </td>
 
                                     <td>
-                                        <a type="submit" class="item-delete mlg-15"
-                                           wire:click="deleteCategory({{$brand->id}})"
+                                        <a wire:click="deleteCategory({{$brand->id}})" type="submit"
+                                           class="item-delete mlg-15"
                                            title="حذف">
                                         </a>
-
-                                        <a class="item-edit "
-                                           href="{{route('brand.update',$brand)}}"
+                                        <a href="{{route('brand.update',$brand)}}
+                                            " class="item-edit"
                                            title="ویرایش">
-                                        </a>
 
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach
                             </tbody>
                             {{$brands->render()}}
-
                         @else
                             <div class="alert-warning alert">
                                 در حال خواندن اطلاعات از دیتابیس ...
                             </div>
                         @endif
-
                     </table>
                 </div>
             </div>
 
             <div class="col-4 bg-white">
                 <p class="box__title">ایجاد برند بندی جدید</p>
-
-                <form wire:submit.prevent="categoryForm" enctype="multipart/form-data" role="form"
+                <form wire:submit.prevent="categoryForm"
+                      enctype="multipart/form-data" role="form"
                       class="padding-10 categoryForm">
 
                     @include('errors.error')
 
                     <div class="form-group">
-                        <input type="text" placeholder="نام برند " class="form-control"
-                               wire:model.lazy="brand.name">
+                        <input type="text" wire:model.lazy="brand.name" placeholder="نام برند " class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" placeholder="لینک برند " class="form-control"
-                               wire:model.lazy="brand.link">
+                        <input type="text" wire:model.lazy="brand.link" placeholder="لینک برند " class="form-control">
                     </div>
 
                     <div class="form-group">
                         <div class="notificationGroup">
-                            <input id="option4" type="checkbox" name="status" class="form-control"
-                                   wire:model.lazy="brand.status">
-
-                            <label for="option4">
-                                نمایش در برند اصلی:
-                            </label>
-
-                        </div>
-
-                        <div class="form-group">
-                            <select wire:model.lazy="brand.parent" name="parent" id="" class="form-control">
-                                <option value="-1">--انتخاب دسته</option>
-                                @foreach(\App\Models\Category::all() as $category)
-                                    <option value="{{$category->id}}">{{$category->title}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <textarea type="text" placeholder="توضیح برند " class="form-control"
-                                   wire:model.lazy="brand.description">
-                            </textarea>
+                            <input id="option4" type="checkbox" wire:model.lazy="brand.status" name="status"
+                                   class="form-control">
+                            <label for="option4">نمایش در برند اصلی:</label>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <input type="file" wire:model.lazy="img" class="form-control">
+                        <select wire:model.lazy="brand.parent" name="parent" id="" class="form-control">
+                            <option value="-1"> - انتخاب دسته برند</option>
+                            @foreach(\App\Models\Category::all() as $category)
+                                <option value="{{$category->id}}">{{$category->title}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea type="text" wire:model.lazy="brand.description" placeholder="توضیح برند "
+                                  class="form-control">
+                        </textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="file" wire:model.lazy="img" id="{{rand()}}" class="form-control">
                         <span class="mt-2 text-danger" wire:loading wire:target="img">در حال آپلود ...</span>
 
                         <div wire:ignore class="progress mt-2" id="progressbar" style="display: none">
@@ -170,9 +160,10 @@
 
                     <div>
                         @if($img)
-                            <img class="form-control mt-3 mb-3" width="400" src="{{$img->temporaryUrl()}}" alt="">
+                            <img class="form-control mt-3 mb-3" width="200" src="{{$img->temporaryUrl()}}" alt="">
                         @endif
                     </div>
+
                     <button class="btn btn-brand">افزودن برند</button>
                 </form>
             </div>
