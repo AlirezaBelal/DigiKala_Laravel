@@ -1,20 +1,20 @@
 @section('title','سطل زباله دسته ها')
 
-
 <div>
     <div class="main-content" wire:init="loadCategory">
         <div class="tab__box">
             <div class="tab__items">
-
                 <a class="tab__item " href="{{route('category.index')}}">
                     دسته ها
                 </a>
 
-                <a class="tab__item is-active" href="{{route('subcategory.index')}}">
+                <a class="tab__item is-active"
+                   href="{{route('subcategory.index')}}">
                     زیر دسته ها
                 </a>
 
-                <a class="tab__item" href="{{route('childcategory.index')}}">
+                <a class="tab__item {{Request::routeIs('childcategory.index') ? 'is-active': '' }}"
+                   href="{{route('childcategory.index')}}">
                     دسته های کودک
                 </a>
                 |
@@ -22,8 +22,8 @@
 
                 <a class="t-header-search">
                     <form action="" onclick="event.preventDefault();">
-                        <input type="text" class="text" placeholder="جستجوی دسته ..."
-                               wire:model.debounce.1000="search">
+                        <input wire:model.debounce.1000="search"
+                               type="text" class="text" placeholder="جستجوی دسته ...">
                     </form>
                 </a>
 
@@ -52,10 +52,11 @@
                         </thead>
 
                         @if($readyToLoad)
-                            <tbody>
                             @php($count = 1)
+                            <tbody>
                             @foreach($categories as $category)
                                 <tr role="row">
+
                                     <td>
                                         {{$count++}}
                                     </td>
@@ -74,17 +75,19 @@
                                     </td>
 
                                     <td>
-                                        <a class="item-li i-checkouts item-restore"
-                                           wire:click="trashedCategory({{$category->id}})">
+                                        <a wire:click="deleteCategory({{$category->id}})" type="submit"
+                                           class="item-delete mlg-15"
+                                           title="حذف">
+                                        </a>
+                                        <a wire:click="trashedCategory({{$category->id}})"
+                                           class="item-li i-checkouts item-restore"
+                                           title="بازگردانی">
                                         </a>
                                     </td>
                                 </tr>
-
                             @endforeach
                             </tbody>
-
                             {{$categories->render()}}
-
                         @else
                             <div class="alert-warning alert">
                                 در حال خواندن اطلاعات از دیتابیس ...

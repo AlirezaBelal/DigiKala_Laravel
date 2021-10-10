@@ -2,9 +2,11 @@
 
 namespace App\Http\Livewire\Admin\Subcategory;
 
+use App\Models\Category;
 use App\Models\Log;
 use App\Models\SubCategory;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -17,6 +19,10 @@ class Trashed extends Component
     public $readyToLoad = false;
 
     protected $queryString = ['search'];
+    /**
+     * @var string
+     * Site front type
+     */
     protected $paginationTheme = 'bootstrap';
 
 
@@ -28,9 +34,11 @@ class Trashed extends Component
 
     public function deleteCategory($id)
     {
-        $category = SubCategory::find($id);
-        $category->delete();
-        $this->emit('toast', 'success', ' زیر دسته با موفقیت حذف شد.');
+        $category = SubCategory::withTrashed()->findOrFail($id);
+        //Complete photo removal
+        Storage::disk('public')->delete("storage", $category->img);
+        $category->forceDelete();
+        $this->emit('toast', 'success', ' زیردسته به صورت کامل با موفقیت حذف شد.');
     }
 
 
@@ -38,13 +46,11 @@ class Trashed extends Component
     {
         $category = SubCategory::withTrashed()->where('id', $id)->first();
         $category->restore();
-
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'بازیابی زیردسته' . '-' . $category->title,
+            'url' => 'بازیابی زیر دسته' . '-' . $category->title,
             'actionType' => 'بازیابی'
         ]);
-
         $this->emit('toast', 'success', ' زیر دسته با موفقیت بازیابی شد.');
     }
 
@@ -53,8 +59,8 @@ class Trashed extends Component
     {
 
         $categories = $this->readyToLoad ? DB::table('sub_categories')
-            ->whereNotNull('deleted_at')
-            ->latest()->paginate(15) : [];
+            ->whereNotNull('deleted_at')->
+            latest()->paginate(10) : [];
 
         return view('livewire.admin.subcategory.trashed', compact('categories'));
     }
