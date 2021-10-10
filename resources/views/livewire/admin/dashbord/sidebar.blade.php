@@ -47,32 +47,40 @@
             </a>
         </li>
 
+        <li class="item-li i-transactions {{Request::routeIs('color.index') ? 'is-active': '' }}">
+            <a href="{{route('color.index')}}">
+                رنگ محصولات
+            </a>
+        </li>
+
+        <li class="item-li i-articles {{Request::routeIs('gallery.index') ? 'is-active': '' }}">
+            <a href="{{route('gallery.index')}}">
+                گالری تصاویر محصولات
+            </a>
+        </li>
+
+        <li class="item-li i-checkouts {{Request::routeIs('warranty.index') ? 'is-active': '' }}">
+            <a href="{{route('warranty.index')}}">
+                گارانتی محصولات
+            </a>
+        </li>
+
+        <li class="item-li i-courses {{Request::routeIs('productVendor.index') ? 'is-active': '' }}">
+            <a href="{{route('productVendor.index')}}">
+                تنوع قیمت محصولات
+            </a>
+        </li>
+
+        <li class="item-li i-user__inforamtion {{Request::routeIs('attribute.index') ? 'is-active': '' }}">
+            <a href="{{route('attribute.index')}}">
+                مشخصات محصولات
+            </a>
+        </li>
+
         <li class="item-li i-articles {{Request::routeIs('log.index') ? 'is-active': '' }}">
             <a href="{{route('log.index')}}">
                 گزارشات سیستم
             </a>
         </li>
-
-
-
-        <hr>
-        <li class="item-li i-courses "><a href={{route('product.index')}}">محصولات</a></li>
-        <li class="item-li i-users"><a href="/admin/user"> کاربران</a></li>
-
-        <li class="item-li i-slideshow"><a href="slideshow.html">اسلایدشو</a></li>
-        <li class="item-li i-banners"><a href="banners.html">بنر ها</a></li>
-        <li class="item-li i-articles"><a href="articles.html">مقالات</a></li>
-        <li class="item-li i-ads"><a href="ads.html">تبلیغات</a></li>
-        <li class="item-li i-comments"><a href="comments.html"> نظرات</a></li>
-        <li class="item-li i-tickets"><a href="tickets.html"> تیکت ها</a></li>
-        <li class="item-li i-discounts"><a href="discounts.html">تخفیف ها</a></li>
-        <li class="item-li i-transactions"><a href="transactions.html">تراکنش ها</a></li>
-        <li class="item-li i-checkouts"><a href="checkouts.html">تسویه حساب ها</a></li>
-        <li class="item-li i-checkout__request "><a href="checkout-request.html">درخواست تسویه </a></li>
-        <li class="item-li i-my__purchases"><a href="mypurchases.html">خرید های من</a></li>
-        <li class="item-li i-notification__management"><a href="notification-management.html">مدیریت اطلاع رسانی</a>
-        </li>
-        <li class="item-li i-user__inforamtion"><a href="user-information.html">اطلاعات کاربری</a></li>
     </ul>
-
 </div>
