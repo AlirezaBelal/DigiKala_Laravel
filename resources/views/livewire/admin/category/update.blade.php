@@ -3,43 +3,43 @@
 <div>
     <div class="main-content padding-0">
         <p class="box__title">
-            ویرایش دسته
-            -
+            ویرایش دسته -
             {{$category->title}}
         </p>
 
         <div class="row no-gutters bg-white">
             <div class="col-8">
-                <form wire:submit.prevent="categoryForm" enctype="multipart/form-data" role="form"
+                <form wire:submit.prevent="categoryForm"
+                      enctype="multipart/form-data" role="form"
                       class="padding-10 categoryForm">
 
                     @include('errors.error')
 
                     <div class="form-group">
-                        <input type="text" placeholder="نام دسته " class="form-control"
-                               wire:model.lazy="category.title">
+                        <input type="text" wire:model.lazy="category.title" placeholder="نام دسته "
+                               class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" placeholder="نام انگلیسی دسته " class="form-control"
-                               wire:model.lazy="category.name">
+                        <input type="text" wire:model.lazy="category.name" placeholder="نام انگلیسی دسته "
+                               class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" placeholder="لینک دسته " class="form-control"
-                               wire:model.lazy="category.link">
+                        <input type="text" wire:model.lazy="category.link" placeholder="لینک دسته "
+                               class="form-control">
                     </div>
 
                     <div class="form-group">
                         <div class="notificationGroup">
-                            <input id="option4" type="checkbox" name="status" class="form-control"
-                                   wire:model.lazy="category.status">
 
-                            <label for="option4">
-                                نمایش در دسته اصلی:
-                            </label>
+                            <input id="option4" type="checkbox"
+                                   wire:model.lazy="category.status" name="status"
+                                   class="form-control">
+                            <label for="option4">نمایش در دسته اصلی:</label>
                         </div>
                     </div>
+
 
                     <div class="form-group">
                         <input type="file" wire:model.lazy="img" class="form-control">
@@ -52,10 +52,11 @@
 
                     <div>
                         @if($img)
-                            <img style="    width: 200px;" class="form-control mt-3 mb-3" width="400"
+                            <img style="    width: 200px;" class="form-control mt-3 mb-3" width="200"
                                  src="{{$img->temporaryUrl()}}" alt="">
                         @endif
                     </div>
+
                     <button type="submit" class="btn btn-brand">آپدیت دسته</button>
                 </form>
             </div>
