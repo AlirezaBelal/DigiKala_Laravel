@@ -15,6 +15,11 @@ class Update extends Component
     public ChildCategory $childcategory;
     public $img;
 
+
+    /**
+     * @var string[]
+     * Input rules
+     */
     protected $rules = [
         'childcategory.title' => 'required|min:3',
         'childcategory.name' => 'required',
@@ -37,15 +42,15 @@ class Update extends Component
                 'status' => 0
             ]);
         }
-
         Log::create([
             'user_id' => auth()->user()->id,
             'url' => 'آپدیت دسته کودک' . '-' . $this->childcategory->title,
             'actionType' => 'آپدیت'
         ]);
+        alert()->success('دسته کودک با موفقیت ایجاد شد.', 'دسته کودک آپدیت شد.');
 
-        $this->emit('toast', 'success', ' دسته کودک با موفقیت ایجاد شد.');
         return redirect(route('childcategory.index'));
+
     }
 
 
@@ -62,6 +67,11 @@ class Update extends Component
 
     public function render()
     {
+        if ($this->childcategory->status == 1) {
+            $this->childcategory->status = true;
+        } else {
+            $this->childcategory->status = false;
+        }
         $childcategory = $this->childcategory;
         return view('livewire.admin.childcategory.update', compact('childcategory'));
     }

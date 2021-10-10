@@ -3,48 +3,44 @@
 <div>
     <div class="main-content padding-0">
         <p class="box__title">
-            ویرایش دسته کودک
-            -
+            ویرایش دسته کودک -
             {{$childcategory->title}}
         </p>
 
         <div class="row no-gutters bg-white">
             <div class="col-8">
-                <form wire:submit.prevent="categoryForm" enctype="multipart/form-data" role="form"
+                <form wire:submit.prevent="categoryForm"
+                      enctype="multipart/form-data" role="form"
                       class="padding-10 categoryForm">
 
                     @include('errors.error')
 
                     <div class="form-group">
-                        <input type="text" placeholder="نام دسته " class="form-control"
-                               wire:model.lazy="childcategory.title">
+                        <input type="text" wire:model.lazy="childcategory.title" placeholder="نام دسته "
+                               class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" placeholder="نام انگلیسی دسته " class="form-control"
-                               wire:model.lazy="childcategory.name">
+                        <input type="text" wire:model.lazy="childcategory.name" placeholder="نام انگلیسی دسته "
+                               class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" placeholder="لینک دسته " class="form-control"
-                               wire:model.lazy="childcategory.link">
+                        <input type="text" wire:model.lazy="childcategory.link" placeholder="لینک دسته "
+                               class="form-control">
                     </div>
 
                     <div class="form-group">
                         <div class="notificationGroup">
-                            <input id="option4" type="checkbox" name="status" class="form-control"
-                                   wire:model.lazy="childcategory.status">
-
-                            <label for="option4">
-                                نمایش در دسته اصلی:
-                            </label>
+                            <input id="option4" type="checkbox"
+                                   wire:model.lazy="childcategory.status" name="status"
+                                   class="form-control">
+                            <label for="option4">نمایش در دسته اصلی:</label>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <select name="parent" id="" class="form-control"
-                                wire:model.lazy="childcategory.parent">
-
+                        <select wire:model.lazy="childcategory.parent" name="parent" id="" class="form-control">
                             @foreach(\App\Models\SubCategory::all() as $category)
                                 <option value="{{$category->id}}">{{$category->title}}</option>
                             @endforeach
@@ -59,9 +55,10 @@
                             <div class="progress-bar" role="progressbar" style="width: 0%;">0%</div>
                         </div>
                     </div>
+
                     <div>
                         @if($img)
-                            <img style="    width: 200px;" class="form-control mt-3 mb-3" width="400"
+                            <img style="    width: 200px;" class="form-control mt-3 mb-3" width="200"
                                  src="{{$img->temporaryUrl()}}" alt="">
                         @endif
                     </div>
