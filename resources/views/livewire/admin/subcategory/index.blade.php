@@ -4,27 +4,27 @@
     <div class="main-content" wire:init="loadCategory">
         <div class="tab__box">
             <div class="tab__items">
-
-                <a class="tab__item" href="{{route('category.index')}}">
+                <a class="tab__item {{Request::routeIs('category.index') ? 'is-active': '' }}"
+                   href="{{route('category.index')}}">
                     دسته ها
                 </a>
 
-                <a class="tab__item is-active" href="{{route('subcategory.index')}}">
+                <a class="tab__item is-active"
+                   href="{{route('subcategory.index')}}">
                     زیر دسته ها
                 </a>
 
-                <a class="tab__item" href="{{route('childcategory.index')}}">
+                <a class="tab__item {{Request::routeIs('childcategory.index') ? 'is-active': '' }}"
+                   href="{{route('childcategory.index')}}">
                     دسته های کودک
                 </a>
                 |
-                <a class="tab__item">
-                    جستجو:
-                </a>
+                <a class="tab__item">جستجو: </a>
 
                 <a class="t-header-search">
                     <form action="" onclick="event.preventDefault();">
-                        <input type="text" class="text" placeholder="جستجوی دسته ..."
-                               wire:model.debounce.1000="search">
+                        <input wire:model.debounce.1000="search"
+                               type="text" class="text" placeholder="جستجوی دسته ...">
                     </form>
                 </a>
 
@@ -55,10 +55,11 @@
                         </thead>
 
                         @if($readyToLoad)
-                            <tbody>
                             @php($count = 1)
+                            <tbody>
                             @foreach($categories as $category)
                                 <tr role="row">
+
                                     <td>
                                         {{$count++}}
                                     </td>
@@ -77,34 +78,31 @@
                                     </td>
 
                                     <td>
-                                        <a href="">
-                                            @foreach(\App\Models\Category::where('id',$category->parent)->get() as $ca)
-                                                {{$ca->title}}
-                                            @endforeach
-                                        </a>
+                                        @foreach(\App\Models\Category::where('id',$category->parent)->get() as $categoryParent)
+                                            {{$categoryParent->title}}
+                                        @endforeach
                                     </td>
 
                                     <td>
                                         @if($category->status == 1)
-                                            <button type="submit" class="badge-success badge"
-                                                    style="background-color: green"
-                                                    wire:click="updateCategoryDisable({{$category->id}})">
+                                            <button wire:click="updateCategoryDisable({{$category->id}})"
+                                                    type="submit" class="badge-success badge"
+                                                    style="background-color: green">
                                                 فعال
                                             </button>
                                         @else
-                                            <button type="submit" class="badge-danger badge"
-                                                    style="background-color: red"
-                                                    wire:click="updateCategoryEnable({{$category->id}})">
+                                            <button wire:click="updateCategoryEnable({{$category->id}})"
+                                                    type="submit" class="badge-danger badge"
+                                                    style="background-color: red">
                                                 غیرفعال
                                             </button>
                                         @endif
                                     </td>
 
                                     <td>
-                                        <a type="submit" class="item-delete mlg-15"
-                                           wire:click="deleteCategory({{$category->id}})"
+                                        <a wire:click="deleteCategory({{$category->id}})" type="submit"
+                                           class="item-delete mlg-15"
                                            title="حذف">
-
                                         </a>
                                         <a href="{{route('subcategory.update',$category)}}" class="item-edit "
                                            title="ویرایش">
@@ -113,9 +111,7 @@
                                 </tr>
                             @endforeach
                             </tbody>
-
                             {{$categories->render()}}
-
                         @else
                             <div class="alert-warning alert">
                                 در حال خواندن اطلاعات از دیتابیس ...
@@ -127,42 +123,37 @@
 
             <div class="col-4 bg-white">
                 <p class="box__title">ایجاد زیر دسته جدید</p>
-
-                <form wire:submit.prevent="categoryForm" enctype="multipart/form-data" role="form"
+                <form wire:submit.prevent="categoryForm"
+                      enctype="multipart/form-data" role="form"
                       class="padding-10 categoryForm">
 
                     @include('errors.error')
-
                     <div class="form-group">
-                        <input type="text" placeholder="نام دسته " class="form-control"
-                               wire:model.lazy="subcategory.title">
+                        <input type="text" wire:model.lazy="subcategory.title" placeholder="نام دسته "
+                               class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" placeholder="نام انگلیسی دسته " class="form-control"
-                               wire:model.lazy="subcategory.name">
+                        <input type="text" wire:model.lazy="subcategory.name" placeholder="نام انگلیسی دسته "
+                               class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" placeholder="لینک دسته " class="form-control"
-                               wire:model.lazy="subcategory.link">
+                        <input type="text" wire:model.lazy="subcategory.link" placeholder="لینک دسته "
+                               class="form-control">
                     </div>
 
                     <div class="form-group">
                         <div class="notificationGroup">
-                            <input id="option4" type="checkbox" name="status" class="form-control"
-                                   wire:model.lazy="subcategory.status">
-
-                            <label for="option4">
-                                نمایش در دسته اصلی:
-                            </label>
-
+                            <input id="option4" type="checkbox" wire:model.lazy="subcategory.status" name="status"
+                                   class="form-control">
+                            <label for="option4">نمایش در دسته اصلی:</label>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <select wire:model.lazy="subcategory.parent" name="parent" id="" class="form-control">
-                            <option value="-1">--انتخاب دسته</option>
+                            <option value="-1">- دسته محصول -</option>
                             @foreach(\App\Models\Category::all() as $category)
                                 <option value="{{$category->id}}">{{$category->title}}</option>
                             @endforeach
@@ -170,7 +161,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="file" wire:model.lazy="img" class="form-control">
+                        <input type="file" wire:model.lazy="img" id="{{rand()}}" class="form-control">
                         <span class="mt-2 text-danger" wire:loading wire:target="img">در حال آپلود ...</span>
 
                         <div wire:ignore class="progress mt-2" id="progressbar" style="display: none">
@@ -180,9 +171,10 @@
 
                     <div>
                         @if($img)
-                            <img class="form-control mt-3 mb-3" width="400" src="{{$img->temporaryUrl()}}" alt="">
+                            <img class="form-control mt-3 mb-3" width="200" src="{{$img->temporaryUrl()}}" alt="">
                         @endif
                     </div>
+
                     <button class="btn btn-brand">افزودن دسته</button>
                 </form>
             </div>
