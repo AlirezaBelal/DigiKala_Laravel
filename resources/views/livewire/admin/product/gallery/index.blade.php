@@ -8,11 +8,11 @@
                     محصولات
                 </a>
 
-                <a class="tab__item is-active" href="{{route('color.index')}}">
+                <a class="tab__item" href="{{route('color.index')}}">
                     رنگ های محصولات
                 </a>
 
-                <a class="tab__item " href="{{route('gallery.index')}}">
+                <a class="tab__item is-active" href="{{route('gallery.index')}}">
                     گالری تصاویر محصولات
                 </a>
                 |
