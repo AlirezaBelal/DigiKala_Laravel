@@ -14,7 +14,6 @@ class Update extends Component
 
     public Color $color;
 
-
     protected $rules = [
         'color.name' => 'required',
         'color.value' => 'required',
@@ -27,7 +26,6 @@ class Update extends Component
         $this->validate();
 
         $this->color->update($this->validate());
-
         if (!$this->color->status) {
             $this->color->update([
                 'status' => 0
@@ -36,20 +34,24 @@ class Update extends Component
 
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'آپدیت رنگ' . '-' . $this->color->name,
+            'url' => 'آپدیت رنگ' .'-'. $this->color->name,
             'actionType' => 'آپدیت'
         ]);
 
-        $this->emit('toast', 'success', ' رنگ با موفقیت آپدیت شد.');
-
+        alert()->success(' با موفقیت آپدیت شد.', 'رنگ مورد نظر با موفقیت آپدیت شد.');
         return redirect(route('color.index'));
-
     }
 
 
     public function render()
     {
-        $colors = $this->color;
-        return view('livewire.admin.product.color.update' , compact('colors'));
+        if ($this->color->status == 1){
+            $this->color->status = true;
+        }else
+        {
+            $this->color->status = false;
+        }
+        $color = $this->color;
+        return view('livewire.admin.product.color.update',compact('color'));
     }
 }

@@ -3,9 +3,8 @@
 <div>
     <div class="main-content padding-0">
         <p class="box__title">
-            ویرایش رنگ
-            -
-            {{$colors->name}}
+            ویرایش رنگ -
+            {{$color->name}}
         </p>
 
         <div class="row no-gutters bg-white">
@@ -17,25 +16,22 @@
                     @include('errors.error')
 
                     <div class="form-group">
-                        <input type="text" placeholder="نام رنگ " class="form-control"
-                               wire:model.lazy="color.name">
+                        <input type="text" wire:model.lazy="color.name" placeholder="نام رنگ "
+                               class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <input data-jscolor="" type="text" placeholder="کد رنگ " class="form-control"
-                               wire:model.lazy="color.value">
+                        <input data-jscolor="" type="text" wire:model.lazy="color.value"
+                               class="form-control">
                     </div>
 
                     <div class="form-group">
                         <div class="notificationGroup">
-                            <input id="option4" type="checkbox" name="status" class="form-control"
-                                   wire:model.lazy="color.status">
-
-                            <label for="option4">
-                                نمایش در رنگ اصلی:
-                            </label>
-
+                            <input id="option4" type="checkbox" wire:model.lazy="color.status" name="status"
+                                   class="form-control">
+                            <label for="option4">نمایش در رنگ اصلی:</label>
                         </div>
+                    </div>
 
                     <button type="submit" class="btn btn-brand">آپدیت رنگ</button>
                 </form>
