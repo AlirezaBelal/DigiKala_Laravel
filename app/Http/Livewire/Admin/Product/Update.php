@@ -10,14 +10,13 @@ use Livewire\WithFileUploads;
 
 class Update extends Component
 {
-
     use WithFileUploads;
 
-    public $img;
-    public Product $product;
     public Category $category;
+    public Product $product;
+    public $img;
 
-
+    
     /**
      * @var string[]
      * Input control
@@ -52,7 +51,6 @@ class Update extends Component
 
     public function categoryForm()
     {
-
         $this->validate();
         if ($this->img) {
             $this->product->img = $this->uploadImage();
@@ -62,12 +60,12 @@ class Update extends Component
 
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'آپدیت محصول' .'-'. $this->product->title,
+            'url' => 'آپدیت محصول' . '-' . $this->product->title,
             'actionType' => 'آپدیت'
         ]);
-        $this->emit('toast', 'success', ' دسته با موفقیت ایجاد شد.');
-        return redirect(route('product.index'));
 
+        alert()->success(' با موفقیت آپدیت شد.', 'محصول مورد نظر با موفقیت آپدیت شد.');
+        return redirect(route('product.index'));
     }
 
 
@@ -75,8 +73,7 @@ class Update extends Component
     {
         $year = now()->year;
         $month = now()->month;
-        $day = now()->day;
-        $directory = "product/$year/$month/$day";
+        $directory = "product/$year/$month";
         $name = $this->img->getClientOriginalName();
         $this->img->storeAs($directory, $name);
         return "$directory/$name";
@@ -85,7 +82,33 @@ class Update extends Component
 
     public function render()
     {
+        if ($this->product->status_product == 1) {
+            $this->product->status_product = true;
+        } else {
+            $this->product->status_product = false;
+        }
+        if ($this->product->publish_product == 1) {
+            $this->product->publish_product = true;
+        } else {
+            $this->product->publish_product = false;
+        }
+        if ($this->product->gift == 1) {
+            $this->product->gift = true;
+        } else {
+            $this->product->gift = false;
+        }
+        if ($this->product->original == 1) {
+            $this->product->original = true;
+        } else {
+            $this->product->original = false;
+        }
+        if ($this->product->special == 1) {
+            $this->product->special = true;
+        } else {
+            $this->product->special = false;
+        }
+
         $product = $this->product;
-        return view('livewire.admin.product.update' , compact('product'));
+        return view('livewire.admin.product.update', compact('product'));
     }
 }
