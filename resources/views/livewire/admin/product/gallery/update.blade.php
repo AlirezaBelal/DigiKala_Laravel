@@ -16,7 +16,7 @@
                       class="padding-10 categoryForm">
 
                     @include('errors.error')
-                    
+
                     <div class="form-group">
                         <select wire:model.lazy="gallery.product_id" name="product_id" id="" class="form-control">
                             <option value="1">تصویر محصول</option>
