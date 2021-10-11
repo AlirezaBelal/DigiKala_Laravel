@@ -2,26 +2,30 @@
 
 namespace App\Http\Livewire\Admin\Product\Color;
 
+use App\Models\Brand;
 use App\Models\Color;
 use App\Models\Log;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use Livewire\WithPagination;
 
 class Index extends Component
 {
+    use WithFileUploads;
     use WithPagination;
 
+    public Color $color;
+    public $img;
     public $search;
     public $readyToLoad = false;
-    public Color $color;
 
+    protected $queryString = ['search'];
 
     /**
      * @var string
      * Front type
      */
     protected $paginationTheme = 'bootstrap';
-    protected $queryString = ['search'];
 
     /**
      * @var string[]
@@ -41,6 +45,14 @@ class Index extends Component
 
 
     /**
+     * Change page load
+     */
+    public function loadCategory()
+    {
+        $this->readyToLoad = true;
+    }
+
+    /**
      * @throws \Illuminate\Validation\ValidationException
      *
      */
@@ -50,30 +62,22 @@ class Index extends Component
     }
 
 
-    /**
-     * Change page load
-     */
-    public function loadCategory()
-    {
-        $this->readyToLoad = true;
-    }
-
-
-    /**
-     * Enter information in the database
-     */
     public function categoryForm()
     {
         $this->validate();
 
-        if (!$this->color->status) {
-            $this->color->status = 0;
-        }
-        $this->color->save();
+        $color = Color::query()->create([
+            'name' => $this->color->name,
+            'value' => $this->color->value,
+            'status' => $this->color->status ? 1 : 0,
+        ]);
 
+        $this->color->name = "";
+        $this->color->value = "";
+        $this->color->status = false;
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'افزودن رنگ' . '-' . $this->category->name,
+            'url' => 'افزودن رنگ' . '-' . $this->color->name,
             'actionType' => 'ایجاد'
         ]);
 
@@ -100,8 +104,8 @@ class Index extends Component
 
     public function updateCategoryEnable($id)
     {
-        $brand = Color::find($id);
-        $brand->update([
+        $color = Color::find($id);
+        $color->update([
             'status' => 1
         ]);
 
@@ -119,7 +123,6 @@ class Index extends Component
     {
         $color = Color::find($id);
         $color->delete();
-
         Log::create([
             'user_id' => auth()->user()->id,
             'url' => 'حذف کردن رنگ' . '-' . $this->color->name,
@@ -136,9 +139,11 @@ class Index extends Component
      */
     public function render()
     {
-        $colors = $this->readyToLoad ? Color::Where('name', 'LIKE', "%{$this->search}%")
+
+        $colors = $this->readyToLoad ? Color::where('name', 'LIKE', "%{$this->search}%")
             ->orWhere('value', 'LIKE', "%{$this->search}%")
             ->latest()->paginate(10) : [];
-        return view('livewire.admin.product.color.index' , compact('colors'));
+
+        return view('livewire.admin.product.color.index', compact('colors'));
     }
 }

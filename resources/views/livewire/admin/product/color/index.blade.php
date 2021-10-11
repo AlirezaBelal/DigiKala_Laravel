@@ -1,32 +1,33 @@
-@section('title','رنگ های محصولات')
+@section('title','رنگ ها')
 
 <div>
     <div class="main-content" wire:init="loadCategory">
         <div class="tab__box">
             <div class="tab__items">
-
-                <a class="tab__item" href="{{route('product.index')}}">
+                <a class="tab__item " href='{{route('product.index')}}'>
                     محصولات
                 </a>
 
                 <a class="tab__item is-active" href="{{route('color.index')}}">
                     رنگ های محصولات
                 </a>
-                |
-                <a class="tab__item">
-                    جستجو:
+
+                <a class="tab__item " href="{{route('gallery.index')}}">
+                    گالری تصاویر محصولات
                 </a>
+                |
+                <a class="tab__item">جستجو: </a>
 
                 <a class="t-header-search">
                     <form action="" onclick="event.preventDefault();">
-                        <input type="text" class="text" placeholder="جستجوی رنگ ..."
-                               wire:model.debounce.1000="search">
+                        <input wire:model.debounce.1000="search"
+                               type="text" class="text" placeholder="جستجوی رنگ ...">
                     </form>
                 </a>
 
                 <a class="tab__item btn btn-danger"
-                   href="{{route('color.trashed')}}"
-                   style="color: white;float: left;margin-top: 10px;margin-left: 10px">
+                   href="{{route('color.trashed')}}
+                       " style="color: white;float: left;margin-top: 10px;margin-left: 10px">
                     سطل زباله
                     ({{\App\Models\Color::onlyTrashed()->count()}})
                 </a>
@@ -36,8 +37,8 @@
         <div class="row">
             <div class="col-8 margin-left-10 margin-bottom-15 border-radius-3">
                 <div class="table__box">
-
                     <table class="table">
+
                         <thead role="rowgroup">
                         <tr role="row" class="title-row">
                             <th>ردیف</th>
@@ -49,12 +50,12 @@
                         </thead>
 
                         @if($readyToLoad)
-                            <tbody>
                             @php($count = 1)
+                            <tbody>
                             @foreach($colors as $color)
                                 <tr role="row">
                                     <td>
-                                        <p>{{$count++}}<p>
+                                        {{$count++}}
                                     </td>
 
                                     <td>
@@ -67,74 +68,64 @@
 
                                     <td>
                                         @if($color->status == 1)
-                                            <button type="submit" class="badge-success badge"
-                                                    style="background-color: green"
-                                                    wire:click="updateCategoryDisable({{$color->id}})">
+                                            <button wire:click="updateCategoryDisable({{$color->id}})"
+                                                    type="submit" class="badge-success badge"
+                                                    style="background-color: green">
                                                 فعال
                                             </button>
                                         @else
-                                            <button type="submit" class="badge-danger badge"
-                                                    style="background-color: red"
-                                                    wire:click="updateCategoryEnable({{$color->id}})">
+                                            <button wire:click="updateCategoryEnable({{$color->id}})"
+                                                    type="submit" class="badge-danger badge"
+                                                    style="background-color: red">
                                                 غیرفعال
                                             </button>
                                         @endif
                                     </td>
-
                                     <td>
-                                        <a type="submit" class="item-delete mlg-15"
-                                           wire:click="deleteCategory({{$color->id}})"
+                                        <a wire:click="deleteCategory({{$color->id}})" type="submit"
+                                           class="item-delete mlg-15"
                                            title="حذف">
                                         </a>
-
-                                        <a class="item-edit "
-                                           href="{{route('color.update',$color)}}"
+                                        <a href="{{route('color.update',$color)}}
+                                            " class="item-edit"
                                            title="ویرایش">
                                         </a>
-
                                     </td>
                                 </tr>
                             @endforeach
                             </tbody>
                             {{$colors->render()}}
-
                         @else
                             <div class="alert-warning alert">
                                 در حال خواندن اطلاعات از دیتابیس ...
                             </div>
                         @endif
-
                     </table>
                 </div>
             </div>
-
             <div class="col-4 bg-white">
                 <p class="box__title">ایجاد رنگ جدید</p>
-
-                <form wire:submit.prevent="categoryForm" enctype="multipart/form-data" role="form"
+                <form wire:submit.prevent="categoryForm"
+                      enctype="multipart/form-data" role="form"
                       class="padding-10 categoryForm">
 
                     @include('errors.error')
 
                     <div class="form-group">
-                        <input type="text" placeholder="نام رنگ " class="form-control"
-                               wire:model.lazy="color.name">
+                        <input type="text" wire:model.lazy="color.name" placeholder="نام رنگ "
+                               class="form-control">
                     </div>
 
-
                     <div class="form-group">
-                        <input data-jscolor="" type="text" placeholder="کد رنگ " class="form-control"
-                               wire:model.lazy="color.value">
+                        <input data-jscolor="" type="text" wire:model.lazy="color.value" placeholder="کد رنگ "
+                               class="form-control">
                     </div>
 
                     <div class="form-group">
                         <div class="notificationGroup">
-                            <input id="option4" type="checkbox" name="status" class="form-control"
-                                   wire:model.lazy="color.status">
-
-                            <label for="option4">
-                                نمایش در رنگ ها:
-                            </label>
+                            <input id="option4" type="checkbox" wire:model.lazy="color.status" name="status"
+                                   class="form-control">
+                            <label for="option4">نمایش در رنگ ها:</label>
                         </div>
                     </div>
 
