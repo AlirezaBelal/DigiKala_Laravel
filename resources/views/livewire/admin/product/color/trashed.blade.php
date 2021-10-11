@@ -1,32 +1,33 @@
 @section('title','سطل زباله رنگ ها')
 
-
 <div>
     <div class="main-content" wire:init="loadCategory">
         <div class="tab__box">
             <div class="tab__items">
-
-                <a class="tab__item" href="{{route('product.index')}}">
+                <a class="tab__item " href='{{route('product.index')}}'>
                     محصولات
                 </a>
 
-                <a class="tab__item" href="{{route('color.index')}}">
+                <a class="tab__item is-active" href="{{route('color.index')}}">
                     رنگ های محصولات
                 </a>
 
+                <a class="tab__item " href="{{route('gallery.index')}}">
+                    گالری تصاویر محصولات
+                </a>
                 |
                 <a class="tab__item">جستجو: </a>
 
                 <a class="t-header-search">
                     <form action="" onclick="event.preventDefault();">
-                        <input type="text" class="text" placeholder="جستجوی دسته ..."
-                               wire:model.debounce.1000="search">
+                        <input wire:model.debounce.1000="search"
+                               type="text" class="text" placeholder="جستجوی رنگ ...">
                     </form>
                 </a>
 
                 <a class="tab__item btn btn-danger"
-                   href="{{route('color.trashed')}}"
-                   style="color: white;float: left;margin-top: 10px;margin-left: 10px">
+                   href="{{route('color.trashed')}}
+                       " style="color: white;float: left;margin-top: 10px;margin-left: 10px">
                     سطل زباله
                     ({{\App\Models\Color::onlyTrashed()->count()}})
                 </a>
@@ -37,6 +38,7 @@
             <div class="col-12 margin-left-10 margin-bottom-15 border-radius-3">
                 <div class="table__box">
                     <table class="table">
+
                         <thead role="rowgroup">
                         <tr role="row" class="title-row">
                             <th>ردیف</th>
@@ -47,12 +49,12 @@
                         </thead>
 
                         @if($readyToLoad)
-                            <tbody>
                             @php($count = 1)
+                            <tbody>
                             @foreach($colors as $color)
                                 <tr role="row">
                                     <td>
-                                        <p>{{$count++}}<p>
+                                        {{$count++}}
                                     </td>
 
                                     <td>
@@ -64,15 +66,20 @@
                                     </td>
 
                                     <td>
-                                        <a class="item-li i-checkouts item-restore"
-                                           wire:click="trashedCategory({{$color->id}})">
+                                        <a wire:click="deleteCategory({{$color->id}})" type="submit"
+                                           class="item-delete mlg-15"
+                                           title="حذف">
+                                        </a>
+
+                                        <a wire:click="trashedCategory({{$color->id}})"
+                                           class="item-li i-checkouts item-restore"
+                                           title="بازگردانی">
                                         </a>
                                     </td>
                                 </tr>
                             @endforeach
                             </tbody>
                             {{$colors->render()}}
-
                         @else
                             <div class="alert-warning alert">
                                 در حال خواندن اطلاعات از دیتابیس ...
