@@ -4,17 +4,19 @@
     <div class="main-content" wire:init="loadCategory">
         <div class="tab__box">
             <div class="tab__items">
-                <a class="tab__item is-active" href="{{route('product.index')}}">
+                <a class="tab__item " href='{{route('product.index')}}'>
                     محصولات
                 </a>
 
-                <a class="tab__item" href="{{route('color.index')}}">
+                <a class="tab__item is-active" href="{{route('color.index')}}">
                     رنگ های محصولات
                 </a>
-                |
-                <a class="tab__item">
-                    جستجو:
+
+                <a class="tab__item " href="{{route('gallery.index')}}">
+                    گالری تصاویر محصولات
                 </a>
+                |
+                <a class="tab__item">جستجو: </a>
 
                 <a class="t-header-search">
                     <form action="" onclick="event.preventDefault();">
@@ -23,15 +25,15 @@
                     </form>
                 </a>
 
-
-                <a class="tab__item btn btn-danger" style="color: white;float: left;margin-top: 10px;margin-left: 10px"
-                   href="{{route('product.trashed')}}">
+                <a class="tab__item btn btn-danger"
+                   href="{{route('product.trashed')}}"
+                   style="color: white;float: left;margin-top: 10px;margin-left: 10px">
                     سطل زباله
                     ({{\App\Models\Product::onlyTrashed()->count()}})
                 </a>
-
-                <a class="tab__item btn btn-success" style="color: white;float: left;margin-top: 10px;margin-left: 10px"
-                   href="{{route('product.create')}}">
+                <a class="tab__item btn btn-success"
+                   href="{{route('product.create')}}"
+                   style="color: white;float: left;margin-top: 10px;margin-left: 10px">
                     افزودن محصول
                 </a>
             </div>
@@ -39,8 +41,10 @@
 
         <div class="row">
             <div class="col-12 margin-left-10 margin-bottom-15 border-radius-3">
+
                 <div class="table__box">
                     <table class="table">
+
                         <thead role="rowgroup">
                         <tr role="row" class="title-row">
                             <th>ردیف</th>
@@ -48,89 +52,109 @@
                             <th>عنوان محصول</th>
                             <th>فروشنده محصول</th>
                             <th>دسته های محصول</th>
-                            <th>برند محصول</th>
-                            <th>قیمت محصول</th>
+                            <th>مشخصات کالا</th>
+                            <th>گالری تصاویر محصول</th>
+                            <th>تنوع قیمت محصول</th>
                             <th>وضعیت محصول</th>
                             <th>عملیات</th>
                         </tr>
                         </thead>
 
                         @if($readyToLoad)
-                            <tbody>
                             @php($count = 1)
+                            <tbody>
                             @foreach($products as $product)
                                 <tr role="row">
                                     <td>
                                         {{$count++}}
                                     </td>
+
                                     <td>
                                         <img src="{{\Illuminate\Support\Facades\Storage::url($product->img)}}" alt="img"
                                              width="50px">
                                     </td>
+
                                     <td>
                                         {{$product->title}}
                                     </td>
+
                                     <td>
-                                        @foreach(\App\Models\User::where('id',$product->vendor_id)->get() as $user)
-                                            {{$user->name}}
+                                        @foreach(\App\Models\User::where('id',$product->vendor_id)->get() as $productUser)
+                                            {{$productUser->name}}
                                         @endforeach
                                     </td>
+
                                     <td>
-                                        @foreach(\App\Models\Category::where('id',$product->category_id)->get() as $cat)
-                                            {{$cat->title}}
+                                        @foreach(\App\Models\Category::where('id',$product->category_id)->get() as $productCategory)
+                                            {{$productCategory->title}}
                                         @endforeach
                                         <br>
                                         -
-                                        @foreach(\App\Models\SubCategory::where('id',$product->subcategory_id)->get() as $cat)
-                                            {{$cat->title}}
+                                        @foreach(\App\Models\SubCategory::where('id',$product->subcategory_id)->get() as $productSubcategory)
+                                            {{$productSubcategory->title}}
                                         @endforeach
-
                                         <br>
                                         --
-                                        @foreach(\App\Models\ChildCategory::where('id',$product->childcategory_id)->get() as $cat)
-                                            {{$cat->title}}
+                                        @foreach(\App\Models\ChildCategory::where('id',$product->childcategory_id)->get() as $productChildCategory)
+                                            {{$productChildCategory->title}}
                                         @endforeach
-
-                                    </td>
-                                    <td>
-                                        {{$product->brand_id}}
-                                    </td>
-                                    <td>
-                                        قیمت:
-                                        {{number_format($product->price)}}
-                                        تومان
                                         <br>
-                                        با تخفیف
-                                        {{number_format($product->discount_price)}}
-                                        تومان
+                                        برند:
+                                        @foreach(\App\Models\Brand::where('id',$product->brand_id)->get() as $productBrand)
+                                            {{$productBrand->name}}
+                                        @endforeach
+                                    </td>
+
+                                    <td>
+                                        <a href="{{route('product.attribute',$product)}}" style="margin-left: 10px;"
+                                           title="مشخصات فنی">
+                                            <img width: 20px; src="{{asset('icons/icons/list-check.svg')}}"
+                                                 alt="images">
+                                        </a>
+                                    </td>
+
+                                    <td>
+                                        <a href="{{route('product.gallery_image',$product)}}" style="margin-left: 10px;"
+                                           title="گالری تصاویر">
+                                            <img width: 20px; src="{{asset('icons/icons/images.svg')}}" alt="images">
+                                        </a>
+                                    </td>
+
+                                    <td>
+                                        <a href="{{route('product.productVendor',$product)}}" style="margin-left: 6px"
+                                           title="تنوع قیمت">
+                                            <img width: 20px; src="{{asset('icons/icons/grid.svg')}}" alt="grid">
+                                        </a>
                                     </td>
 
                                     <td>
                                         @if($product->status_product == 1)
-                                            <button type="submit" class="badge-success badge"
-                                                    style="background-color: green"
-                                                    wire:click="updateCategoryDisable({{$product->id}})">
+                                            <button wire:click="updateCategoryDisable({{$product->id}})"
+                                                    type="submit" class="badge-success badge"
+                                                    style="background-color: green">
                                                 فعال
                                             </button>
                                         @else
-                                            <button type="submit" class="badge-danger badge"
-                                                    style="background-color: red"
-                                                    wire:click="updateCategoryEnable({{$product->id}})">
+                                            <button wire:click="updateCategoryEnable({{$product->id}})"
+                                                    type="submit" class="badge-danger badge"
+                                                    style="background-color: red">
                                                 غیرفعال
                                             </button>
                                         @endif
                                     </td>
+
                                     <td>
-                                        <a type="submit" class="item-delete mlg-15"
-                                           wire:click="deleteCategory({{$product->id}})"
+                                        <a wire:click="deleteCategory({{$product->id}})" type="submit"
+                                           class="item-delete mlg-15"
                                            title="حذف">
                                         </a>
-
-                                        <a href="{{route('product.update',$product)}}" class="item-edit " title="ویرایش"></a>
+                                        <a href="{{route('product.update',$product)}}" class="item-edit mlg-15"
+                                           title="ویرایش">
+                                        </a>
+                                        <br>
                                     </td>
                                 </tr>
                             @endforeach
-
                             </tbody>
                             {{$products->render()}}
                         @else

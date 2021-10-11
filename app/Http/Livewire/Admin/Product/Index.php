@@ -2,27 +2,26 @@
 
 namespace App\Http\Livewire\Admin\Product;
 
+use App\Models\Category;
 use App\Models\Log;
 use App\Models\Product;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use Livewire\WithPagination;
 
 class Index extends Component
 {
     use WithPagination;
 
-    public $readyToLoad = false;
     public $search;
+    public $readyToLoad = false;
 
+    protected $queryString = ['search'];
     /**
      * @var string
      * front site
      */
     protected $paginationTheme = 'bootstrap';
-    protected $queryString = ['search'];
-    protected $listeners = [
-        'category.added' => '$refresh'
-    ];
 
 
     public function loadCategory()
@@ -37,6 +36,7 @@ class Index extends Component
         $product->update([
             'status_product' => 0
         ]);
+
         Log::create([
             'user_id' => auth()->user()->id,
             'url' => 'غیرفعال کردن وضعیت محصول' . '-' . $product->title,
@@ -46,13 +46,14 @@ class Index extends Component
         $this->emit('toast', 'success', 'وضعیت محصول با موفقیت غیرفعال شد.');
     }
 
+
     public function updateCategoryEnable($id)
     {
-//        dd($this->product);
         $product = Product::find($id);
         $product->update([
             'status_product' => 1
         ]);
+
         Log::create([
             'user_id' => auth()->user()->id,
             'url' => 'فعال کردن وضعیت محصول' . '-' . $product->title,
@@ -61,16 +62,17 @@ class Index extends Component
         $this->emit('toast', 'success', 'وضعیت محصول با موفقیت فعال شد.');
     }
 
+
     public function deleteCategory($id)
     {
         $product = Product::find($id);
+
         $product->delete();
         Log::create([
             'user_id' => auth()->user()->id,
             'url' => 'حذف کردن محصول' . '-' . $product->title,
             'actionType' => 'حذف'
         ]);
-
         $this->emit('toast', 'success', ' محصول با موفقیت حذف شد.');
     }
 
@@ -85,6 +87,6 @@ class Index extends Component
             ->orWhere('tags', 'LIKE', "%{$this->search}%")
             ->latest()->paginate(10) : [];
 
-        return view('livewire.admin.product.index' , compact('products'));
+        return view('livewire.admin.product.index', compact('products'));
     }
 }
