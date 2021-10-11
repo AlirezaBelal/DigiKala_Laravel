@@ -2,17 +2,21 @@
 
 namespace App\Http\Livewire\Admin\Product;
 
+use App\Models\Category;
 use App\Models\Log;
 use App\Models\Product;
+use App\Models\SubCategory;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Livewire\WithPagination;
 
 class Create extends Component
 {
     use WithFileUploads;
 
-    public $img;
     public Product $product;
+    public $img;
+    public $subCategory;
 
     /**
      * @var string[]
@@ -66,7 +70,6 @@ class Create extends Component
         if ($this->img) {
             $this->product->img = $this->uploadImage();
         }
-
         $this->product->save();
 
         Log::create([
@@ -74,7 +77,7 @@ class Create extends Component
             'url' => 'افزودن محصول' . '-' . $this->product->title,
             'actionType' => 'ایجاد'
         ]);
-        $this->emit('toast', 'success', ' محصول با موفقیت ایجاد شد.');
+        alert()->success(' با موفقیت ایجاد شد.', 'محصول مورد نظر با موفقیت ایجاد شد.');
         return redirect(route('product.index'));
     }
 
