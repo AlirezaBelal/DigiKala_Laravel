@@ -87,7 +87,7 @@ class Index extends Component
         //Create a report
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'افزودن دسته' . '-' . $this->category->title,
+            'url' => 'افزودن دسته' . '-' . $category->title,
             'actionType' => 'ایجاد'
         ]);
 
