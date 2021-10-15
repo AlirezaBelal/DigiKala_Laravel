@@ -2,12 +2,14 @@
 <html lang="fa">
 <head>
     <livewire:admin.dashboard.head/>
-    <script src="{{mix('/js/app.js')}}"></script>
+
+    <script src="{{mix('/js/app.js')}}" defer></script>
 </head>
 <body>
-<livewire:admin.dashboard.sidebar/>
 @include('sweet::alert')
+<livewire:admin.dashboard.sidebar/>
 <div class="content">
+
     <livewire:admin.dashboard.header/>
     @include('livewire.admin.dashboard.breadcrumb')
     {{$slot}}
