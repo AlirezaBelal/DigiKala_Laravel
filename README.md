@@ -13,7 +13,7 @@
 - Ckeditor 5 **[Document](https://ckeditor.com/docs/ckeditor5/latest/builds/guides/quick-start.html)**
 - slug gable **[GitHub](https://github.com/cviebrock/eloquent-sluggable)**
   - Automatic linking
-- inpout color **[Document](https://jscolor.com/)
+- inpout color **[Document](https://jscolor.com/)**
 
     
 ## Contact us
