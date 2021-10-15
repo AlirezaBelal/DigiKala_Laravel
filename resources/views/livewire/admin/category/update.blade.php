@@ -16,6 +16,11 @@
                     @include('errors.error')
 
                     <div class="form-group">
+                        <input type="text" wire:model.lazy="category.icon" placeholder="آیکون دسته "
+                               class="form-control">
+                    </div>
+
+                    <div class="form-group">
                         <input type="text" wire:model.lazy="category.title" placeholder="نام دسته "
                                class="form-control">
                     </div>

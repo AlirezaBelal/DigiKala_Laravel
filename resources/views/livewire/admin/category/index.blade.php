@@ -45,6 +45,7 @@
                         <tr role="row" class="title-row">
                             <th>ردیف</th>
                             <th>تصویر دسته</th>
+                            <th>آیکون دسته</th>
                             <th>عنوان دسته</th>
                             <th>نام دسته</th>
                             <th>وضعیت دسته</th>
@@ -63,6 +64,10 @@
                                     <td>
                                         <img src="{{\Illuminate\Support\Facades\Storage::url($category->img)}}"
                                              alt="img" width="50px">
+                                    </td>
+
+                                    <td>
+                                        {{$category->icon}}
                                     </td>
 
                                     <td>
@@ -117,6 +122,11 @@
                       class="padding-10 categoryForm">
 
                     @include('errors.error')
+
+                    <div class="form-group">
+                        <input type="text" wire:model.lazy="category.icon" placeholder="آیکون دسته "
+                               class="form-control">
+                    </div>
 
                     <div class="form-group">
                         <input type="text" wire:model.lazy="category.title" placeholder="نام دسته "

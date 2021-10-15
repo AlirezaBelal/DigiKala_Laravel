@@ -33,6 +33,7 @@ class Index extends Component
      */
     protected $rules = [
         'category.title' => 'required|min:3',
+        'category.icon' => 'nullable',
         'category.name' => 'required',
         'category.link' => 'required',
         'category.status' => 'nullable',
@@ -66,6 +67,7 @@ class Index extends Component
 
         $category = Category::query()->create([
             'title' => $this->category->title,
+            'icon' => $this->category->icon,
             'name' => $this->category->name,
             'link' => $this->category->link,
             'status' => $this->category->status ? true : false,
@@ -79,6 +81,7 @@ class Index extends Component
 
         //Empty the form then fill out the form
         $this->category->title = "";
+        $this->category->icon = "";
         $this->category->name = "";
         $this->category->link = "";
         $this->category->status = false;

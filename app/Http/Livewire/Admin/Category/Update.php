@@ -21,6 +21,7 @@ class Update extends Component
      */
     protected $rules = [
         'category.title' => 'required|min:3',
+        'category.icon' => 'nullable',
         'category.name' => 'required',
         'category.link' => 'required',
         'category.status' => 'nullable',
