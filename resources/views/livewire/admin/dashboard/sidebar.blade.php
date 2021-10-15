@@ -17,7 +17,7 @@
 
         <span class="profile__name">
             کاربر :
-        {{auth()->user()->name}}
+            {{auth()->user()->name}}
         </span>
     </div>
 
@@ -74,6 +74,40 @@
         <li class="item-li i-user__inforamtion {{Request::routeIs('attribute.index') ? 'is-active': '' }}">
             <a href="{{route('attribute.index')}}">
                 مشخصات محصولات
+            </a>
+        </li>
+
+        <hr style="margin-left: 15px;margin-right: 25px">
+
+        <li class="item-li i-slideshow {{Request::routeIs('page.index') ? 'is-active': '' }}">
+            <a href="{{route('page.index')}}">
+                صفحات سایت
+            </a>
+        </li>
+
+        <li class="item-li i-notification__management {{Request::routeIs('newsletter.index') ? 'is-active': '' }}">
+            <a href="{{route('newsletter.index')}}">
+                خبرنامه
+            </a>
+        </li>
+
+        <li class="item-li i-ads {{Request::routeIs('social.index') ? 'is-active': '' }}">
+            <a href="{{route('social.index')}}">
+                شبکه های اجتماعی
+            </a>
+        </li>
+
+        <hr style="margin-left: 15px;margin-right: 25px">
+
+        <li class="item-li i-slideshow {{Request::routeIs('footer.index') ? 'is-active': '' }}">
+            <a href="{{route('footer.index')}}">
+                تنظیمات فوتر سایت
+            </a>
+        </li>
+
+        <li class="item-li i-courses {{Request::routeIs('header.index') ? 'is-active': '' }}">
+            <a href="{{route('header.index')}}">
+                تنظیمات سایت
             </a>
         </li>
 
