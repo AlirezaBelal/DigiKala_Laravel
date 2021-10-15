@@ -7,12 +7,12 @@
 
 
 @include('sweet::alert')
-{{--@include('livewire.home.home.header')--}}
+@include('livewire.home.home.header')
 {{--    {{$slot}}--}}
 
-{{--@include('livewire.home.home.footer')--}}
+@include('livewire.home.home.footer')
 </body>
 
-{{--@include('livewire.home.home.jscript')--}}
+@include('livewire.home.home.jscript')
 
 </html>
