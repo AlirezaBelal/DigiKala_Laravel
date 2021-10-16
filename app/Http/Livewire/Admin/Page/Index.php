@@ -106,7 +106,7 @@ class Index extends Component
         $pages = $this->readyToLoad ? Page::where('title', 'LIKE', "%{$this->search}%")->
         orWhere('link', 'LIKE', "%{$this->search}%")->
         orWhere('id', $this->search)->
-        latest()->paginate(15) : [];
+        latest()->paginate(10) : [];
         return view('livewire.admin.page.index',compact('pages'));
     }
 }
