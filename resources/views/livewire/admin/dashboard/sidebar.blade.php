@@ -79,6 +79,12 @@
 
         <hr style="margin-left: 15px;margin-right: 25px">
 
+        <li class="item-li i-articles {{Request::routeIs('menu.index') ? 'is-active': '' }}">
+            <a href="{{route('menu.index')}}">
+                منو های دسته
+            </a>
+        </li>
+
         <li class="item-li i-slideshow {{Request::routeIs('page.index') ? 'is-active': '' }}">
             <a href="{{route('page.index')}}">
                 صفحات سایت
@@ -94,6 +100,12 @@
         <li class="item-li i-ads {{Request::routeIs('social.index') ? 'is-active': '' }}">
             <a href="{{route('social.index')}}">
                 شبکه های اجتماعی
+            </a>
+        </li>
+
+        <li class="item-li i-ads {{Request::routeIs('ads.index') ? 'is-active': '' }}">
+            <a href="{{route('ads.index')}}">
+                تبلیغات
             </a>
         </li>
 
