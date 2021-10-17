@@ -165,6 +165,19 @@ Route::get('/newsletter', \App\Http\Livewire\Admin\NewsLetter\Index::class)
 Route::get('/social', \App\Http\Livewire\Admin\Social\Index::class)
     ->name('social.index');
 
+//=======================================> //Menu Category//
+Route::get('/menu',\App\Http\Livewire\Admin\Menu\Index::class)
+    ->name('menu.index');
+
+Route::get('/menu/update/{menu}',\App\Http\Livewire\Admin\Menu\Update::class)
+    ->name('menu.update');
+
+
+//=======================================> //Ads//
+Route::get('/ads',\App\Http\Livewire\Admin\Ads\Index::class)
+    ->name('ads.index');
+Route::get('/ads/update/{ads}',\App\Http\Livewire\Admin\Ads\Update::class)
+    ->name('ads.update');
 
 /////////////////////////////////////////////Settings
 //=======================================> //footer//
