@@ -41,6 +41,7 @@
                             <th>نام برند</th>
                             <th>دسته برند</th>
                             <th>وضعیت برند</th>
+                            <th>ویژه</th>
                             <th>عملیات</th>
                         </tr>
                         </thead>
@@ -82,6 +83,21 @@
                                                     type="submit" class="badge-danger badge"
                                                     style="background-color: red">
                                                 غیرفعال
+                                            </button>
+                                        @endif
+                                    </td>
+
+                                    <td>
+                                        @if($brand->vip == 1)
+                                            <button wire:click="updateBrandDisable({{$brand->id}})"
+                                                    type="submit" class="badge-success badge"
+                                                    style="background-color: green">ویژه
+                                            </button>
+                                        @else
+                                            <button wire:click="updateBrandEnable({{$brand->id}})"
+                                                    type="submit" class="badge-danger badge"
+                                                    style="background-color: red">
+                                                غیر ویژه
                                             </button>
                                         @endif
                                     </td>
@@ -131,6 +147,14 @@
                             <input id="option4" type="checkbox" wire:model.lazy="brand.status" name="status"
                                    class="form-control">
                             <label for="option4">نمایش در برند اصلی:</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="notificationGroup">
+                            <input id="option6" type="checkbox" wire:model.lazy="brand.vip" name="vip"
+                                   class="form-control">
+                            <label for="option6">برند ویژه:</label>
                         </div>
                     </div>
 

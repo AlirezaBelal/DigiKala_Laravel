@@ -33,6 +33,14 @@
                     </div>
 
                     <div class="form-group">
+                        <div class="notificationGroup">
+                            <input id="option6" type="checkbox" wire:model.lazy="brand.vip" name="vip"
+                                   class="form-control">
+                            <label for="option6">برند ویژه:</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <select wire:model.lazy="brand.parent" name="parent" id="" class="form-control">
                             <option value="-1"> - انتخاب دسته برند</option>
                             @foreach(\App\Models\Category::all() as $category)

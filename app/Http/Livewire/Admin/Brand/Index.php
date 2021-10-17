@@ -40,6 +40,7 @@ class Index extends Component
         'brand.link' => 'required',
         'brand.parent' => 'required',
         'brand.status' => 'nullable',
+        'brand.vip' => 'nullable',
     ];
 
 
@@ -74,6 +75,7 @@ class Index extends Component
             'link' => $this->brand->link,
             'parent' => $this->brand->parent,
             'status' => $this->brand->status ? 1 : 0,
+            'vip' => $this->brand->vip ? 1 : 0,
         ]);
 
         if ($this->img) {
@@ -88,6 +90,7 @@ class Index extends Component
         $this->brand->link = "";
         $this->brand->parent = null;
         $this->brand->status = false;
+        $this->brand->vip = false;
         $this->img = null;
 
         //Create a report
@@ -143,6 +146,36 @@ class Index extends Component
             'actionType' => 'فعال'
         ]);
 
+        $this->emit('toast', 'success', 'وضعیت برند با موفقیت فعال شد.');
+    }
+
+
+    public function updateBrandDisable($id)
+    {
+        $brand = Brand::find($id);
+        $brand->update([
+            'vip' => 0
+        ]);
+        Log::create([
+            'user_id' => auth()->user()->id,
+            'url' => 'غیرفعال کردن وضعیت برند' . '-' . $this->brand->title,
+            'actionType' => 'غیرفعال'
+        ]);
+        $this->emit('toast', 'success', 'وضعیت برند با موفقیت غیرفعال شد.');
+    }
+
+
+    public function updateBrandEnable($id)
+    {
+        $brand = Brand::find($id);
+        $brand->update([
+            'vip' => 1
+        ]);
+        Log::create([
+            'user_id' => auth()->user()->id,
+            'url' => 'فعال کردن وضعیت برند' . '-' . $this->brand->title,
+            'actionType' => 'فعال'
+        ]);
         $this->emit('toast', 'success', 'وضعیت برند با موفقیت فعال شد.');
     }
 

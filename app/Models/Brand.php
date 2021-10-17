@@ -17,5 +17,6 @@ class Brand extends Model
         'img',
         'description',
         'parent',
-        'link'];
+        'link',
+        'vip'];
 }

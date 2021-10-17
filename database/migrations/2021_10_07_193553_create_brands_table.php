@@ -22,6 +22,7 @@ class CreateBrandsTable extends Migration
             $table->string('status')->default(1);
             $table->string('parent');
             $table->string('link')->nullable();
+            $table->string('vip')->default(1);
 
             $table->softDeletes();
 

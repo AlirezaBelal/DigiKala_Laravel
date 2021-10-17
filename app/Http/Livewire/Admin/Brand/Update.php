@@ -25,6 +25,7 @@ class Update extends Component
         'brand.link' => 'required',
         'brand.parent' => 'required',
         'brand.status' => 'nullable',
+        'brand.vip' => 'nullable',
     ];
 
 
@@ -40,6 +41,12 @@ class Update extends Component
         if (!$this->brand->status) {
             $this->brand->update([
                 'status' => 0
+            ]);
+        }
+
+        if (!$this->brand->vip) {
+            $this->brand->update([
+                'vip' => 0
             ]);
         }
 
@@ -72,6 +79,11 @@ class Update extends Component
             $this->brand->status = true;
         } else {
             $this->brand->status = false;
+        }
+        if ($this->brand->vip == 1) {
+            $this->brand->vip = true;
+        } else {
+            $this->brand->vip = false;
         }
         $brand = $this->brand;
         return view('livewire.admin.brand.update', compact('brand'));
