@@ -46,7 +46,9 @@
                                     <td>
                                         <a href="{{$social->link}}"
                                            class="c-footer__social-link c-footer__social-link--{{$social->icon}}"
-                                           target="_blank"></a>
+                                           target="_blank">
+                                           {{$social->icon}}
+                                        </a>
                                     </td>
 
                                     <td>
