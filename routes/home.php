@@ -17,3 +17,14 @@ Route::get('/', \App\Http\Livewire\Home\Home\Index::class)
     ->name('home.index');
 
 
+
+//Post
+Route::post('/newsletter',[PostController::class,'newsletter'])
+    ->name('post.newsletter');
+
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');})
+    ->name('dashboard');
+
+
