@@ -1,694 +1,694 @@
 <div class="c-navi-new-list__options-container">
-    @foreach()
-        <div class="c-navi-new-list__options-list is-active js-mega-menu-category-options" id="categories-1">
-            <div class="c-navi-new-list__sublist-top-bar"><a
-                    href="main/electronic-devices/index.html"
-                    class="c-navi-new-list__sublist-see-all-cats">
-                    همه دسته‌بندی‌های
+{{--    @foreach()--}}
+{{--        <div class="c-navi-new-list__options-list is-active js-mega-menu-category-options" id="categories-1">--}}
+{{--            <div class="c-navi-new-list__sublist-top-bar"><a--}}
+{{--                    href="main/electronic-devices/index.html"--}}
+{{--                    class="c-navi-new-list__sublist-see-all-cats">--}}
+{{--                    همه دسته‌بندی‌های--}}
 
-                </a>
-            </div>
-            <ul>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en: mobile - category_fa: لوازم جانبی گوشی - level: 2">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-title","category_title":"لوازم جانبی گوشی"}'
-                       href="search/category-mobile-accessories/index.html"
-                       class=" c-navi-new__big-display-title"><span>لوازم جانبی گوشی</span></a><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"لوازم جانبی گوشی"}'
-                        href="search/category-mobile-accessories/index.html"
-                        class=" c-navi-new__medium-display-title"><span>لوازم جانبی گوشی</span></a>
-                </li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en: cell phone pouch cover - category_fa: کیف و کاور گوشی - level: 3">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-item","category_title":"کیف و کاور گوشی"}'
-                       href="search/category-cell-phone-pouch-cover/index.html"
-                       class=" c-navi-new__big-display-title">
-                        کیف و کاور گوشی
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"کیف و کاور گوشی"}'
-                           href="search/category-cell-phone-pouch-cover/index.html"
-                           class=" c-navi-new__medium-display-title">
-                        کیف و کاور گوشی
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: پاور بانک (شارژر همراه) - level: 3">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-item","category_title":"پاور بانک (شارژر همراه)"}'
-                       href="search/category-power-bank/index.html"
-                       class=" c-navi-new__big-display-title">
-                        پاور بانک (شارژر همراه)
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"پاور بانک (شارژر همراه)"}'
-                           href="search/category-power-bank/index.html"
-                           class=" c-navi-new__medium-display-title">
-                        پاور بانک (شارژر همراه)
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: پایه نگهدارنده گوشی - level: 3">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-item","category_title":"پایه نگهدارنده گوشی"}'
-                       href="search/category-cell-phone-holder/index.html"
-                       class=" c-navi-new__big-display-title">
-                        پایه نگهدارنده گوشی
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"پایه نگهدارنده گوشی"}'
-                           href="search/category-cell-phone-holder/index.html"
-                           class=" c-navi-new__medium-display-title">
-                        پایه نگهدارنده گوشی
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en: mobile phone - category_fa: گوشی موبایل - level: 2">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-title","category_title":"گوشی موبایل"}'
-                       href="search/category-mobile-phone/index.html"
-                       class=" c-navi-new__big-display-title"><span>گوشی موبایل</span></a><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"گوشی موبایل"}'
-                        href="search/category-mobile-phone/index.html"
-                        class=" c-navi-new__medium-display-title"><span>گوشی موبایل</span></a>
-                </li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en: Samsung - category_fa: سامسونگ - level: 3">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-item","category_title":"سامسونگ"}'
-                       href="search/category-mobile-phone/indexa73c.html?q=%d8%b3%d8%a7%d9%85%d8%b3%d9%88%d9%86%da%af&amp;entry=mm"
-                       class=" c-navi-new__big-display-title">
-                        سامسونگ
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"سامسونگ"}'
-                           href="search/category-mobile-phone/indexa73c.html?q=%d8%b3%d8%a7%d9%85%d8%b3%d9%88%d9%86%da%af&amp;entry=mm"
-                           class=" c-navi-new__medium-display-title">
-                        سامسونگ
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: هوآوی - level: 3"><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-item","category_title":"هوآوی"}'
-                        href="search/category-mobile-phone/indexf278.html?q=%d9%87%d9%88%d8%a7%d9%88%db%8c&amp;entry=mm"
-                        class=" c-navi-new__big-display-title">
-                        هوآوی
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"هوآوی"}'
-                           href="search/category-mobile-phone/indexf278.html?q=%d9%87%d9%88%d8%a7%d9%88%db%8c&amp;entry=mm"
-                           class=" c-navi-new__medium-display-title">
-                        هوآوی
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en: Apple iPhone - category_fa: اپل - level: 3">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-item","category_title":"اپل"}'
-                       href="search/category-mobile-phone/index8d21.html?q=%d8%a7%d9%be%d9%84&amp;entry=mm"
-                       class=" c-navi-new__big-display-title">
-                        اپل
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"اپل"}'
-                           href="search/category-mobile-phone/index8d21.html?q=%d8%a7%d9%be%d9%84&amp;entry=mm"
-                           class=" c-navi-new__medium-display-title">
-                        اپل
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en: Xiaomi - category_fa: شیائومی - level: 3">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-item","category_title":"شیائومی"}'
-                       href="search/category-mobile-phone/index6343.html?q=%d8%b4%db%8c%d8%a7%d8%a6%d9%88%d9%85%db%8c&amp;entry=mm"
-                       class=" c-navi-new__big-display-title">
-                        شیائومی
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"شیائومی"}'
-                           href="search/category-mobile-phone/index6343.html?q=%d8%b4%db%8c%d8%a7%d8%a6%d9%88%d9%85%db%8c&amp;entry=mm"
-                           class=" c-navi-new__medium-display-title">
-                        شیائومی
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en: Honor - category_fa: آنر - level: 3">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-item","category_title":"آنر"}'
-                       href="search/category-mobile-phone/indexa463.html?q=%d8%a2%d9%86%d8%b1&amp;entry=mm"
-                       class=" c-navi-new__big-display-title">
-                        آنر
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"آنر"}'
-                           href="search/category-mobile-phone/indexa463.html?q=%d8%a2%d9%86%d8%b1&amp;entry=mm"
-                           class=" c-navi-new__medium-display-title">
-                        آنر
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en: Nokia - category_fa: نوکیا - level: 3">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-item","category_title":"نوکیا"}'
-                       href="search/category-mobile-phone/index1439.html?q=%d9%86%d9%88%da%a9%db%8c%d8%a7&amp;entry=mm"
-                       class=" c-navi-new__big-display-title">
-                        نوکیا
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"نوکیا"}'
-                           href="search/category-mobile-phone/index1439.html?q=%d9%86%d9%88%da%a9%db%8c%d8%a7&amp;entry=mm"
-                           class=" c-navi-new__medium-display-title">
-                        نوکیا
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: واقعیت مجازی - level: 2">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-title","category_title":"واقعیت مجازی"}'
-                       href="search/category-mobile-accessories/index9ec7.html?q=%d9%87%d8%af%d8%b3%d8%aa%20%d9%88%d8%a7%d9%82%d8%b9%db%8c%d8%aa%20%d9%85%d8%ac%d8%a7%d8%b2%db%8c&amp;entry=mm"
-                       class=" c-navi-new__big-display-title"><span>واقعیت مجازی</span></a><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"واقعیت مجازی"}'
-                        href="search/category-mobile-accessories/index9ec7.html?q=%d9%87%d8%af%d8%b3%d8%aa%20%d9%88%d8%a7%d9%82%d8%b9%db%8c%d8%aa%20%d9%85%d8%ac%d8%a7%d8%b2%db%8c&amp;entry=mm"
-                        class=" c-navi-new__medium-display-title"><span>واقعیت مجازی</span></a>
-                </li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: مچ‌بند و ساعت هوشمند - level: 2">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-title","category_title":"مچ‌بند و ساعت هوشمند"}'
-                       href="search/category-wearable-gadget/index.html"
-                       class=" c-navi-new__big-display-title"><span>مچ‌بند و ساعت هوشمند</span></a><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"مچ‌بند و ساعت هوشمند"}'
-                        href="search/category-wearable-gadget/index.html"
-                        class=" c-navi-new__medium-display-title"><span>مچ‌بند و ساعت هوشمند</span></a>
-                </li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: هدفون، هدست، هندزفری - level: 2">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-title","category_title":"هدفون، هدست، هندزفری"}'
-                       href="search/category-headphone-headset-microphone/index.html"
-                       class=" c-navi-new__big-display-title"><span>هدفون، هدست، هندزفری</span></a><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"هدفون، هدست، هندزفری"}'
-                        href="search/category-headphone-headset-microphone/index.html"
-                        class=" c-navi-new__medium-display-title"><span>هدفون، هدست، هندزفری</span></a>
-                </li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: اسپیکر بلوتوث و با سیم - level: 2">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-title","category_title":"اسپیکر بلوتوث و با سیم"}'
-                       href="search/category-speaker/index.html"
-                       class=" c-navi-new__big-display-title"><span>اسپیکر بلوتوث و با سیم</span></a><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"اسپیکر بلوتوث و با سیم"}'
-                        href="search/category-speaker/index.html"
-                        class=" c-navi-new__medium-display-title"><span>اسپیکر بلوتوث و با سیم</span></a>
-                </li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: هارد، فلش و SSD - level: 2">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-title","category_title":"هارد، فلش و SSD"}'
-                       href="search/category-data-storage/index.html"
-                       class=" c-navi-new__big-display-title"><span>هارد، فلش و SSD</span></a><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"هارد، فلش و SSD"}'
-                        href="search/category-data-storage/index.html"
-                        class=" c-navi-new__medium-display-title"><span>هارد، فلش و SSD</span></a>
-                </li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: دوربین - level: 2"><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"دوربین"}'
-                        href="search/category-camera/index.html"
-                        class=" c-navi-new__big-display-title"><span>دوربین</span></a><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"دوربین"}'
-                        href="search/category-camera/index.html"
-                        class=" c-navi-new__medium-display-title"><span>دوربین</span></a>
-                </li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: دوربین عکاسی دیجیتال - level: 3">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-item","category_title":"دوربین عکاسی دیجیتال"}'
-                       href="search/category-digital-camera/index.html"
-                       class=" c-navi-new__big-display-title">
-                        دوربین عکاسی دیجیتال
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"دوربین عکاسی دیجیتال"}'
-                           href="search/category-digital-camera/index.html"
-                           class=" c-navi-new__medium-display-title">
-                        دوربین عکاسی دیجیتال
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: دوربین‌ ورزشی و فیلم برداری - level: 3">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-item","category_title":"دوربین‌ ورزشی و فیلم برداری"}'
-                       href="search/category-camcorder/index.html"
-                       class=" c-navi-new__big-display-title">
-                        دوربین‌ ورزشی و فیلم برداری
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"دوربین‌ ورزشی و فیلم برداری"}'
-                           href="search/category-camcorder/index.html"
-                           class=" c-navi-new__medium-display-title">
-                        دوربین‌ ورزشی و فیلم برداری
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: دوربین‌ چاپ سریع - level: 3">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-item","category_title":"دوربین‌ چاپ سریع"}'
-                       href="search/category-digital-camera/index8050.html?q=%da%86%d8%a7%d9%be%20%d8%b3%d8%b1%db%8c%d8%b9&amp;entry=mm"
-                       class=" c-navi-new__big-display-title">
-                        دوربین‌ چاپ سریع
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"دوربین‌ چاپ سریع"}'
-                           href="search/category-digital-camera/index8050.html?q=%da%86%d8%a7%d9%be%20%d8%b3%d8%b1%db%8c%d8%b9&amp;entry=mm"
-                           class=" c-navi-new__medium-display-title">
-                        دوربین‌ چاپ سریع
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: لوازم جانبی دوربین - level: 2">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-title","category_title":"لوازم جانبی دوربین"}'
-                       href="search/category-camera-accessories/index.html"
-                       class=" c-navi-new__big-display-title"><span>لوازم جانبی دوربین</span></a><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"لوازم جانبی دوربین"}'
-                        href="search/category-camera-accessories/index.html"
-                        class=" c-navi-new__medium-display-title"><span>لوازم جانبی دوربین</span></a>
-                </li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: لنز - level: 3"><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-item","category_title":"لنز"}'
-                        href="search/category-camera-lens/index.html"
-                        class=" c-navi-new__big-display-title">
-                        لنز
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"لنز"}'
-                           href="search/category-camera-lens/index.html"
-                           class=" c-navi-new__medium-display-title">
-                        لنز
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: کیف - level: 3"><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-item","category_title":"کیف"}'
-                        href="search/category-camera-bag/index.html"
-                        class=" c-navi-new__big-display-title">
-                        کیف
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"کیف"}'
-                           href="search/category-camera-bag/index.html"
-                           class=" c-navi-new__medium-display-title">
-                        کیف
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: کارت حافظه - level: 3">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-item","category_title":"کارت حافظه"}'
-                       href="search/category-memory-cards/index.html"
-                       class=" c-navi-new__big-display-title">
-                        کارت حافظه
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"کارت حافظه"}'
-                           href="search/category-memory-cards/index.html"
-                           class=" c-navi-new__medium-display-title">
-                        کارت حافظه
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: کاغذ چاپ عکس - level: 3">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-item","category_title":"کاغذ چاپ عکس"}'
-                       href="search/category-printer-paper/index.html"
-                       class=" c-navi-new__big-display-title">
-                        کاغذ چاپ عکس
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"کاغذ چاپ عکس"}'
-                           href="search/category-printer-paper/index.html"
-                           class=" c-navi-new__medium-display-title">
-                        کاغذ چاپ عکس
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: دوربین دو چشمی و شکاری - level: 2">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-title","category_title":"دوربین دو چشمی و شکاری"}'
-                       href="search/category-binoculars/index.html"
-                       class=" c-navi-new__big-display-title"><span>دوربین دو چشمی و شکاری</span></a><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"دوربین دو چشمی و شکاری"}'
-                        href="search/category-binoculars/index.html"
-                        class=" c-navi-new__medium-display-title"><span>دوربین دو چشمی و شکاری</span></a>
-                </li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: تلسکوپ - level: 2"><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"تلسکوپ"}'
-                        href="search/category-telescope/index.html"
-                        class=" c-navi-new__big-display-title"><span>تلسکوپ</span></a><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"تلسکوپ"}'
-                        href="search/category-telescope/index.html"
-                        class=" c-navi-new__medium-display-title"><span>تلسکوپ</span></a>
-                </li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: پلی استیشن، ایکس باکس و بازی - level: 2">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-title","category_title":"پلی استیشن، ایکس باکس و بازی"}'
-                       href="search/category-game-console/index.html"
-                       class=" c-navi-new__big-display-title"><span>پلی استیشن، ایکس باکس و بازی</span></a><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"پلی استیشن، ایکس باکس و بازی"}'
-                        href="search/category-game-console/index.html"
-                        class=" c-navi-new__medium-display-title"><span>پلی استیشن، ایکس باکس و بازی</span></a>
-                </li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en: Office Electronics - category_fa: کامپیوتر و تجهیزات جانبی - level: 2">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-title","category_title":"کامپیوتر و تجهیزات جانبی"}'
-                       href="search/category-computer-parts/index.html"
-                       class=" c-navi-new__big-display-title"><span>کامپیوتر و تجهیزات جانبی</span></a><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"کامپیوتر و تجهیزات جانبی"}'
-                        href="search/category-computer-parts/index.html"
-                        class=" c-navi-new__medium-display-title"><span>کامپیوتر و تجهیزات جانبی</span></a>
-                </li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: تجهیزات مخصوص بازی - level: 3">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-item","category_title":"تجهیزات مخصوص بازی"}'
-                       href="search/category-gaming-accessories/index.html"
-                       class=" c-navi-new__big-display-title">
-                        تجهیزات مخصوص بازی
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"تجهیزات مخصوص بازی"}'
-                           href="search/category-gaming-accessories/index.html"
-                           class=" c-navi-new__medium-display-title">
-                        تجهیزات مخصوص بازی
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: مانیتور - level: 3">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-item","category_title":"مانیتور"}'
-                       href="search/category-monitor/index.html"
-                       class=" c-navi-new__big-display-title">
-                        مانیتور
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"مانیتور"}'
-                           href="search/category-monitor/index.html"
-                           class=" c-navi-new__medium-display-title">
-                        مانیتور
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: کیس‌های اسمبل شده - level: 3">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-item","category_title":"کیس‌های اسمبل شده"}'
-                       href="search/category-assembled-cases/index.html"
-                       class=" c-navi-new__big-display-title">
-                        کیس‌های اسمبل شده
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"کیس‌های اسمبل شده"}'
-                           href="search/category-assembled-cases/index.html"
-                           class=" c-navi-new__medium-display-title">
-                        کیس‌های اسمبل شده
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: قطعات داخلی کامپیوتر - level: 3">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-item","category_title":"قطعات داخلی کامپیوتر"}'
-                       href="search/category-computer-devices/index.html"
-                       class=" c-navi-new__big-display-title">
-                        قطعات داخلی کامپیوتر
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"قطعات داخلی کامپیوتر"}'
-                           href="search/category-computer-devices/index.html"
-                           class=" c-navi-new__medium-display-title">
-                        قطعات داخلی کامپیوتر
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: ماوس - level: 3"><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-item","category_title":"ماوس"}'
-                        href="search/category-mouse/index.html"
-                        class=" c-navi-new__big-display-title">
-                        ماوس
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"ماوس"}'
-                           href="search/category-mouse/index.html"
-                           class=" c-navi-new__medium-display-title">
-                        ماوس
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: کیبورد - level: 3"><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-item","category_title":"کیبورد"}'
-                        href="search/category-keyboard/index.html"
-                        class=" c-navi-new__big-display-title">
-                        کیبورد
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"کیبورد"}'
-                           href="search/category-keyboard/index.html"
-                           class=" c-navi-new__medium-display-title">
-                        کیبورد
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en: Laptop - category_fa: لپ تاپ - level: 2">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-title","category_title":"لپ تاپ"}'
-                       href="search/category-notebook-netbook-ultrabook/index.html"
-                       class=" c-navi-new__big-display-title"><span>لپ تاپ</span></a><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"لپ تاپ"}'
-                        href="search/category-notebook-netbook-ultrabook/index.html"
-                        class=" c-navi-new__medium-display-title"><span>لپ تاپ</span></a>
-                </li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: لوازم جانبی لپ تاپ - level: 2">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-title","category_title":"لوازم جانبی لپ تاپ"}'
-                       href="search/category-laptop-accessories/index.html"
-                       class=" c-navi-new__big-display-title"><span>لوازم جانبی لپ تاپ</span></a><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"لوازم جانبی لپ تاپ"}'
-                        href="search/category-laptop-accessories/index.html"
-                        class=" c-navi-new__medium-display-title"><span>لوازم جانبی لپ تاپ</span></a>
-                </li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: کیف، کوله و کاور - level: 3">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-item","category_title":"کیف، کوله و کاور"}'
-                       href="search/category-laptop-bag/index.html"
-                       class=" c-navi-new__big-display-title">
-                        کیف، کوله و کاور
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"کیف، کوله و کاور"}'
-                           href="search/category-laptop-bag/index.html"
-                           class=" c-navi-new__medium-display-title">
-                        کیف، کوله و کاور
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: کابل‌ صدا، AUX و HDMI - level: 3">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-item","category_title":"کابل‌ صدا، AUX و HDMI"}'
-                       href="search/category-cable-voice-video/index.html"
-                       class=" c-navi-new__big-display-title">
-                        کابل‌ صدا، AUX و HDMI
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"کابل‌ صدا، AUX و HDMI"}'
-                           href="search/category-cable-voice-video/index.html"
-                           class=" c-navi-new__medium-display-title">
-                        کابل‌ صدا، AUX و HDMI
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en: Tablet - category_fa: تبلت - level: 2">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-title","category_title":"تبلت"}'
-                       href="search/category-tablet/index.html"
-                       class=" c-navi-new__big-display-title"><span>تبلت</span></a><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"تبلت"}'
-                        href="search/category-tablet/index.html"
-                        class=" c-navi-new__medium-display-title"><span>تبلت</span></a>
-                </li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: شارژر تبلت و موبایل - level: 2">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-title","category_title":"شارژر تبلت و موبایل"}'
-                       href="search/category-car-charger/index.html"
-                       class=" c-navi-new__big-display-title"><span>شارژر تبلت و موبایل</span></a><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"شارژر تبلت و موبایل"}'
-                        href="search/category-car-charger/index.html"
-                        class=" c-navi-new__medium-display-title"><span>شارژر تبلت و موبایل</span></a>
-                </li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en: Camera & Studio Equipment - category_fa: کیف، کاور، لوازم جانبی تبلت - level: 2">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-title","category_title":"کیف، کاور، لوازم جانبی تبلت"}'
-                       href="search/category-tablet-accessories/index.html"
-                       class=" c-navi-new__big-display-title"><span>کیف، کاور، لوازم جانبی تبلت</span></a><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"کیف، کاور، لوازم جانبی تبلت"}'
-                        href="search/category-tablet-accessories/index.html"
-                        class=" c-navi-new__medium-display-title"><span>کیف، کاور، لوازم جانبی تبلت</span></a>
-                </li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: باتری - level: 2"><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"باتری"}'
-                        href="search/category-battery-charger-and-accesories/index.html"
-                        class=" c-navi-new__big-display-title"><span>باتری</span></a><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"باتری"}'
-                        href="search/category-battery-charger-and-accesories/index.html"
-                        class=" c-navi-new__medium-display-title"><span>باتری</span></a>
-                </li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: دوربین‌های تحت شبکه - level: 2">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-title","category_title":"دوربین‌های تحت شبکه"}'
-                       href="search/category-network-cam/index.html"
-                       class=" c-navi-new__big-display-title"><span>دوربین‌های تحت شبکه</span></a><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"دوربین‌های تحت شبکه"}'
-                        href="search/category-network-cam/index.html"
-                        class=" c-navi-new__medium-display-title"><span>دوربین‌های تحت شبکه</span></a>
-                </li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en: Accessories - category_fa: مودم و تجهیزات شبکه - level: 2">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-title","category_title":"مودم و تجهیزات شبکه"}'
-                       href="search/category-network/index.html"
-                       class=" c-navi-new__big-display-title"><span>مودم و تجهیزات شبکه</span></a><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"مودم و تجهیزات شبکه"}'
-                        href="search/category-network/index.html"
-                        class=" c-navi-new__medium-display-title"><span>مودم و تجهیزات شبکه</span></a>
-                </li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: ماشین های اداری - level: 2">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-title","category_title":"ماشین های اداری"}'
-                       href="search/category-office-machines/index.html"
-                       class=" c-navi-new__big-display-title"><span>ماشین های اداری</span></a><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"ماشین های اداری"}'
-                        href="search/category-office-machines/index.html"
-                        class=" c-navi-new__medium-display-title"><span>ماشین های اداری</span></a>
-                </li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: تلفن، بی سیم و سانترال - level: 3">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-item","category_title":"تلفن، بی سیم و سانترال"}'
-                       href="search/category-telephone/index.html"
-                       class=" c-navi-new__big-display-title">
-                        تلفن، بی سیم و سانترال
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"تلفن، بی سیم و سانترال"}'
-                           href="search/category-telephone/index.html"
-                           class=" c-navi-new__medium-display-title">
-                        تلفن، بی سیم و سانترال
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: فکس - level: 3"><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-item","category_title":"فکس"}'
-                        href="search/category-fax/index.html"
-                        class=" c-navi-new__big-display-title">
-                        فکس
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"فکس"}'
-                           href="search/category-fax/index.html"
-                           class=" c-navi-new__medium-display-title">
-                        فکس
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: پرینتر - level: 3"><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-item","category_title":"پرینتر"}'
-                        href="search/category-printer/index.html"
-                        class=" c-navi-new__big-display-title">
-                        پرینتر
-                    </a><a data-snt-event="dkMegaMenuClick"
-                           data-snt-params='{"type":"option-item","category_title":"پرینتر"}'
-                           href="search/category-printer/index.html"
-                           class=" c-navi-new__medium-display-title">
-                        پرینتر
-                    </a></li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: کتابخوان فیدیبوک - level: 2">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-title","category_title":"کتابخوان فیدیبوک"}'
-                       href="search/category-ebook-reader/index22aa.html?q=%d9%81%db%8c%d8%af%db%8c%d8%a8%d9%88%da%a9&amp;entry=mm"
-                       class=" c-navi-new__big-display-title"><span>کتابخوان فیدیبوک</span></a><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"کتابخوان فیدیبوک"}'
-                        href="search/category-ebook-reader/index22aa.html?q=%d9%81%db%8c%d8%af%db%8c%d8%a8%d9%88%da%a9&amp;entry=mm"
-                        class=" c-navi-new__medium-display-title"><span>کتابخوان فیدیبوک</span></a>
-                </li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: کارت هدیه خرید از دیجی‌کالا - level: 2">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-title","category_title":"کارت هدیه خرید از دیجی‌کالا"}'
-                       href="main/dk-ds-gift-card/index.html"
-                       class=" c-navi-new__big-display-title"><span>کارت هدیه خرید از دیجی‌کالا</span></a><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"کارت هدیه خرید از دیجی‌کالا"}'
-                        href="main/dk-ds-gift-card/index.html"
-                        class=" c-navi-new__medium-display-title"><span>کارت هدیه خرید از دیجی‌کالا</span></a>
-                </li>
-                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"
-                    data-event="megamenu_click" data-event-category="header_section"
-                    data-event-label="category_en:  - category_fa: خرید شارژ و بسته اینترنت - level: 2">
-                    <a data-snt-event="dkMegaMenuClick"
-                       data-snt-params='{"type":"option-title","category_title":"خرید شارژ و بسته اینترنت"}'
-                       href="top-up/index.html"
-                       class=" c-navi-new__big-display-title"><span>خرید شارژ و بسته اینترنت</span></a><a
-                        data-snt-event="dkMegaMenuClick"
-                        data-snt-params='{"type":"option-title","category_title":"خرید شارژ و بسته اینترنت"}'
-                        href="top-up/index.html"
-                        class=" c-navi-new__medium-display-title"><span>خرید شارژ و بسته اینترنت</span></a>
-                </li>
-            </ul>
-        </div>
+{{--                </a>--}}
+{{--            </div>--}}
+{{--            <ul>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en: mobile - category_fa: لوازم جانبی گوشی - level: 2">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-title","category_title":"لوازم جانبی گوشی"}'--}}
+{{--                       href="search/category-mobile-accessories/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title"><span>لوازم جانبی گوشی</span></a><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"لوازم جانبی گوشی"}'--}}
+{{--                        href="search/category-mobile-accessories/index.html"--}}
+{{--                        class=" c-navi-new__medium-display-title"><span>لوازم جانبی گوشی</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en: cell phone pouch cover - category_fa: کیف و کاور گوشی - level: 3">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-item","category_title":"کیف و کاور گوشی"}'--}}
+{{--                       href="search/category-cell-phone-pouch-cover/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title">--}}
+{{--                        کیف و کاور گوشی--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"کیف و کاور گوشی"}'--}}
+{{--                           href="search/category-cell-phone-pouch-cover/index.html"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        کیف و کاور گوشی--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: پاور بانک (شارژر همراه) - level: 3">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-item","category_title":"پاور بانک (شارژر همراه)"}'--}}
+{{--                       href="search/category-power-bank/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title">--}}
+{{--                        پاور بانک (شارژر همراه)--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"پاور بانک (شارژر همراه)"}'--}}
+{{--                           href="search/category-power-bank/index.html"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        پاور بانک (شارژر همراه)--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: پایه نگهدارنده گوشی - level: 3">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-item","category_title":"پایه نگهدارنده گوشی"}'--}}
+{{--                       href="search/category-cell-phone-holder/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title">--}}
+{{--                        پایه نگهدارنده گوشی--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"پایه نگهدارنده گوشی"}'--}}
+{{--                           href="search/category-cell-phone-holder/index.html"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        پایه نگهدارنده گوشی--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en: mobile phone - category_fa: گوشی موبایل - level: 2">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-title","category_title":"گوشی موبایل"}'--}}
+{{--                       href="search/category-mobile-phone/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title"><span>گوشی موبایل</span></a><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"گوشی موبایل"}'--}}
+{{--                        href="search/category-mobile-phone/index.html"--}}
+{{--                        class=" c-navi-new__medium-display-title"><span>گوشی موبایل</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en: Samsung - category_fa: سامسونگ - level: 3">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-item","category_title":"سامسونگ"}'--}}
+{{--                       href="search/category-mobile-phone/indexa73c.html?q=%d8%b3%d8%a7%d9%85%d8%b3%d9%88%d9%86%da%af&amp;entry=mm"--}}
+{{--                       class=" c-navi-new__big-display-title">--}}
+{{--                        سامسونگ--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"سامسونگ"}'--}}
+{{--                           href="search/category-mobile-phone/indexa73c.html?q=%d8%b3%d8%a7%d9%85%d8%b3%d9%88%d9%86%da%af&amp;entry=mm"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        سامسونگ--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: هوآوی - level: 3"><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-item","category_title":"هوآوی"}'--}}
+{{--                        href="search/category-mobile-phone/indexf278.html?q=%d9%87%d9%88%d8%a7%d9%88%db%8c&amp;entry=mm"--}}
+{{--                        class=" c-navi-new__big-display-title">--}}
+{{--                        هوآوی--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"هوآوی"}'--}}
+{{--                           href="search/category-mobile-phone/indexf278.html?q=%d9%87%d9%88%d8%a7%d9%88%db%8c&amp;entry=mm"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        هوآوی--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en: Apple iPhone - category_fa: اپل - level: 3">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-item","category_title":"اپل"}'--}}
+{{--                       href="search/category-mobile-phone/index8d21.html?q=%d8%a7%d9%be%d9%84&amp;entry=mm"--}}
+{{--                       class=" c-navi-new__big-display-title">--}}
+{{--                        اپل--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"اپل"}'--}}
+{{--                           href="search/category-mobile-phone/index8d21.html?q=%d8%a7%d9%be%d9%84&amp;entry=mm"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        اپل--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en: Xiaomi - category_fa: شیائومی - level: 3">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-item","category_title":"شیائومی"}'--}}
+{{--                       href="search/category-mobile-phone/index6343.html?q=%d8%b4%db%8c%d8%a7%d8%a6%d9%88%d9%85%db%8c&amp;entry=mm"--}}
+{{--                       class=" c-navi-new__big-display-title">--}}
+{{--                        شیائومی--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"شیائومی"}'--}}
+{{--                           href="search/category-mobile-phone/index6343.html?q=%d8%b4%db%8c%d8%a7%d8%a6%d9%88%d9%85%db%8c&amp;entry=mm"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        شیائومی--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en: Honor - category_fa: آنر - level: 3">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-item","category_title":"آنر"}'--}}
+{{--                       href="search/category-mobile-phone/indexa463.html?q=%d8%a2%d9%86%d8%b1&amp;entry=mm"--}}
+{{--                       class=" c-navi-new__big-display-title">--}}
+{{--                        آنر--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"آنر"}'--}}
+{{--                           href="search/category-mobile-phone/indexa463.html?q=%d8%a2%d9%86%d8%b1&amp;entry=mm"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        آنر--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en: Nokia - category_fa: نوکیا - level: 3">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-item","category_title":"نوکیا"}'--}}
+{{--                       href="search/category-mobile-phone/index1439.html?q=%d9%86%d9%88%da%a9%db%8c%d8%a7&amp;entry=mm"--}}
+{{--                       class=" c-navi-new__big-display-title">--}}
+{{--                        نوکیا--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"نوکیا"}'--}}
+{{--                           href="search/category-mobile-phone/index1439.html?q=%d9%86%d9%88%da%a9%db%8c%d8%a7&amp;entry=mm"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        نوکیا--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: واقعیت مجازی - level: 2">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-title","category_title":"واقعیت مجازی"}'--}}
+{{--                       href="search/category-mobile-accessories/index9ec7.html?q=%d9%87%d8%af%d8%b3%d8%aa%20%d9%88%d8%a7%d9%82%d8%b9%db%8c%d8%aa%20%d9%85%d8%ac%d8%a7%d8%b2%db%8c&amp;entry=mm"--}}
+{{--                       class=" c-navi-new__big-display-title"><span>واقعیت مجازی</span></a><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"واقعیت مجازی"}'--}}
+{{--                        href="search/category-mobile-accessories/index9ec7.html?q=%d9%87%d8%af%d8%b3%d8%aa%20%d9%88%d8%a7%d9%82%d8%b9%db%8c%d8%aa%20%d9%85%d8%ac%d8%a7%d8%b2%db%8c&amp;entry=mm"--}}
+{{--                        class=" c-navi-new__medium-display-title"><span>واقعیت مجازی</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: مچ‌بند و ساعت هوشمند - level: 2">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-title","category_title":"مچ‌بند و ساعت هوشمند"}'--}}
+{{--                       href="search/category-wearable-gadget/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title"><span>مچ‌بند و ساعت هوشمند</span></a><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"مچ‌بند و ساعت هوشمند"}'--}}
+{{--                        href="search/category-wearable-gadget/index.html"--}}
+{{--                        class=" c-navi-new__medium-display-title"><span>مچ‌بند و ساعت هوشمند</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: هدفون، هدست، هندزفری - level: 2">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-title","category_title":"هدفون، هدست، هندزفری"}'--}}
+{{--                       href="search/category-headphone-headset-microphone/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title"><span>هدفون، هدست، هندزفری</span></a><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"هدفون، هدست، هندزفری"}'--}}
+{{--                        href="search/category-headphone-headset-microphone/index.html"--}}
+{{--                        class=" c-navi-new__medium-display-title"><span>هدفون، هدست، هندزفری</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: اسپیکر بلوتوث و با سیم - level: 2">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-title","category_title":"اسپیکر بلوتوث و با سیم"}'--}}
+{{--                       href="search/category-speaker/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title"><span>اسپیکر بلوتوث و با سیم</span></a><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"اسپیکر بلوتوث و با سیم"}'--}}
+{{--                        href="search/category-speaker/index.html"--}}
+{{--                        class=" c-navi-new__medium-display-title"><span>اسپیکر بلوتوث و با سیم</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: هارد، فلش و SSD - level: 2">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-title","category_title":"هارد، فلش و SSD"}'--}}
+{{--                       href="search/category-data-storage/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title"><span>هارد، فلش و SSD</span></a><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"هارد، فلش و SSD"}'--}}
+{{--                        href="search/category-data-storage/index.html"--}}
+{{--                        class=" c-navi-new__medium-display-title"><span>هارد، فلش و SSD</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: دوربین - level: 2"><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"دوربین"}'--}}
+{{--                        href="search/category-camera/index.html"--}}
+{{--                        class=" c-navi-new__big-display-title"><span>دوربین</span></a><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"دوربین"}'--}}
+{{--                        href="search/category-camera/index.html"--}}
+{{--                        class=" c-navi-new__medium-display-title"><span>دوربین</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: دوربین عکاسی دیجیتال - level: 3">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-item","category_title":"دوربین عکاسی دیجیتال"}'--}}
+{{--                       href="search/category-digital-camera/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title">--}}
+{{--                        دوربین عکاسی دیجیتال--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"دوربین عکاسی دیجیتال"}'--}}
+{{--                           href="search/category-digital-camera/index.html"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        دوربین عکاسی دیجیتال--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: دوربین‌ ورزشی و فیلم برداری - level: 3">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-item","category_title":"دوربین‌ ورزشی و فیلم برداری"}'--}}
+{{--                       href="search/category-camcorder/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title">--}}
+{{--                        دوربین‌ ورزشی و فیلم برداری--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"دوربین‌ ورزشی و فیلم برداری"}'--}}
+{{--                           href="search/category-camcorder/index.html"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        دوربین‌ ورزشی و فیلم برداری--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: دوربین‌ چاپ سریع - level: 3">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-item","category_title":"دوربین‌ چاپ سریع"}'--}}
+{{--                       href="search/category-digital-camera/index8050.html?q=%da%86%d8%a7%d9%be%20%d8%b3%d8%b1%db%8c%d8%b9&amp;entry=mm"--}}
+{{--                       class=" c-navi-new__big-display-title">--}}
+{{--                        دوربین‌ چاپ سریع--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"دوربین‌ چاپ سریع"}'--}}
+{{--                           href="search/category-digital-camera/index8050.html?q=%da%86%d8%a7%d9%be%20%d8%b3%d8%b1%db%8c%d8%b9&amp;entry=mm"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        دوربین‌ چاپ سریع--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: لوازم جانبی دوربین - level: 2">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-title","category_title":"لوازم جانبی دوربین"}'--}}
+{{--                       href="search/category-camera-accessories/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title"><span>لوازم جانبی دوربین</span></a><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"لوازم جانبی دوربین"}'--}}
+{{--                        href="search/category-camera-accessories/index.html"--}}
+{{--                        class=" c-navi-new__medium-display-title"><span>لوازم جانبی دوربین</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: لنز - level: 3"><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-item","category_title":"لنز"}'--}}
+{{--                        href="search/category-camera-lens/index.html"--}}
+{{--                        class=" c-navi-new__big-display-title">--}}
+{{--                        لنز--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"لنز"}'--}}
+{{--                           href="search/category-camera-lens/index.html"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        لنز--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: کیف - level: 3"><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-item","category_title":"کیف"}'--}}
+{{--                        href="search/category-camera-bag/index.html"--}}
+{{--                        class=" c-navi-new__big-display-title">--}}
+{{--                        کیف--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"کیف"}'--}}
+{{--                           href="search/category-camera-bag/index.html"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        کیف--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: کارت حافظه - level: 3">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-item","category_title":"کارت حافظه"}'--}}
+{{--                       href="search/category-memory-cards/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title">--}}
+{{--                        کارت حافظه--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"کارت حافظه"}'--}}
+{{--                           href="search/category-memory-cards/index.html"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        کارت حافظه--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: کاغذ چاپ عکس - level: 3">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-item","category_title":"کاغذ چاپ عکس"}'--}}
+{{--                       href="search/category-printer-paper/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title">--}}
+{{--                        کاغذ چاپ عکس--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"کاغذ چاپ عکس"}'--}}
+{{--                           href="search/category-printer-paper/index.html"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        کاغذ چاپ عکس--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: دوربین دو چشمی و شکاری - level: 2">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-title","category_title":"دوربین دو چشمی و شکاری"}'--}}
+{{--                       href="search/category-binoculars/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title"><span>دوربین دو چشمی و شکاری</span></a><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"دوربین دو چشمی و شکاری"}'--}}
+{{--                        href="search/category-binoculars/index.html"--}}
+{{--                        class=" c-navi-new__medium-display-title"><span>دوربین دو چشمی و شکاری</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: تلسکوپ - level: 2"><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"تلسکوپ"}'--}}
+{{--                        href="search/category-telescope/index.html"--}}
+{{--                        class=" c-navi-new__big-display-title"><span>تلسکوپ</span></a><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"تلسکوپ"}'--}}
+{{--                        href="search/category-telescope/index.html"--}}
+{{--                        class=" c-navi-new__medium-display-title"><span>تلسکوپ</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: پلی استیشن، ایکس باکس و بازی - level: 2">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-title","category_title":"پلی استیشن، ایکس باکس و بازی"}'--}}
+{{--                       href="search/category-game-console/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title"><span>پلی استیشن، ایکس باکس و بازی</span></a><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"پلی استیشن، ایکس باکس و بازی"}'--}}
+{{--                        href="search/category-game-console/index.html"--}}
+{{--                        class=" c-navi-new__medium-display-title"><span>پلی استیشن، ایکس باکس و بازی</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en: Office Electronics - category_fa: کامپیوتر و تجهیزات جانبی - level: 2">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-title","category_title":"کامپیوتر و تجهیزات جانبی"}'--}}
+{{--                       href="search/category-computer-parts/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title"><span>کامپیوتر و تجهیزات جانبی</span></a><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"کامپیوتر و تجهیزات جانبی"}'--}}
+{{--                        href="search/category-computer-parts/index.html"--}}
+{{--                        class=" c-navi-new__medium-display-title"><span>کامپیوتر و تجهیزات جانبی</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: تجهیزات مخصوص بازی - level: 3">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-item","category_title":"تجهیزات مخصوص بازی"}'--}}
+{{--                       href="search/category-gaming-accessories/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title">--}}
+{{--                        تجهیزات مخصوص بازی--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"تجهیزات مخصوص بازی"}'--}}
+{{--                           href="search/category-gaming-accessories/index.html"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        تجهیزات مخصوص بازی--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: مانیتور - level: 3">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-item","category_title":"مانیتور"}'--}}
+{{--                       href="search/category-monitor/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title">--}}
+{{--                        مانیتور--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"مانیتور"}'--}}
+{{--                           href="search/category-monitor/index.html"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        مانیتور--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: کیس‌های اسمبل شده - level: 3">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-item","category_title":"کیس‌های اسمبل شده"}'--}}
+{{--                       href="search/category-assembled-cases/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title">--}}
+{{--                        کیس‌های اسمبل شده--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"کیس‌های اسمبل شده"}'--}}
+{{--                           href="search/category-assembled-cases/index.html"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        کیس‌های اسمبل شده--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: قطعات داخلی کامپیوتر - level: 3">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-item","category_title":"قطعات داخلی کامپیوتر"}'--}}
+{{--                       href="search/category-computer-devices/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title">--}}
+{{--                        قطعات داخلی کامپیوتر--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"قطعات داخلی کامپیوتر"}'--}}
+{{--                           href="search/category-computer-devices/index.html"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        قطعات داخلی کامپیوتر--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: ماوس - level: 3"><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-item","category_title":"ماوس"}'--}}
+{{--                        href="search/category-mouse/index.html"--}}
+{{--                        class=" c-navi-new__big-display-title">--}}
+{{--                        ماوس--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"ماوس"}'--}}
+{{--                           href="search/category-mouse/index.html"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        ماوس--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: کیبورد - level: 3"><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-item","category_title":"کیبورد"}'--}}
+{{--                        href="search/category-keyboard/index.html"--}}
+{{--                        class=" c-navi-new__big-display-title">--}}
+{{--                        کیبورد--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"کیبورد"}'--}}
+{{--                           href="search/category-keyboard/index.html"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        کیبورد--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en: Laptop - category_fa: لپ تاپ - level: 2">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-title","category_title":"لپ تاپ"}'--}}
+{{--                       href="search/category-notebook-netbook-ultrabook/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title"><span>لپ تاپ</span></a><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"لپ تاپ"}'--}}
+{{--                        href="search/category-notebook-netbook-ultrabook/index.html"--}}
+{{--                        class=" c-navi-new__medium-display-title"><span>لپ تاپ</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: لوازم جانبی لپ تاپ - level: 2">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-title","category_title":"لوازم جانبی لپ تاپ"}'--}}
+{{--                       href="search/category-laptop-accessories/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title"><span>لوازم جانبی لپ تاپ</span></a><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"لوازم جانبی لپ تاپ"}'--}}
+{{--                        href="search/category-laptop-accessories/index.html"--}}
+{{--                        class=" c-navi-new__medium-display-title"><span>لوازم جانبی لپ تاپ</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: کیف، کوله و کاور - level: 3">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-item","category_title":"کیف، کوله و کاور"}'--}}
+{{--                       href="search/category-laptop-bag/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title">--}}
+{{--                        کیف، کوله و کاور--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"کیف، کوله و کاور"}'--}}
+{{--                           href="search/category-laptop-bag/index.html"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        کیف، کوله و کاور--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: کابل‌ صدا، AUX و HDMI - level: 3">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-item","category_title":"کابل‌ صدا، AUX و HDMI"}'--}}
+{{--                       href="search/category-cable-voice-video/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title">--}}
+{{--                        کابل‌ صدا، AUX و HDMI--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"کابل‌ صدا، AUX و HDMI"}'--}}
+{{--                           href="search/category-cable-voice-video/index.html"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        کابل‌ صدا، AUX و HDMI--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en: Tablet - category_fa: تبلت - level: 2">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-title","category_title":"تبلت"}'--}}
+{{--                       href="search/category-tablet/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title"><span>تبلت</span></a><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"تبلت"}'--}}
+{{--                        href="search/category-tablet/index.html"--}}
+{{--                        class=" c-navi-new__medium-display-title"><span>تبلت</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: شارژر تبلت و موبایل - level: 2">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-title","category_title":"شارژر تبلت و موبایل"}'--}}
+{{--                       href="search/category-car-charger/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title"><span>شارژر تبلت و موبایل</span></a><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"شارژر تبلت و موبایل"}'--}}
+{{--                        href="search/category-car-charger/index.html"--}}
+{{--                        class=" c-navi-new__medium-display-title"><span>شارژر تبلت و موبایل</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en: Camera & Studio Equipment - category_fa: کیف، کاور، لوازم جانبی تبلت - level: 2">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-title","category_title":"کیف، کاور، لوازم جانبی تبلت"}'--}}
+{{--                       href="search/category-tablet-accessories/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title"><span>کیف، کاور، لوازم جانبی تبلت</span></a><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"کیف، کاور، لوازم جانبی تبلت"}'--}}
+{{--                        href="search/category-tablet-accessories/index.html"--}}
+{{--                        class=" c-navi-new__medium-display-title"><span>کیف، کاور، لوازم جانبی تبلت</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: باتری - level: 2"><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"باتری"}'--}}
+{{--                        href="search/category-battery-charger-and-accesories/index.html"--}}
+{{--                        class=" c-navi-new__big-display-title"><span>باتری</span></a><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"باتری"}'--}}
+{{--                        href="search/category-battery-charger-and-accesories/index.html"--}}
+{{--                        class=" c-navi-new__medium-display-title"><span>باتری</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: دوربین‌های تحت شبکه - level: 2">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-title","category_title":"دوربین‌های تحت شبکه"}'--}}
+{{--                       href="search/category-network-cam/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title"><span>دوربین‌های تحت شبکه</span></a><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"دوربین‌های تحت شبکه"}'--}}
+{{--                        href="search/category-network-cam/index.html"--}}
+{{--                        class=" c-navi-new__medium-display-title"><span>دوربین‌های تحت شبکه</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en: Accessories - category_fa: مودم و تجهیزات شبکه - level: 2">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-title","category_title":"مودم و تجهیزات شبکه"}'--}}
+{{--                       href="search/category-network/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title"><span>مودم و تجهیزات شبکه</span></a><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"مودم و تجهیزات شبکه"}'--}}
+{{--                        href="search/category-network/index.html"--}}
+{{--                        class=" c-navi-new__medium-display-title"><span>مودم و تجهیزات شبکه</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: ماشین های اداری - level: 2">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-title","category_title":"ماشین های اداری"}'--}}
+{{--                       href="search/category-office-machines/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title"><span>ماشین های اداری</span></a><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"ماشین های اداری"}'--}}
+{{--                        href="search/category-office-machines/index.html"--}}
+{{--                        class=" c-navi-new__medium-display-title"><span>ماشین های اداری</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: تلفن، بی سیم و سانترال - level: 3">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-item","category_title":"تلفن، بی سیم و سانترال"}'--}}
+{{--                       href="search/category-telephone/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title">--}}
+{{--                        تلفن، بی سیم و سانترال--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"تلفن، بی سیم و سانترال"}'--}}
+{{--                           href="search/category-telephone/index.html"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        تلفن، بی سیم و سانترال--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: فکس - level: 3"><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-item","category_title":"فکس"}'--}}
+{{--                        href="search/category-fax/index.html"--}}
+{{--                        class=" c-navi-new__big-display-title">--}}
+{{--                        فکس--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"فکس"}'--}}
+{{--                           href="search/category-fax/index.html"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        فکس--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--item"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: پرینتر - level: 3"><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-item","category_title":"پرینتر"}'--}}
+{{--                        href="search/category-printer/index.html"--}}
+{{--                        class=" c-navi-new__big-display-title">--}}
+{{--                        پرینتر--}}
+{{--                    </a><a data-snt-event="dkMegaMenuClick"--}}
+{{--                           data-snt-params='{"type":"option-item","category_title":"پرینتر"}'--}}
+{{--                           href="search/category-printer/index.html"--}}
+{{--                           class=" c-navi-new__medium-display-title">--}}
+{{--                        پرینتر--}}
+{{--                    </a></li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: کتابخوان فیدیبوک - level: 2">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-title","category_title":"کتابخوان فیدیبوک"}'--}}
+{{--                       href="search/category-ebook-reader/index22aa.html?q=%d9%81%db%8c%d8%af%db%8c%d8%a8%d9%88%da%a9&amp;entry=mm"--}}
+{{--                       class=" c-navi-new__big-display-title"><span>کتابخوان فیدیبوک</span></a><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"کتابخوان فیدیبوک"}'--}}
+{{--                        href="search/category-ebook-reader/index22aa.html?q=%d9%81%db%8c%d8%af%db%8c%d8%a8%d9%88%da%a9&amp;entry=mm"--}}
+{{--                        class=" c-navi-new__medium-display-title"><span>کتابخوان فیدیبوک</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: کارت هدیه خرید از دیجی‌کالا - level: 2">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-title","category_title":"کارت هدیه خرید از دیجی‌کالا"}'--}}
+{{--                       href="main/dk-ds-gift-card/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title"><span>کارت هدیه خرید از دیجی‌کالا</span></a><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"کارت هدیه خرید از دیجی‌کالا"}'--}}
+{{--                        href="main/dk-ds-gift-card/index.html"--}}
+{{--                        class=" c-navi-new__medium-display-title"><span>کارت هدیه خرید از دیجی‌کالا</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="c-navi-new-list__sublist-option c-navi-new-list__sublist-option--title"--}}
+{{--                    data-event="megamenu_click" data-event-category="header_section"--}}
+{{--                    data-event-label="category_en:  - category_fa: خرید شارژ و بسته اینترنت - level: 2">--}}
+{{--                    <a data-snt-event="dkMegaMenuClick"--}}
+{{--                       data-snt-params='{"type":"option-title","category_title":"خرید شارژ و بسته اینترنت"}'--}}
+{{--                       href="top-up/index.html"--}}
+{{--                       class=" c-navi-new__big-display-title"><span>خرید شارژ و بسته اینترنت</span></a><a--}}
+{{--                        data-snt-event="dkMegaMenuClick"--}}
+{{--                        data-snt-params='{"type":"option-title","category_title":"خرید شارژ و بسته اینترنت"}'--}}
+{{--                        href="top-up/index.html"--}}
+{{--                        class=" c-navi-new__medium-display-title"><span>خرید شارژ و بسته اینترنت</span></a>--}}
+{{--                </li>--}}
+{{--            </ul>--}}
+{{--        </div>--}}
 
 
 
