@@ -115,6 +115,13 @@
             </a>
         </li>
 
+        <li class="item-li i-slideshow {{Request::routeIs('slider.index') ? 'is-active': '' }}">
+            <a href="{{route('slider.index')}}">
+                اسلایدر
+            </a>
+        </li>
+
+
         <hr style="margin-left: 15px;margin-right: 25px">
 
         <li class="item-li i-slideshow {{Request::routeIs('footer.index') ? 'is-active': '' }}">

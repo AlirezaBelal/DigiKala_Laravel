@@ -185,6 +185,12 @@ Route::get('/banner',\App\Http\Livewire\Admin\Banner\Index::class)
 Route::get('/banner/update/{banner}',\App\Http\Livewire\Admin\Banner\Update::class)
     ->name('banner.update');
 
+//=======================================> //Slider//
+Route::get('/slider',\App\Http\Livewire\Admin\Slider\Index::class)
+    ->name('slider.index');
+Route::get('/slider/update/{slider}',\App\Http\Livewire\Admin\Slider\Update::class)
+    ->name('slider.update');
+
 /////////////////////////////////////////////Settings
 //=======================================> //footer//
 Route::get('/footer', \App\Http\Livewire\Admin\Footer\Innerbox\Index::class)
