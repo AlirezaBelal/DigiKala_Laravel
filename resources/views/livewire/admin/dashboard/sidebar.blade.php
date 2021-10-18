@@ -109,6 +109,12 @@
             </a>
         </li>
 
+        <li class="item-li i-articles {{Request::routeIs('banner.index') ? 'is-active': '' }}">
+            <a href="{{route('banner.index')}}">
+                بنرها
+            </a>
+        </li>
+
         <hr style="margin-left: 15px;margin-right: 25px">
 
         <li class="item-li i-slideshow {{Request::routeIs('footer.index') ? 'is-active': '' }}">
