@@ -43,7 +43,7 @@
                             <div class="progress-bar" role="progressbar" style="width: 0%;">0%</div>
                         </div>
                     </div>
-                    
+
                     <div>
                         @if($img)
                             <img class="form-control mt-3 mb-3" width="400" src="{{$img->temporaryUrl()}}" alt="">

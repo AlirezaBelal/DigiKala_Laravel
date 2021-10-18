@@ -33,7 +33,7 @@ class Index extends Component
     protected $rules = [
         'slider.title' => 'required',
         'slider.link' => 'required',
-        'category.status' => 'nullable',
+//        'category.status' => 'nullable',
     ];
 
 
