@@ -8,7 +8,7 @@
 
 @include('sweet::alert')
 @include('livewire.home.home.header')
-{{--    {{$slot}}--}}
+{{$slot}}
 
 @include('livewire.home.home.footer')
 </body>
