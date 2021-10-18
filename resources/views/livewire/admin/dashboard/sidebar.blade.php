@@ -77,6 +77,12 @@
             </a>
         </li>
 
+        <li class="item-li i-discounts {{Request::routeIs('special.product.index') ? 'is-active': '' }}">
+            <a href="{{route('special.product.index')}}">
+                پیشنهاد شگفت انگیز
+            </a>
+        </li>
+
         <hr style="margin-left: 15px;margin-right: 25px">
 
         <li class="item-li i-articles {{Request::routeIs('menu.index') ? 'is-active': '' }}">
