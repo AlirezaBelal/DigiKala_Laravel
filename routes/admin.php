@@ -227,3 +227,7 @@ Route::get('/header', \App\Http\Livewire\Admin\Site\Header\Index::class)
 
 Route::get('/header/update/{header}', \App\Http\Livewire\Admin\Site\Header\Update::class)
     ->name('header.update');
+
+//=======================================> //Special//
+Route::get('/special/product',\App\Http\Livewire\Admin\Special\Product\Index::class)
+    ->name('special.product.index');
