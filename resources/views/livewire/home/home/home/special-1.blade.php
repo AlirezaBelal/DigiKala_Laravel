@@ -40,31 +40,38 @@
                                                 @if($specialProduct->product->discount_price == null)
                                                     <div class="c-price__value c-price__value--plp">
                                                         <div class="c-price__value-wrapper">
-                                                            {{$specialProduct->product->price}} <span
-                                                                class="c-price__currency">تومان</span></div>
+                                                            {{\App\Models\PersianNumber::translate($specialProduct->product->price)}}
+                                                            <span class="c-price__currency">
+                                                                تومان
+                                                            </span>
+                                                        </div>
                                                     </div>
                                                 @else
                                                     <div class="c-price__value c-price__value--plp">
-                                                        <del>  {{$specialProduct->product->price}}</del>
+                                                        <del>
+                                                            {{\App\Models\PersianNumber::translate($specialProduct->product->price)}}
+                                                        </del>
                                                         @php
-                                                            $difPrice = $specialProduct->product->price - $specialProduct->product->discount_price;
-    $per = ($difPrice * 100) / $specialProduct->product->price;
+                                                            $difPrice = ($specialProduct->product->price) - ($specialProduct->product->discount_price);
+$per = ($difPrice * 100) / ($specialProduct->product->price);
                                                         @endphp
                                                         @if($per>1)
                                                             <div class="c-price__discount-oval">
-
-                                                            <span>
-
-                                                                {{number_format((float)($per),0)}}٪</span>
-
+                                                                <span>
+                                                                    {{\App\Models\PersianNumber::translate(number_format((float)($per),0))}}٪
+                                                                </span>
                                                             </div>
                                                         @endif
                                                         <div class="c-price__value-wrapper">
-                                                            {{$specialProduct->product->discount_price}} <span
-                                                                class="c-price__currency">تومان</span></div>
+                                                            {{\App\Models\PersianNumber::translate($specialProduct->product->discount_price)}}
+                                                            <span class="c-price__currency">
+                                                                تومان
+                                                            </span>
+                                                        </div>
                                                     </div>
                                                 @endif
                                             </div>
+
                                             <div class="c-product-box__add-to-cart-section">
                                                 <div class="c-product__add-container js-fresh-add-container"><a
                                                         class=" btn-add-to-cart-mini js-fresh-add-to-cart"
