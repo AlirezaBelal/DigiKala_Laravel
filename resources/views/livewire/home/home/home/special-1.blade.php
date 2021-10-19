@@ -98,10 +98,24 @@ $per = ($difPrice * 100) / ($specialProduct->product->price);
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div class="c-product-box__progress-bar">
+                                            <div class="c-product-box__progress-bar-value" style="width: 34%"></div>
+                                        </div>
+
                                         <div class="c-product-box__amazing">
-                                            <div class="c-product-box__timer   js-counter"
-                                                 data-countdown="2021-07-03 12:00:00"></div>
-                                            <div class="c-product-box__remained"></div>
+                                            <div class="c-product-box__timer js-counter"
+                                                 data-countdown="2021-10-20 00:00:00">۰۶:۵۸:۰۸
+                                            </div>
+
+                                            <div class="c-product-box__remained">
+                                                <span class="c-product-box__remained-value">
+                                                    ۳۴٪
+                                                </span>
+                                                <span class="c-product-box__remained-phrase">
+                                                    فروش رفته
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
