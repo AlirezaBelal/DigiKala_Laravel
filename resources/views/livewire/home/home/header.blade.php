@@ -49,83 +49,133 @@
                     </div>
                 </div>
             </div>
-            <div class=" c-header__action">
-                <div class="c-header__btn-container">
-                    <div class="c-header__btn"><a data-snt-event="dkHeaderClick"
-                                                  data-snt-params='{"item":"account","item_option":null}'
-                                                  class="c-header__btn-login o-tooltip"
-                                                  href="users/login-register/index0f4c.html?_back=https://www.digikala.com/">
-                            ورود به حساب کاربری
+            @auth()
+                <div class=" c-header__action">
+                    <div class="c-header__btn-container">
+                        <input type="hidden" id="topBarMeta" data-cart_count="0" data-cart_items="[]">
 
+                        <input type="hidden" id="ESILogged" data-logged="1" data-user_id="4823980"
+                               data-email="belal.alireza@gmail.com" data-default_phone="09224843515"
+                               data-login_phone="09224843515" data-mobile_phone="09224843515" data-first_name="علیرضا"
+                               data-last_name="بلال ">
 
-                        </a></div>
-                </div>
-                <div id="mini-cart" class="c-header__btn-container">
-                    <div class="c-header__btn-cart-container ">
-                        <a id="cart-button"
-                           class="c-header__btn-cart c-header__btn-adding--no-drop-down"
-                           data-snt-event="dkHeaderClick"
-                           data-snt-params='{"item":"mini-cart","item_option":null}'
-                           data-counter="۰"
-                           href="cart/index.html"
-                           data-event="mini_cart_click" data-event-category="header_section"
-                           data-event-label="items: 0 - total price: ">
-                        </a>
-                        <div class="c-header__cart-info js-mini-cart-dropdown">
-                            <div class="c-header__cart-info-header">
-                                <div class="c-header__cart-info-count">
-                                    ۰ کالا
-                                </div>
-                                <a data-snt-event="dkHeaderClick"
-                                   data-snt-params='{"item":"mini-cart","item_option":"cart-page"}'
-                                   href="cart/index.html" class="c-header__cart-info-link">
-                                    <span>مشاهده سبد خرید</span>
-                                </a>
-                            </div>
+                        <div
+                            class="c-header__btn-user-container c-header__btn-profile-container js-dropdown-container open">
+                            <a data-snt-event="dkHeaderClick"
+                               data-snt-params="{&quot;item&quot;:&quot;account&quot;,&quot;item_option&quot;:null}"
+                               class="c-header__btn-profile js-dropdown-toggle">
+
+                            </a>
 
 
                         </div>
                     </div>
-                    <div class="remodal c-modal c-u-minicart__modal u-hidden js-minicart-modal"
-                         data-remodal-id="universal-mini-cart"
-                         role="dialog"
-                         aria-labelledby="modalTitle"
-                         tabindex="-1z"
-                         aria-describedby="modalDesc"
-                         data-remodal-options=""
-                    >
-                        <div class="c-modal__top-bar  ">
-                            <div>
-                                <div class="c-u-minicart__quantity">
-                                    سبد خرید
-                                    <span>۰ کالا</span>
+                    <div id="mini-cart" class="c-header__btn-container">
+                        <div class="c-header__btn-cart-container ">
+                            <a id="cart-button" class="c-header__btn-cart c-header__btn-adding--no-drop-down"
+                               data-snt-event="dkHeaderClick"
+                               data-snt-params="{&quot;item&quot;:&quot;mini-cart&quot;,&quot;item_option&quot;:null}"
+                               data-counter="۰" href="/cart/" data-event="mini_cart_click"
+                               data-event-category="header_section" data-event-label="items: 0 - total price: ">
+                            </a>
+                            <div class="c-header__cart-info js-mini-cart-dropdown">
+                                <div class="c-header__cart-info-header">
+                                    <div class="c-header__cart-info-count">
+                                        ۰ کالا
+                                    </div>
+                                    <a data-snt-event="dkHeaderClick"
+                                       data-snt-params="{&quot;item&quot;:&quot;mini-cart&quot;,&quot;item_option&quot;:&quot;cart-page&quot;}"
+                                       href="/cart/" class="c-header__cart-info-link">
+                                        <span>مشاهده سبد خرید</span>
+                                    </a>
                                 </div>
-                                <a href="cart/index.html" class="o-link o-link--has-arrow o-link--no-border o-link--sm">مشاهده
-                                    سبد خرید</a>
-                            </div>
-                            <div class="c-modal__close" data-remodal-action="close"></div>
-                        </div>
-                        <div class="c-u-minicart">
-                        </div>
-                        <div class="c-modal__footer">
-                            <div class="c-header__cart-info-total">
-                                <span class="c-header__cart-info-total-text">مبلغ قابل پرداخت</span>
-                                <p class="c-header__cart-info-total-amount">
-                                    <span class="c-header__cart-info-total-amount-number"> </span>
-                                    <span> تومان</span>
-                                </p>
-                            </div>
 
-                            <div>
-                                <a data-snt-event="dkHeaderClick"
-                                   data-snt-params='{"item":"mini-cart","item_option":"confirm-cart"}'
-                                   href="#"
-                                   class="o-btn o-btn--contained-red-md">ورود و ثبت سفارش</a>
+
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @endauth
+            @guest()
+                <div class=" c-header__action">
+                    <div class="c-header__btn-container">
+                        <div class="c-header__btn"><a data-snt-event="dkHeaderClick"
+                                                      data-snt-params='{"item":"account","item_option":null}'
+                                                      class="c-header__btn-login o-tooltip"
+                                                      href="/login">
+                                ورود به حساب کاربری
+
+
+                            </a></div>
+                    </div>
+                    <div id="mini-cart" class="c-header__btn-container">
+                        <div class="c-header__btn-cart-container ">
+                            <a id="cart-button"
+                               class="c-header__btn-cart c-header__btn-adding--no-drop-down"
+                               data-snt-event="dkHeaderClick"
+                               data-snt-params='{"item":"mini-cart","item_option":null}'
+                               data-counter="۰"
+                               href="cart/index.html"
+                               data-event="mini_cart_click" data-event-category="header_section"
+                               data-event-label="items: 0 - total price: ">
+                            </a>
+                            <div class="c-header__cart-info js-mini-cart-dropdown">
+                                <div class="c-header__cart-info-header">
+                                    <div class="c-header__cart-info-count">
+                                        ۰ کالا
+                                    </div>
+                                    <a data-snt-event="dkHeaderClick"
+                                       data-snt-params='{"item":"mini-cart","item_option":"cart-page"}'
+                                       href="cart/index.html" class="c-header__cart-info-link">
+                                        <span>مشاهده سبد خرید</span>
+                                    </a>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="remodal c-modal c-u-minicart__modal u-hidden js-minicart-modal"
+                             data-remodal-id="universal-mini-cart"
+                             role="dialog"
+                             aria-labelledby="modalTitle"
+                             tabindex="-1z"
+                             aria-describedby="modalDesc"
+                             data-remodal-options=""
+                        >
+                            <div class="c-modal__top-bar  ">
+                                <div>
+                                    <div class="c-u-minicart__quantity">
+                                        سبد خرید
+                                        <span>۰ کالا</span>
+                                    </div>
+                                    <a href="cart/index.html"
+                                       class="o-link o-link--has-arrow o-link--no-border o-link--sm">مشاهده
+                                        سبد خرید</a>
+                                </div>
+                                <div class="c-modal__close" data-remodal-action="close"></div>
+                            </div>
+                            <div class="c-u-minicart">
+                            </div>
+                            <div class="c-modal__footer">
+                                <div class="c-header__cart-info-total">
+                                    <span class="c-header__cart-info-total-text">مبلغ قابل پرداخت</span>
+                                    <p class="c-header__cart-info-total-amount">
+                                        <span class="c-header__cart-info-total-amount-number"> </span>
+                                        <span> تومان</span>
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <a data-snt-event="dkHeaderClick"
+                                       data-snt-params='{"item":"mini-cart","item_option":"confirm-cart"}'
+                                       href="#"
+                                       class="o-btn o-btn--contained-red-md">ورود و ثبت سفارش</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endguest
         </div>
     </div>
     @include('livewire.home.home.setting.header.navbar')

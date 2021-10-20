@@ -9,7 +9,7 @@
             <div class="c-box">
                 <div class="swiper-container swiper-container-horizontal js-swiper-specials">
                     <div class="swiper-wrapper">
-                        @foreach(\App\Models\SpecialProduct::where('status',1)->get() as $specialProduct)
+                        @foreach(\App\Models\SpecialProduct::where('natural',1)->where('status',1)->get() as $specialProduct)
                             <div class="swiper-slide" data-carousel="sn-carousels-incredible-offer"
                                  data-id="{{$specialProduct->id}}">
                                 <li>

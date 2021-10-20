@@ -1,12 +1,16 @@
-@section('title','پیشنهاد شگفت انگیز ها')
+@section('title','منتخب جدیدترین کالاها')
 
 <div>
     <div class="main-content" wire:init="loadCategory">
         <div class="tab__box">
             <div class="tab__items">
-                <a class="tab__item is-active"
-                   href="{{route('menu.index')}}">
-                    پیشنهاد شگفت انگیز ها
+                <a class="tab__item is-active" href="{{route('index.newselected.index')}}">
+                    منتخب جدیدترین کالاها
+                </a>
+
+                {{--Todo--}}
+                <a class="tab__item " href="{{route('index.productselected.index')}}">
+                    منتخب محصولات تخفیف و حراج
                 </a>
                 |
                 <a class="tab__item">جستجو: </a>
@@ -14,7 +18,7 @@
                 <a class="t-header-search">
                     <form action="" onclick="event.preventDefault();">
                         <input wire:model.debounce.1000="search"
-                               type="text" class="text" placeholder="جستجوی پیشنهاد شگفت انگیز ...">
+                               type="text" class="text" placeholder="جستجوی منتخب جدیدترین کالاها ...">
                     </form>
                 </a>
             </div>
@@ -24,7 +28,6 @@
             <div class="col-8 margin-left-10 margin-bottom-15 border-radius-3">
                 <div class="table__box">
                     <table class="table">
-
                         <thead role="rowgroup">
                         <tr role="row" class="title-row">
                             <th>ردیف</th>
@@ -32,62 +35,50 @@
                             <th>زیر دسته</th>
                             <th>دسته کودک</th>
                             <th>محصول</th>
-                            <th>نوع</th>
-                            <th>وضعیت پیشنهاد شگفت انگیز</th>
+                            <th>وضعیت نمایش</th>
                             <th>عملیات</th>
                         </tr>
                         </thead>
 
                         @if($readyToLoad)
-                            <tbody>
                             @php($count = 1)
-                            @foreach($specialProducts as $specialProduct)
+                            <tbody>
+                            @foreach($products as $product)
                                 <tr role="row">
                                     <td>
                                         {{$count++}}
                                     </td>
 
                                     <td>
-                                        {{$specialProduct->category->title}}
+                                        {{$product->category->title}}
                                     </td>
 
                                     <td>
-                                        {{$specialProduct->subCategory->title}}
+                                        {{$product->subCategory->title}}
                                     </td>
 
-                                    @if($specialProduct->childCategory_id == null)
+                                    @if($product->childCategory_id == null)
                                         <td>
                                             -
                                         </td>
                                     @else
                                         <td>
-                                            {{$specialProduct->childCategory->title}}
+                                            {{$product->childCategory->title}}
                                         </td>
                                     @endif
-
                                     <td>
-                                        {{$specialProduct->product->title}}
+                                        {{$product->product->title}}
                                     </td>
 
                                     <td>
-                                        @if($specialProduct->natural == 1 && $specialProduct->supermarket == 1 )
-                                            اصلی-سوپرمارکت
-                                        @elseif($specialProduct->natural == 1)
-                                            اصلی
-                                        @elseif($specialProduct->supermarket == 1)
-                                            سوپرمارکت
-                                        @endif
-                                    </td>
-
-                                    <td>
-                                        @if($specialProduct->status == 1)
-                                            <button wire:click="updateCategoryDisable({{$specialProduct->id}})"
+                                        @if($product->status == 1)
+                                            <button wire:click="updateCategoryDisable({{$product->id}})"
                                                     type="submit" class="badge-success badge"
                                                     style="background-color: green">
                                                 فعال
                                             </button>
                                         @else
-                                            <button wire:click="updateCategoryEnable({{$specialProduct->id}})"
+                                            <button wire:click="updateCategoryEnable({{$product->id}})"
                                                     type="submit" class="badge-danger badge"
                                                     style="background-color: red">
                                                 غیرفعال
@@ -96,15 +87,14 @@
                                     </td>
 
                                     <td>
-                                        <a wire:click="deleteCategory({{$specialProduct->id}})" type="submit"
+                                        <a wire:click="deleteCategory({{$product->id}})" type="submit"
                                            class="item-delete mlg-15"
-                                           title="حذف">
-                                        </a>
+                                           title="حذف"></a>
                                     </td>
                                 </tr>
                             @endforeach
                             </tbody>
-                            {{$specialProducts->render()}}
+                            {{$products->render()}}
                         @else
                             <div class="alert-warning alert">
                                 در حال خواندن اطلاعات از دیتابیس ...
@@ -115,7 +105,7 @@
             </div>
 
             <div class="col-4 bg-white">
-                <p class="box__title">ایجاد پیشنهاد شگفت انگیز جدید</p>
+                <p class="box__title">ایجاد منتخب جدیدترین کالاها</p>
                 <form wire:submit.prevent="categoryForm"
                       enctype="multipart/form-data" role="form"
                       class="padding-10 categoryForm">
@@ -123,8 +113,7 @@
                     @include('errors.error')
 
                     <div class="form-group">
-                        <select wire:model.lazy="specialProduct.category_id" name="category_id" id=""
-                                class="form-control">
+                        <select wire:model.lazy="product.category_id" name="category_id" id="" class="form-control">
                             <option value="-1">- دسته -</option>
                             @foreach(\App\Models\Category::all() as $category)
                                 <option value="{{$category->id}}">{{$category->title}}</option>
@@ -133,30 +122,29 @@
                     </div>
 
                     <div class="form-group">
-                        <select wire:model.lazy="specialProduct.subCategory_id" name="subCategory_id" id=""
+                        <select wire:model.lazy="product.subCategory_id" name="subCategory_id" id=""
                                 class="form-control">
                             <option value="-1">- زیردسته -</option>
-                            @foreach(\App\Models\SubCategory::where('parent',$this->specialProduct->category_id)->get() as $category)
+                            @foreach(\App\Models\SubCategory::where('parent',$this->product->category_id)->get() as $category)
                                 <option value="{{$category->id}}">{{$category->title}}</option>
                             @endforeach
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <select wire:model.lazy="specialProduct.childCategory_id" name="childCategory_id" id=""
+                        <select wire:model.lazy="product.childCategory_id" name="childCategory_id" id=""
                                 class="form-control">
                             <option value=" ">- دسته کودک -</option>
-                            @foreach(\App\Models\ChildCategory::where('parent',$this->specialProduct->subCategory_id)->get() as $category)
+                            @foreach(\App\Models\ChildCategory::where('parent',$this->product->subCategory_id)->get() as $category)
                                 <option value="{{$category->id}}">{{$category->title}}</option>
                             @endforeach
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <select wire:model.lazy="specialProduct.product_id" name="product_id" id=""
-                                class="form-control">
+                        <select wire:model.lazy="product.product_id" name="product_id" id="" class="form-control">
                             <option value=" ">- محصول -</option>
-                            @foreach(\App\Models\Product::where('childcategory_id',$this->specialProduct->childCategory_id)->get() as $product)
+                            @foreach(\App\Models\Product::where('childcategory_id',$this->product->childCategory_id)->get() as $product)
                                 <option value="{{$product->id}}">{{$product->title}}</option>
                             @endforeach
                         </select>
@@ -164,29 +152,12 @@
 
                     <div class="form-group">
                         <div class="notificationGroup">
-                            <input id="option4" type="checkbox" wire:model.lazy="specialProduct.status" name="status"
+                            <input id="option4" type="checkbox" wire:model.lazy="product.status" name="status"
                                    class="form-control">
-                            <label for="option4">نمایش در پیشنهاد شگفت انگیز اصلی:</label>
+                            <label for="option4">نمایش در منتخب جدیدترین کالاها:</label>
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <div class="notificationGroup">
-                            <input id="option7" type="checkbox" wire:model.lazy="specialProduct.natural" name="natural"
-                                   class="form-control">
-                            <label for="option7">نمایش در شگفت انگیز اصلی:</label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="notificationGroup">
-                            <input id="option8" type="checkbox" wire:model.lazy="specialProduct.supermarket"
-                                   name="supermarket"
-                                   class="form-control">
-                            <label for="option8">نمایش در شگفت انگیز سوپرمارکت:</label>
-                        </div>
-                    </div>
-                    <button class="btn btn-brand">افزودن دسته</button>
+                    <button class="btn btn-brand">افزودن محصول برای منتخب جدیدترین کالاها</button>
                 </form>
             </div>
         </div>

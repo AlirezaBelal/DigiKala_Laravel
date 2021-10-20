@@ -24,6 +24,8 @@ class Index extends Component
         'specialProduct.category_id' => 'required',
         'specialProduct.subCategory_id' => 'required',
         'specialProduct.childCategory_id' => 'required',
+        'specialProduct.natural' => 'nullable',
+        'specialProduct.supermarket' => 'nullable',
         'specialProduct.status' => 'nullable',
     ];
 
@@ -59,6 +61,8 @@ class Index extends Component
             'subCategory_id' => $this->specialProduct->subCategory_id,
             'childCategory_id' => $this->specialProduct->childCategory_id,
             'status' => $this->specialProduct->status ? 1 : 0,
+            'natural' => $this->specialProduct->natural ? 1 : 0,
+            'supermarket' => $this->specialProduct->supermarket ? 1 : 0,
         ]);
 
         $this->specialProduct->product_id = null;
@@ -66,6 +70,8 @@ class Index extends Component
         $this->specialProduct->subCategory_id = null;
         $this->specialProduct->childCategory_id = null;
         $this->specialProduct->status = false;
+        $this->specialProduct->natural = false;
+        $this->specialProduct->supermarket = false;
 
         Log::create([
             'user_id' => auth()->user()->id,

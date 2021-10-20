@@ -91,6 +91,18 @@
             </a>
         </li>
 
+        <li class="item-li i-user__inforamtion {{Request::routeIs('index.title.index') ? 'is-active': '' }}">
+            <a href="{{route('index.title.index')}}">
+                دسته های صفحه اصلی
+            </a>
+        </li>
+
+        <li class="item-li i-checkout__request {{Request::routeIs('index.newselected.index') ? 'is-active': '' }}">
+            <a href="{{route('index.newselected.index')}}">
+                منتخب محصولات
+            </a>
+        </li>
+
         <li class="item-li i-slideshow {{Request::routeIs('page.index') ? 'is-active': '' }}">
             <a href="{{route('page.index')}}">
                 صفحات سایت

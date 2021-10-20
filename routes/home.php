@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', \App\Http\Livewire\Home\Home\Index::class)
     ->name('home.index');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
 
 
 //Post
@@ -24,8 +27,5 @@ Route::post('/newsletter',[PostController::class,'newsletter'])
     ->name('post.newsletter');
 
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');})
-    ->name('dashboard');
 
 

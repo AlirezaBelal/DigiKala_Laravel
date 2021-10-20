@@ -172,7 +172,21 @@ Route::get('/menu',\App\Http\Livewire\Admin\Menu\Index::class)
 Route::get('/menu/update/{menu}',\App\Http\Livewire\Admin\Menu\Update::class)
     ->name('menu.update');
 
+//=======================================> //Home Category//
+Route::get('/index/title',\App\Http\Livewire\Admin\Index\Title\Index::class)
+    ->name('index.title.index');
 
+Route::get('/index/title/update/{index}',\App\Http\Livewire\Admin\Index\Title\Update::class)
+    ->name('index.title.update');
+
+Route::get('/index/category',\App\Http\Livewire\Admin\Index\Category\Index::class)
+    ->name('index.category.index');
+
+Route::get('/index/newselected',\App\Http\Livewire\Admin\Product\Selected\NewProduct::class)
+    ->name('index.newselected.index');
+
+Route::get('/index/productselected',\App\Http\Livewire\Admin\Product\Selected\ProductSelected::class)
+    ->name('index.productselected.index');
 //=======================================> //Ads//
 Route::get('/ads',\App\Http\Livewire\Admin\Ads\Index::class)
     ->name('ads.index');
@@ -190,6 +204,11 @@ Route::get('/slider',\App\Http\Livewire\Admin\Slider\Index::class)
     ->name('slider.index');
 Route::get('/slider/update/{slider}',\App\Http\Livewire\Admin\Slider\Update::class)
     ->name('slider.update');
+
+//=======================================> //Special//
+Route::get('/special/product',\App\Http\Livewire\Admin\Special\Product\Index::class)
+    ->name('special.product.index');
+
 
 /////////////////////////////////////////////Settings
 //=======================================> //footer//
@@ -228,6 +247,4 @@ Route::get('/header', \App\Http\Livewire\Admin\Site\Header\Index::class)
 Route::get('/header/update/{header}', \App\Http\Livewire\Admin\Site\Header\Update::class)
     ->name('header.update');
 
-//=======================================> //Special//
-Route::get('/special/product',\App\Http\Livewire\Admin\Special\Product\Index::class)
-    ->name('special.product.index');
+
