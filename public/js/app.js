@@ -5287,7 +5287,10 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
+__webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js"); // import Alpine from 'alpinejs';
+// window.Alpine = Alpine;
+// Alpine.start();
+
 
 var Swal = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 
@@ -5303,7 +5306,7 @@ var Toast = Swal.mixin({
   }
 });
 document.addEventListener('livewire:load', function () {
-  livewire.on('toast', function (type, message) {
+  Livewire.on('toast', function (type, message) {
     Toast.fire({
       icon: type,
       title: message
