@@ -1,4 +1,4 @@
-@section('title','دسته ها')
+@section('title','دسته های کودک')
 <div>
     <div class="main-content" wire:init="loadCategory">
         <div class="tab__box">
@@ -34,10 +34,10 @@
                 </a>
 
                 <a class="tab__item btn btn-danger"
-                   href="{{route('category.trashed')}}"
+                   href="{{route('categorylevel4.trashed')}}"
                    style="color: white;float: left;margin-top: 10px;margin-left: 10px">
                     سطل زباله
-                    ({{\App\Models\Category::onlyTrashed()->count()}})
+                    ({{\App\Models\Categorylevel4::onlyTrashed()->count()}})
                 </a>
             </div>
         </div>
@@ -49,11 +49,11 @@
                         <thead role="rowgroup">
                         <tr role="row" class="title-row">
                             <th>ردیف</th>
-                            <th>تصویر دسته</th>
-                            <th>آیکون دسته</th>
-                            <th>عنوان دسته</th>
-                            <th>نام دسته</th>
-                            <th>وضعیت دسته</th>
+                            <th>تصویر دسته سطح 4</th>
+                            <th>عنوان دسته سطح 4</th>
+                            <th>نام دسته سطح 4</th>
+                            <th>سر دسته کودک</th>
+                            <th>وضعیت دسته سطح 4</th>
                             <th>عملیات</th>
                         </tr>
                         </thead>
@@ -71,14 +71,17 @@
                                              alt="img" width="50px">
                                     </td>
                                     <td>
-                                        {{$category->icon}}
-                                    </td>
-                                    <td>
                                         {{$category->title}}
                                     </td>
                                     <td>
                                         {{$category->name}}
                                     </td>
+                                    <td>
+                                        @foreach(\App\Models\ChildCategory::where('id',$category->parent)->get() as $ca)
+                                            {{$ca->title}}
+                                        @endforeach
+                                    </td>
+
                                     <td>
                                         @if($category->status == 1)
                                             <button wire:click="updateCategoryDisable({{$category->id}})"
@@ -94,12 +97,13 @@
                                             </button>
                                         @endif
                                     </td>
+
                                     <td>
                                         <a wire:click="deleteCategory({{$category->id}})" type="submit"
                                            class="item-delete mlg-15"
                                            title="حذف">
                                         </a>
-                                        <a href="{{route('category.update',$category)}}" class="item-edit"
+                                        <a href="{{route('categorylevel4.update',$category)}}" class="item-edit "
                                            title="ویرایش">
                                         </a>
                                     </td>
@@ -116,51 +120,45 @@
                 </div>
             </div>
             <div class="col-4 bg-white">
-                <p class="box__title">ایجاد دسته بندی جدید</p>
+                <p class="box__title">ایجاد دسته سطح 4 جدید</p>
                 <form wire:submit.prevent="categoryForm"
                       enctype="multipart/form-data" role="form"
                       class="padding-10 categoryForm">
 
                     @include('errors.error')
-
                     <div class="form-group">
-                        <input type="text" wire:model.lazy="category.icon" placeholder="آیکون دسته "
-                               class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" wire:model.lazy="category.title" placeholder="نام دسته "
+                        <input type="text" wire:model.lazy="categorylevel4.title" placeholder="نام دسته "
                                class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" wire:model.lazy="category.name" placeholder="نام انگلیسی دسته "
+                        <input type="text" wire:model.lazy="categorylevel4.name" placeholder="نام انگلیسی دسته "
                                class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" wire:model.lazy="category.link" placeholder="لینک دسته "
+                        <input type="text" wire:model.lazy="categorylevel4.link" placeholder="لینک دسته "
                                class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" wire:model.lazy="category.description" placeholder="توضیحات "
-                               class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <textarea wire:model.lazy="category.body" class="form-control" placeholder="متن دسته ">
-
-                        </textarea>
                     </div>
 
                     <div class="form-group">
                         <div class="notificationGroup">
-                            <input id="option4" type="checkbox" wire:model.lazy="category.status" name="status"
+                            <input id="option4" type="checkbox" wire:model.lazy="categorylevel4.status" name="status"
                                    class="form-control">
                             <label for="option4">نمایش در دسته اصلی:</label>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <select wire:model.lazy="categorylevel4.parent" name="parent" id="" class="form-control">
+                            <option value="-1">- دسته محصول -</option>
+                            @foreach(\App\Models\ChildCategory::all() as $category)
+                                <option value="{{$category->id}}">{{$category->title}}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
                     <div class="form-group">
-                        <input type="file" wire:model.lazy="img" id="{{rand()}}" class="form-control">
+                        <input type="file" wire:model.lazy="img" name="img" id="{{rand()}}" class="form-control">
                         <span class="mt-2 text-danger" wire:loading wire:target="img">در حال آپلود ...</span>
 
                         <div wire:ignore class="progress mt-2" id="progressbar" style="display: none">
@@ -169,7 +167,7 @@
                     </div>
                     <div>
                         @if($img)
-                            <img class="form-control mt-3 mb-3" width="200" src="{{$img->temporaryUrl()}}" alt="">
+                            <img class="form-control mt-3 mb-3" width="400" src="{{$img->temporaryUrl()}}" alt="">
                         @endif
                     </div>
                     <button class="btn btn-brand">افزودن دسته</button>

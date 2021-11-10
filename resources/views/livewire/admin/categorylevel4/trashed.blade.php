@@ -34,14 +34,12 @@
                 </a>
 
                 <a class="tab__item btn btn-danger"
-                   href="{{route('category.trashed')}}"
-                   style="color: white;float: left;margin-top: 10px;margin-left: 10px">
+                   href="{{route('categorylevel4.trashed')}}" style="color: white;float: left;margin-top: 10px;margin-left: 10px">
                     سطل زباله
-                    ({{\App\Models\Category::onlyTrashed()->count()}})
+                    ({{\App\Models\CategoryLevel4::onlyTrashed()->count()}})
                 </a>
             </div>
         </div>
-
         <div class="row">
             <div class="col-12 margin-left-10 margin-bottom-15 border-radius-3">
                 <div class="table__box">
@@ -55,6 +53,7 @@
                             <th>عملیات</th>
                         </tr>
                         </thead>
+
                         @if($readyToLoad)
                             @php($count = 1)
                             <tbody>
@@ -64,10 +63,8 @@
                                         {{$count++}}
                                     </td>
                                     <td>
-                                        <img src="{{\Illuminate\Support\Facades\Storage::url($category->img)}}"
-                                             alt="img" width="50px">
+                                        <img src="{{\Illuminate\Support\Facades\Storage::url($category->img)}}" alt="img" width="50px">
                                     </td>
-
                                     <td>
                                         {{$category->title}}
                                     </td>
@@ -80,7 +77,6 @@
                                            class="item-delete mlg-15"
                                            title="حذف">
                                         </a>
-
                                         <a wire:click="trashedCategory({{$category->id}})"
                                            class="item-li i-checkouts item-restore"
                                            title="بازگردانی">
@@ -88,16 +84,30 @@
                                     </td>
                                 </tr>
                             @endforeach
+
                             </tbody>
                             {{$categories->render()}}
                         @else
+
+
+
                             <div class="alert-warning alert">
                                 در حال خواندن اطلاعات از دیتابیس ...
                             </div>
+
+
                         @endif
+
+
                     </table>
                 </div>
+
+
             </div>
+
         </div>
+
+
     </div>
+
 </div>

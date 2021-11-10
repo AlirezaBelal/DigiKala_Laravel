@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriesTable extends Migration
+class CreateCategoryLevel4sTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,14 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('category_level4s', function (Blueprint $table) {
             $table->id();
-
-            $table->string('title');
-            $table->string('name')->nullable();
-            $table->string('description');
-            $table->text('body');
-            $table->string('icon')->nullable();
             $table->string('img')->nullable();
-            $table->string('status')->default(1);
+            $table->string('title');
+            $table->string('parent');
+            $table->string('name')->nullable();
             $table->string('link')->nullable();
-
+            $table->string('status')->default(1);
             $table->softDeletes();
             $table->timestamps();
         });
@@ -37,6 +33,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('category_level4s');
     }
 }
