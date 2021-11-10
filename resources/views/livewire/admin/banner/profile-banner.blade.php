@@ -1,12 +1,12 @@
-@section('title','بنرها')
+@section('title','بنر های پروفایل')
 <div>
     <div class="main-content" wire:init="loadCategory">
         <div class="tab__box">
             <div class="tab__items">
-                <a class="tab__item is-active" href="{{route('banner.index')}}">
+                <a class="tab__item " href="{{route('banner.index')}}">
                     بنرها
                 </a>
-                <a class="tab__item " href="{{route('profileBanner.index')}}">
+                <a class="tab__item is-active" href="{{route('profileBanner.index')}}">
                     بنرهای پروفایل
                 </a>
                 |
@@ -22,6 +22,7 @@
                 </a>
             </div>
         </div>
+
         <div class="row">
             <div class="col-8 margin-left-10 margin-bottom-15 border-radius-3">
                 <div class="table__box">
@@ -55,8 +56,9 @@
                                             {{\Illuminate\Support\Str::limit($banner->link,20)}}
                                         </a>
                                     </td>
+
                                     <td>
-                                        <a href="{{route('banner.update',$banner)}}" class="item-edit "
+                                        <a href="{{route('ProfileBanner.update',$banner)}}" class="item-edit"
                                            title="ویرایش">
                                         </a>
                                     </td>
@@ -79,20 +81,29 @@
                 <form wire:submit.prevent="categoryForm"
                       enctype="multipart/form-data" role="form"
                       class="padding-10 categoryForm">
+
                     @include('errors.error')
                     <div class="form-group">
-                        <input type="text" wire:model.lazy="banner.title" placeholder="نام بنر " class="form-control">
+                        <input type="text" wire:model.lazy="banner.title" placeholder="نام بنر "
+                               class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" wire:model.lazy="banner.link" placeholder="لینک بنر " class="form-control">
+                        <input type="text" wire:model.lazy="banner.link" placeholder="لینک بنر "
+                               class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" wire:model.lazy="banner.discount" placeholder="میزان تخفیف بنر "
+                               class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" wire:model.lazy="banner.name" placeholder="اطلاعات اضافی بنر "
+                               class="form-control">
                     </div>
 
                     <div class="form-group">
                         <input type="file" wire:model.lazy="img" id="{{rand()}}" class="form-control">
-                        <span class="mt-2 text-danger" wire:loading wire:target="img">
-                            در حال آپلود ...
-                        </span>
+                        <span class="mt-2 text-danger" wire:loading wire:target="img">در حال آپلود ...</span>
 
                         <div wire:ignore class="progress mt-2" id="progressbar" style="display: none">
                             <div class="progress-bar" role="progressbar" style="width: 0%;">0%</div>
@@ -103,7 +114,7 @@
                             <img class="form-control mt-3 mb-3" width="200" src="{{$img->temporaryUrl()}}" alt="">
                         @endif
                     </div>
-                    <button class="btn btn-brand">افزودن بنر</button>
+                    <button class="btn btn-brand">افزودن بنر پروفایل</button>
                 </form>
             </div>
         </div>

@@ -14,12 +14,22 @@
                     @include('errors.error')
 
                     <div class="form-group">
-                        <input type="text" wire:model.lazy="banner.title" placeholder="نام بنر "
+                        <input type="text" wire:model.lazy="banner.title" placeholder="عنوان بنر "
                                class="form-control">
                     </div>
 
                     <div class="form-group">
                         <input type="text" wire:model.lazy="banner.link" placeholder="لینک بنر "
+                               class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" wire:model.lazy="banner.discount" placeholder="میزان تخفیف بنر "
+                               class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" wire:model.lazy="banner.name" placeholder="اطلاعات اضافی بنر "
                                class="form-control">
                     </div>
 
@@ -37,7 +47,6 @@
                             <img class="form-control mt-3 mb-3" width="400" src="{{$img->temporaryUrl()}}" alt="">
                         @endif
                     </div>
-
                     <button type="submit" class="btn btn-brand">آپدیت بنر</button>
                 </form>
             </div>

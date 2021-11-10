@@ -4,15 +4,14 @@ namespace App\Http\Livewire\Admin\Banner;
 
 use App\Models\Banner;
 use App\Models\Log;
-use App\Models\Page;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-class Update extends Component
+class ProfileBannerUpdate extends Component
 {
     use WithFileUploads;
 
-    public Banner $banner;
+    public \App\Models\ProfileBanner $banner;
     public $img;
 
     /**
@@ -22,12 +21,15 @@ class Update extends Component
     protected $rules = [
         'banner.title' => 'required',
         'banner.link' => 'required',
+        'banner.discount' => 'nullable',
+        'banner.name' => 'nullable',
     ];
 
 
     public function categoryForm()
     {
         $this->validate();
+
         if ($this->img) {
             $this->banner->img = $this->uploadImage();
         }
@@ -41,7 +43,7 @@ class Update extends Component
         ]);
 
         alert()->success(' با موفقیت آپدیت شد.', 'بنر مورد نظر با موفقیت آپدیت شد.');
-        return redirect(route('banner.index'));
+        return redirect(route('profileBanner.index'));
     }
 
 
@@ -53,7 +55,7 @@ class Update extends Component
     {
         $year = now()->year;
         $month = now()->month;
-        $directory = "banner/$year/$month";
+        $directory = "bannerprofile/$year/$month";
         $name = $this->img->getClientOriginalName();
         $this->img->storeAs($directory, $name);
         return "$directory/$name";
@@ -63,6 +65,6 @@ class Update extends Component
     public function render()
     {
         $banner = $this->banner;
-        return view('livewire.admin.banner.update', compact('banner'));
+        return view('livewire.admin.banner.profile-banner-update', compact('banner'));
     }
 }

@@ -4,23 +4,21 @@ namespace App\Http\Livewire\Admin\Banner;
 
 use App\Models\Banner;
 use App\Models\Log;
-use App\Models\Page;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
 
-class Index extends Component
+class ProfileBanner extends Component
 {
     use WithFileUploads;
     use WithPagination;
 
-    public Banner $banner;
+    public \App\Models\ProfileBanner $banner;
     public $img;
     public $search;
     public $readyToLoad = false;
 
     protected $queryString = ['search'];
-
     /**
      * @var string
      * Front type
@@ -34,12 +32,14 @@ class Index extends Component
     protected $rules = [
         'banner.title' => 'required',
         'banner.link' => 'required',
+        'banner.discount' => 'nullable',
+        'banner.name' => 'nullable',
     ];
 
 
     public function mount()
     {
-        $this->banner = new Banner();
+        $this->banner = new \App\Models\ProfileBanner();
     }
 
 
@@ -62,9 +62,11 @@ class Index extends Component
     {
         $this->validate();
 
-        $banner = Banner::query()->create([
+        $banner = \App\Models\ProfileBanner::query()->create([
             'title' => $this->banner->title,
             'link' => $this->banner->link,
+            'discount' => $this->banner->discount,
+            'name' => $this->banner->name,
         ]);
 
         if ($this->img) {
@@ -75,15 +77,17 @@ class Index extends Component
 
         $this->banner->title = "";
         $this->banner->link = "";
+        $this->banner->name = "";
+        $this->banner->discount = "";
         $this->img = null;
 
         Log::create([
             'user_id' => auth()->user()->id,
-            'url' => 'افزودن بنر' . '-' . $this->banner->title,
+            'url' => 'افزودن بنر پروفایل' . '-' . $this->banner->title,
             'actionType' => 'ایجاد'
         ]);
 
-        $this->emit('toast', 'success', ' بنر با موفقیت ایجاد شد.');
+        $this->emit('toast', 'success', ' بنر پروفایل با موفقیت ایجاد شد.');
     }
 
 
@@ -95,7 +99,7 @@ class Index extends Component
     {
         $year = now()->year;
         $month = now()->month;
-        $directory = "banner/$year/$month";
+        $directory = "bannerprofile/$year/$month";
         $name = $this->img->getClientOriginalName();
         $this->img->storeAs($directory, $name);
         return "$directory/$name";
@@ -104,9 +108,12 @@ class Index extends Component
 
     public function render()
     {
-        $banners = $this->readyToLoad ? Banner::where('title', 'LIKE', "%{$this->search}%")
+
+        $banners = $this->readyToLoad ? \App\Models\ProfileBanner::where('title', 'LIKE', "%{$this->search}%")
             ->orWhere('link', 'LIKE', "%{$this->search}%")
+            ->orWhere('name', 'LIKE', "%{$this->search}%")
+            ->orWhere('discount', 'LIKE', "%{$this->search}%")
             ->latest()->paginate(10) : [];
-        return view('livewire.admin.banner.index', compact('banners'));
+        return view('livewire.admin.banner.profile-banner', compact('banners'));
     }
 }
