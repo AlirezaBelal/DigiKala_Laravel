@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEmailsTable extends Migration
+class CreateComparesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,10 @@ class CreateEmailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('emails', function (Blueprint $table) {
+        Schema::create('compares', function (Blueprint $table) {
             $table->id();
             $table->string('user_id')->nullable();
-            $table->string('user_email')->nullable();
-            $table->string('user_name')->nullable();
-            $table->string('user_mobile')->nullable();
-            $table->longText('title')->nullable();
-            $table->longText('code')->nullable();
-            $table->longText('text')->nullable();
+            $table->string('product_id')->nullable();
             $table->timestamps();
         });
     }
@@ -33,6 +28,6 @@ class CreateEmailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('emails');
+        Schema::dropIfExists('compares');
     }
 }
