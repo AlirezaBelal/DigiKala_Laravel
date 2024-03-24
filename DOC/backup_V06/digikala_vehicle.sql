@@ -18,16 +18,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `webamooz_digikala_child`
+-- Database: `digikala_vehicle`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category_child_amazing`
+-- Table structure for table `category_vehicle_amazing`
 --
 
-CREATE TABLE `category_child_amazing` (
+CREATE TABLE `category_vehicle_amazing` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `product_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `category_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -40,42 +40,55 @@ CREATE TABLE `category_child_amazing` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `category_vehicle_amazing`
+--
+
+INSERT INTO `category_vehicle_amazing` (`id`, `product_id`, `category_id`, `subCategory_id`, `childCategory_id`, `status`, `property1`, `property2`, `created_at`, `updated_at`) VALUES
+(1, '3', '1', '1', '7', '1', 5, 12, NULL, NULL),
+(2, '11', '1', '18', '28', '1', NULL, 0, NULL, NULL),
+(3, '10', '1', '1', '19', '1', NULL, 0, NULL, NULL),
+(4, '15', '1', '18', '28', '1', NULL, 0, NULL, NULL),
+(5, '12', '1', '18', '29', '1', NULL, 0, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category_child_banner`
+-- Table structure for table `category_vehicle_banner`
 --
 
-CREATE TABLE `category_child_banner` (
+CREATE TABLE `category_vehicle_banner` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `img` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `link` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `type` varchar(255) COLLATE utf8_unicode_ci DEFAULT '0',
+  `type` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `category_vehicle_banner`
+--
+
+INSERT INTO `category_vehicle_banner` (`id`, `img`, `title`, `link`, `type`, `created_at`, `updated_at`) VALUES
+(1, 'categorypage/vehicle/2021/6/5cda697af40840d5051e460673dbe7dd373e2e37_1601380094.jpg', 'موتور', '/moto', '0', NULL, NULL),
+(2, 'categorypage/vehicle/2021/6/f88249cffa0415e90be3db9a974a504bc595b7ed_1601380155.jpg', '', '', '0', NULL, NULL),
+(11, 'categorypage/vehicle/2021/6/5cda697af40840d5051e460673dbe7dd373e2e37_1601380094.jpg', 'موتور', '/moto', '0', NULL, NULL),
+(12, 'categorypage/vehicle/2021/6/f88249cffa0415e90be3db9a974a504bc595b7ed_1601380155.jpg', '', '', '0', NULL, NULL),
+(13, 'categorypage/vehicle/2021/6/5cda697af40840d5051e460673dbe7dd373e2e37_1601380094.jpg', 'موتور', '/moto', '0', NULL, NULL),
+(14, 'categorypage/vehicle/2021/6/f88249cffa0415e90be3db9a974a504bc595b7ed_1601380155.jpg', '', '', '0', NULL, NULL),
+(15, 'categorypage/vehicle/2021/6/5cda697af40840d5051e460673dbe7dd373e2e37_1601380094.jpg', 'موتور', '/moto', '0', NULL, NULL),
+(16, 'categorypage/vehicle/2021/6/f88249cffa0415e90be3db9a974a504bc595b7ed_1601380155.jpg', '', '', '0', NULL, NULL),
+(17, 'categorypage/vehicle/2021/6/f88249cffa0415e90be3db9a974a504bc595b7ed_1601380155.jpg', '', '', '0', NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category_child_brand`
+-- Table structure for table `category_vehicle_product_swiper`
 --
 
-CREATE TABLE `category_child_brand` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `brand_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `category_child_product_swiper`
---
-
-CREATE TABLE `category_child_product_swiper` (
+CREATE TABLE `category_vehicle_product_swiper` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `product_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -87,13 +100,43 @@ CREATE TABLE `category_child_product_swiper` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `category_vehicle_product_swiper`
+--
+
+INSERT INTO `category_vehicle_product_swiper` (`id`, `title_id`, `product_id`, `category_id`, `subCategory_id`, `childCategory_id`, `status`, `created_at`, `updated_at`) VALUES
+(1, '1', '2', '1', '2', '5', '1', NULL, NULL),
+(2, '1', '3', '1', '1', '7', '1', NULL, NULL),
+(3, '1', '9', '1', '1', '19', '1', NULL, NULL),
+(4, '2', '2', '1', '2', '5', '1', NULL, NULL),
+(5, '2', '3', '1', '1', '7', '1', NULL, NULL),
+(6, '2', '9', '1', '1', '19', '1', NULL, NULL),
+(7, '3', '2', '1', '2', '5', '1', NULL, NULL),
+(8, '3', '3', '1', '1', '7', '1', NULL, NULL),
+(9, '3', '9', '1', '1', '19', '1', NULL, NULL),
+(10, '3', '2', '1', '2', '5', '1', NULL, NULL),
+(11, '3', '3', '1', '1', '7', '1', NULL, NULL),
+(12, '3', '9', '1', '1', '19', '1', NULL, NULL),
+(13, '1', '2', '1', '2', '5', '1', NULL, NULL),
+(14, '1', '3', '1', '1', '7', '1', NULL, NULL),
+(15, '1', '9', '1', '1', '19', '1', NULL, NULL),
+(16, '2', '2', '1', '2', '5', '1', NULL, NULL),
+(17, '2', '3', '1', '1', '7', '1', NULL, NULL),
+(18, '2', '9', '1', '1', '19', '1', NULL, NULL),
+(19, '3', '2', '1', '2', '5', '1', NULL, NULL),
+(20, '3', '3', '1', '1', '7', '1', NULL, NULL),
+(21, '3', '9', '1', '1', '19', '1', NULL, NULL),
+(22, '3', '2', '1', '2', '5', '1', NULL, NULL),
+(23, '3', '3', '1', '1', '7', '1', NULL, NULL),
+(24, '3', '9', '1', '1', '19', '1', NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category_child_slider`
+-- Table structure for table `category_vehicle_slider`
 --
 
-CREATE TABLE `category_child_slider` (
+CREATE TABLE `category_vehicle_slider` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `img` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -103,19 +146,36 @@ CREATE TABLE `category_child_slider` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `category_vehicle_slider`
+--
+
+INSERT INTO `category_vehicle_slider` (`id`, `img`, `title`, `link`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'categorypage/2021/6/72c19774e9706e7475cde598a14f5a5300fd7a34_1622639679.jpg', 'لوازم باغبانی', 'baghbani', '1', NULL, NULL),
+(2, 'categorypage/vehicle/2021/6/6b0ed4dd193b1081dc6f3e12b1f76f8dcf7b38a8_1622639546.jpg', 'لوازم سبک', 'sabk', '1', NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category_child_title_swiper`
+-- Table structure for table `category_vehicle_title_swiper`
 --
 
-CREATE TABLE `category_child_title_swiper` (
+CREATE TABLE `category_vehicle_title_swiper` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `link` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `category_vehicle_title_swiper`
+--
+
+INSERT INTO `category_vehicle_title_swiper` (`id`, `title`, `link`, `created_at`, `updated_at`) VALUES
+(1, 'نور و روشنایی', '/noor', NULL, NULL),
+(2, 'لوازم خودرو و موتورسیکلت', '/car', NULL, NULL),
+(3, 'ابزار برقی و دستی', '/abzaar', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -185,58 +245,40 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (92, '2021_06_10_070831_create_category_vehicle_amazing_table', 5),
 (93, '2021_06_10_070854_create_category_vehicle_banner_table', 5),
 (94, '2021_06_10_070920_create_category_vehicle_title_swiper_table', 5),
-(95, '2021_06_10_070935_create_category_vehicle_product_swiper_table', 5),
-(96, '2021_06_13_070947_create_category_apparel_slider_table', 6),
-(97, '2021_06_13_071007_create_category_apparel_amazing_table', 6),
-(98, '2021_06_13_071044_create_category_apparel_banner_table', 6),
-(99, '2021_06_13_071056_create_category_apparel_title_swiper_table', 6),
-(100, '2021_06_13_071115_create_category_apparel_product_swiper_table', 6),
-(101, '2021_06_13_071128_create_category_apparel_brand_table', 6),
-(102, '2021_06_17_163137_create_category_child_slider_table', 7),
-(103, '2021_06_17_163157_create_category_child_amazing_table', 7),
-(104, '2021_06_17_163210_create_category_child_banner_table', 7),
-(105, '2021_06_17_163234_create_category_child_brand_table', 7),
-(106, '2021_06_17_163248_create_category_child_title_swiper_table', 7),
-(107, '2021_06_17_163303_create_category_child_product_swiper_table', 7);
+(95, '2021_06_10_070935_create_category_vehicle_product_swiper_table', 5);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `category_child_amazing`
+-- Indexes for table `category_vehicle_amazing`
 --
-ALTER TABLE `category_child_amazing`
+ALTER TABLE `category_vehicle_amazing`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `category_child_banner`
+-- Indexes for table `category_vehicle_banner`
 --
-ALTER TABLE `category_child_banner`
+ALTER TABLE `category_vehicle_banner`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `category_child_brand`
+-- Indexes for table `category_vehicle_product_swiper`
 --
-ALTER TABLE `category_child_brand`
+ALTER TABLE `category_vehicle_product_swiper`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `category_child_product_swiper`
+-- Indexes for table `category_vehicle_slider`
 --
-ALTER TABLE `category_child_product_swiper`
+ALTER TABLE `category_vehicle_slider`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `category_child_slider`
+-- Indexes for table `category_vehicle_title_swiper`
 --
-ALTER TABLE `category_child_slider`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `category_child_title_swiper`
---
-ALTER TABLE `category_child_title_swiper`
+ALTER TABLE `category_vehicle_title_swiper`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -250,46 +292,40 @@ ALTER TABLE `migrations`
 --
 
 --
--- AUTO_INCREMENT for table `category_child_amazing`
+-- AUTO_INCREMENT for table `category_vehicle_amazing`
 --
-ALTER TABLE `category_child_amazing`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `category_vehicle_amazing`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `category_child_banner`
+-- AUTO_INCREMENT for table `category_vehicle_banner`
 --
-ALTER TABLE `category_child_banner`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `category_vehicle_banner`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `category_child_brand`
+-- AUTO_INCREMENT for table `category_vehicle_product_swiper`
 --
-ALTER TABLE `category_child_brand`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `category_vehicle_product_swiper`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT for table `category_child_product_swiper`
+-- AUTO_INCREMENT for table `category_vehicle_slider`
 --
-ALTER TABLE `category_child_product_swiper`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `category_vehicle_slider`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `category_child_slider`
+-- AUTO_INCREMENT for table `category_vehicle_title_swiper`
 --
-ALTER TABLE `category_child_slider`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `category_child_title_swiper`
---
-ALTER TABLE `category_child_title_swiper`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `category_vehicle_title_swiper`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
